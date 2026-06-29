@@ -134,6 +134,13 @@ export default function DoorlockPage() {
       if (res.ok) {
         setRevealedCodes((prev) => ({ ...prev, [showModal]: data.passcode }));
         setShowModal(null);
+        setTimeout(() => {
+          setRevealedCodes((prev) => {
+            const next = { ...prev };
+            delete next[showModal];
+            return next;
+          });
+        }, 10000);
       } else {
         setVerifyError(data.error || "Erreur");
       }
