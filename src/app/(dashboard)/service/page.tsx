@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Shield, Play, Square, Clock, Activity } from "lucide-react";
+import { Shield, Play, Square, Clock, Activity, Calendar } from "lucide-react";
 import { useAppStore } from "@/lib/store";
 import { hasMinRole } from "@/lib/roles";
 
@@ -24,6 +24,7 @@ export default function ServicePage() {
   const [sessions, setSessions] = useState<ServiceSession[]>([]);
   const [loading, setLoading] = useState(true);
   const [toggling, setToggling] = useState(false);
+  const [weeklyLoading, setWeeklyLoading] = useState(false);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
@@ -95,6 +96,20 @@ export default function ServicePage() {
     } catch {
     } finally {
       setToggling(false);
+    }
+  };
+
+  const handleWeeklyService = async () => {
+    setWeeklyLoading(true);
+    try {
+      await fetch("/api/service/semaine", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+      });
+    } catch (e) {
+      console.error("Erreur service semaine:", e);
+    } finally {
+      setWeeklyLoading(false);
     }
   };
 
@@ -184,6 +199,33 @@ export default function ServicePage() {
           {timer.isOnService ? <Square size={20} /> : <Play size={20} />}
           {timer.isOnService ? "Quitter son service" : "Prendre son service"}
         </button>
+
+        {user && hasMinRole(user.role, "A-T") && (
+          <button
+            onClick={handleWeeklyService}
+            disabled={weeklyLoading}
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "0.75rem",
+              padding: "1rem 2rem",
+              borderRadius: "12px",
+              border: "2px dashed var(--accent)",
+              background: "transparent",
+              color: "var(--accent)",
+              fontSize: "1rem",
+              fontWeight: 700,
+              cursor: weeklyLoading ? "not-allowed" : "pointer",
+              opacity: weeklyLoading ? 0.6 : 1,
+              transition: "all 0.2s",
+            }}
+            onMouseEnter={(e) => { if (!weeklyLoading) e.currentTarget.style.background = "rgba(108,92,231,0.1)"; }}
+            onMouseLeave={(e) => { if (!weeklyLoading) e.currentTarget.style.background = "transparent"; }}
+          >
+            <Calendar size={20} />
+            Service de la semaine
+          </button>
+        )}
 
         {timer.isOnService && timer.startTime && (
           <div style={{ marginTop: "1.5rem", display: "flex", flexDirection: "column", alignItems: "center", gap: "0.75rem" }}>
