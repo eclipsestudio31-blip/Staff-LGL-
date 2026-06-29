@@ -75,11 +75,7 @@ export async function POST(request: NextRequest) {
       if (data.bugName) webhookFields.push({ name: "Bug", value: data.bugName, inline: true });
       if (data.bugSeverity) webhookFields.push({ name: "Gravité", value: data.bugSeverity, inline: true });
     }
-    try {
-      await sendWebhook(webhookType, webhookFields, user.discordId);
-    } catch (e) {
-      console.error("[REPORT] Webhook failed:", e);
-    }
+    sendWebhook(webhookType, webhookFields, user.discordId).catch(() => {});
 
     return NextResponse.json({ report });
   } catch (e: unknown) {
