@@ -153,10 +153,12 @@ export default function LoginPage() {
             fontWeight: 800,
             letterSpacing: "-0.03em",
             marginBottom: "0.375rem",
-          }}>Staff RP</h1>
+            color: "#000",
+          }}>Staff Le Grand Light RP V2</h1>
           <p style={{
             fontSize: "0.875rem",
-            color: "var(--text-muted)",
+            fontWeight: 700,
+            color: "#000",
           }}>Panel de Gestion du Staff</p>
         </div>
 
