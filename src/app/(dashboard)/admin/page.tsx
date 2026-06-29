@@ -47,6 +47,8 @@ const reportTypeColors: Record<string, string> = {
   jail: "#8b5cf6",
   tig: "#3b82f6",
   bug: "#22c55e",
+  remboursement: "#06b6d4",
+  remboursement_effectue: "#10b981",
 };
 
 const reportTypeLabels: Record<string, string> = {
@@ -55,6 +57,8 @@ const reportTypeLabels: Record<string, string> = {
   jail: "Jail",
   tig: "TIG",
   bug: "Bug",
+  remboursement: "Demande de remboursement",
+  remboursement_effectue: "Remboursement effectué",
 };
 
 export default function AdminPage() {
@@ -324,7 +328,7 @@ export default function AdminPage() {
         <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
           {Object.entries(reportsByType).map(([type, count]) => (
             <div key={type} style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-              <div style={{ width: "80px", display: "flex", alignItems: "center", gap: "0.5rem", flexShrink: 0 }}>
+              <div style={{ minWidth: "180px", display: "flex", alignItems: "center", gap: "0.5rem", flexShrink: 0 }}>
                 <div style={{ width: "10px", height: "10px", borderRadius: "3px", background: reportTypeColors[type] || "var(--text-muted)" }} />
                 <span style={{ fontSize: "0.85rem", fontWeight: 500, color: "var(--text-secondary)" }}>
                   {reportTypeLabels[type] || type}
