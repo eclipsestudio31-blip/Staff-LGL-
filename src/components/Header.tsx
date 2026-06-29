@@ -21,7 +21,7 @@ interface Notification {
 }
 
 export default function Header() {
-  const { timer } = useAppStore();
+  const { timer, notifSound } = useAppStore();
   const [elapsed, setElapsed] = useState(0);
   const [notifications, setNotifications] = useState<Notification[]>([]);
   const [showNotifs, setShowNotifs] = useState(false);
@@ -48,9 +48,10 @@ export default function Header() {
         const list = d.notifications ?? [];
         setNotifications(list);
         const unread = list.filter((n: Notification) => !n.read).length;
-        if (prevUnreadRef.current > 0 && unread > prevUnreadRef.current) {
+        if (prevUnreadRef.current > 0 && unread > prevUnreadRef.current && notifSound !== "none") {
           try {
-            if (!notifSoundRef.current) notifSoundRef.current = new Audio("/sounds/notification.wav");
+            if (!notifSoundRef.current) notifSoundRef.current = new Audio(`/sounds/${notifSound}.wav`);
+            notifSoundRef.current.src = `/sounds/${notifSound}.wav`;
             notifSoundRef.current.currentTime = 0;
             notifSoundRef.current.volume = 0.5;
             notifSoundRef.current.play().catch(() => {});

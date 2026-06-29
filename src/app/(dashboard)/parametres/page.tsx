@@ -19,6 +19,7 @@ import {
   X,
   Activity,
   Globe,
+  Bell,
 } from "lucide-react";
 import { useAppStore } from "@/lib/store";
 import { hasMinRole } from "@/lib/roles";
@@ -43,7 +44,7 @@ const fontSizes = [
 ];
 
 export default function ParametresPage() {
-  const { theme, setTheme, fontSize, setFontSize, user, setUser } = useAppStore();
+  const { theme, setTheme, fontSize, setFontSize, user, setUser, notifSound, setNotifSound } = useAppStore();
 
   const allTabs = [
     { id: "profil", label: "Profil", icon: User },
@@ -60,6 +61,7 @@ export default function ParametresPage() {
   const [activeTab, setActiveTab] = useState("profil");
   const [pendingTheme, setPendingTheme] = useState(theme);
   const [pendingFontSize, setPendingFontSize] = useState(fontSize);
+  const [pendingNotifSound, setPendingNotifSound] = useState(notifSound);
   const [prefsSaved, setPrefsSaved] = useState(false);
 
   const [oldPassword, setOldPassword] = useState("");
@@ -103,7 +105,8 @@ export default function ParametresPage() {
   useEffect(() => {
     setPendingTheme(theme);
     setPendingFontSize(fontSize);
-  }, [theme, fontSize]);
+    setPendingNotifSound(notifSound);
+  }, [theme, fontSize, notifSound]);
 
   useEffect(() => {
     if (activeTab === "securite") {
@@ -206,6 +209,7 @@ export default function ParametresPage() {
   const handleSavePrefs = () => {
     setTheme(pendingTheme);
     setFontSize(pendingFontSize);
+    setNotifSound(pendingNotifSound);
     setPrefsSaved(true);
     setTimeout(() => setPrefsSaved(false), 2000);
   };
@@ -585,10 +589,84 @@ export default function ParametresPage() {
             </div>
           </div>
 
+          <div style={{ background: "var(--bg-secondary)", border: "1px solid var(--border-color)", borderRadius: "12px", padding: "1.5rem" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1.5rem" }}>
+              <Bell size={20} style={{ color: "var(--accent)" }} />
+              <h2 style={{ fontSize: "1.15rem", fontWeight: 600, color: "var(--text-primary)", margin: 0 }}>
+                Son de notification
+              </h2>
+            </div>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: "1rem" }}>
+              {([
+                { id: "classic" as const, label: "Classique", desc: "Beep aigu" },
+                { id: "ding" as const, label: "Double Ding", desc: "Deux notes" },
+                { id: "none" as const, label: "Aucun", desc: "Pas de son" },
+              ]).map((s) => {
+                const isActive = pendingNotifSound === s.id;
+                return (
+                  <button
+                    key={s.id}
+                    onClick={() => setPendingNotifSound(s.id)}
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      gap: "0.75rem",
+                      padding: "1.25rem",
+                      borderRadius: "10px",
+                      border: `2px solid ${isActive ? "var(--accent)" : "var(--border-color)"}`,
+                      background: isActive ? "var(--accent-light)" : "var(--bg-tertiary)",
+                      cursor: "pointer",
+                      transition: "all 0.2s",
+                    }}
+                  >
+                    <Bell size={24} style={{ color: isActive ? "var(--accent)" : "var(--text-muted)" }} />
+                    <span style={{ fontSize: "0.9rem", fontWeight: 600, color: isActive ? "var(--accent)" : "var(--text-secondary)" }}>
+                      {s.label}
+                    </span>
+                    <span style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}>
+                      {s.desc}
+                    </span>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        if (s.id !== "none") {
+                          const audio = new Audio(`/sounds/${s.id}.wav`);
+                          audio.volume = 0.5;
+                          audio.play().catch(() => {});
+                        }
+                      }}
+                      style={{
+                        padding: "0.3rem 0.8rem",
+                        borderRadius: "6px",
+                        border: "1px solid var(--border-color)",
+                        background: "var(--bg-primary)",
+                        color: "var(--text-secondary)",
+                        cursor: "pointer",
+                        fontSize: "0.75rem",
+                        fontWeight: 600,
+                        transition: "all 0.15s",
+                      }}
+                      onMouseEnter={(e) => (e.currentTarget.style.borderColor = "var(--accent)")}
+                      onMouseLeave={(e) => (e.currentTarget.style.borderColor = "var(--border-color)")}
+                    >
+                      ▶ Aperçu
+                    </button>
+                    {isActive && (
+                      <div style={{ width: "20px", height: "20px", borderRadius: "50%", background: "var(--accent)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                        <Check size={12} style={{ color: "#fff" }} />
+                      </div>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
           <div style={{ display: "flex", justifyContent: "flex-end" }}>
             <button
               onClick={handleSavePrefs}
-              disabled={pendingTheme === theme && pendingFontSize === fontSize}
+              disabled={pendingTheme === theme && pendingFontSize === fontSize && pendingNotifSound === notifSound}
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -600,8 +678,8 @@ export default function ParametresPage() {
                 color: "#fff",
                 fontSize: "0.9rem",
                 fontWeight: 600,
-                cursor: pendingTheme === theme && pendingFontSize === fontSize ? "not-allowed" : "pointer",
-                opacity: pendingTheme === theme && pendingFontSize === fontSize ? 0.5 : 1,
+                cursor: pendingTheme === theme && pendingFontSize === fontSize && pendingNotifSound === notifSound ? "not-allowed" : "pointer",
+                opacity: pendingTheme === theme && pendingFontSize === fontSize && pendingNotifSound === notifSound ? 0.5 : 1,
                 transition: "background 0.2s",
               }}
             >

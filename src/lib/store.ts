@@ -25,12 +25,14 @@ interface AppState {
   setTheme: (theme: "dark" | "light" | "high-contrast") => void;
   fontSize: "normal" | "large" | "x-large";
   setFontSize: (size: "normal" | "large" | "x-large") => void;
+  notifSound: "classic" | "ding" | "none";
+  setNotifSound: (sound: "classic" | "ding" | "none") => void;
   searchOpen: boolean;
   setSearchOpen: (open: boolean) => void;
 }
 
-export function loadPrefs(): { theme: "dark" | "light" | "high-contrast"; fontSize: "normal" | "large" | "x-large" } {
-  if (typeof window === "undefined") return { theme: "dark", fontSize: "normal" };
+export function loadPrefs(): { theme: "dark" | "light" | "high-contrast"; fontSize: "normal" | "large" | "x-large"; notifSound: "classic" | "ding" | "none" } {
+  if (typeof window === "undefined") return { theme: "dark", fontSize: "normal", notifSound: "classic" };
   try {
     const raw = localStorage.getItem("staff-rp-prefs");
     if (raw) {
@@ -38,15 +40,16 @@ export function loadPrefs(): { theme: "dark" | "light" | "high-contrast"; fontSi
       return {
         theme: p.theme || "dark",
         fontSize: p.fontSize || "normal",
+        notifSound: p.notifSound || "classic",
       };
     }
   } catch {}
-  return { theme: "dark", fontSize: "normal" };
+  return { theme: "dark", fontSize: "normal", notifSound: "classic" };
 }
 
-function savePrefs(theme: string, fontSize: string) {
+function savePrefs(theme: string, fontSize: string, notifSound: string) {
   try {
-    localStorage.setItem("staff-rp-prefs", JSON.stringify({ theme, fontSize }));
+    localStorage.setItem("staff-rp-prefs", JSON.stringify({ theme, fontSize, notifSound }));
   } catch {}
 }
 
@@ -62,13 +65,18 @@ export const useAppStore = create<AppState>((set, get) => ({
     set((state) => ({ timer: { ...state.timer, elapsed } })),
   theme: "dark",
   setTheme: (theme) => {
-    savePrefs(theme, get().fontSize);
+    savePrefs(theme, get().fontSize, get().notifSound);
     set({ theme });
   },
   fontSize: "normal",
   setFontSize: (fontSize) => {
-    savePrefs(get().theme, fontSize);
+    savePrefs(get().theme, fontSize, get().notifSound);
     set({ fontSize });
+  },
+  notifSound: "classic",
+  setNotifSound: (notifSound) => {
+    savePrefs(get().theme, get().fontSize, notifSound);
+    set({ notifSound });
   },
   searchOpen: false,
   setSearchOpen: (searchOpen) => set({ searchOpen }),
