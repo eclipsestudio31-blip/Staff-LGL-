@@ -164,24 +164,35 @@ export default function PermanencePage() {
   const handleBatchSave = async () => {
     setBatchSaving(true);
     const slots = Array.from(selected);
-    for (const slot of slots) {
+    const payload = slots.map((slot) => {
       const [dateStr, startTime] = slot.split("_");
       const slotDef = SLOTS.find((s) => s.start === startTime);
-      if (!slotDef) continue;
-      const existing = cellMap[slot];
-      if (existing) continue;
-      try {
-        const res = await fetch("/api/permanence", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ date: dateStr, startTime: slotDef.start, endTime: slotDef.end }),
-        });
-        const data = await res.json();
-        if (data.permanence) {
-          setPermanences((prev) => [...prev, { ...data.permanence, user: { username: currentUser!.username, role: currentUser!.role } }]);
-        }
-      } catch {}
+      return { date: dateStr, startTime: slotDef!.start, endTime: slotDef!.end };
+    }).filter((s) => !cellMap[`${s.date}_${s.startTime}`]);
+
+    if (payload.length === 0) {
+      setSelected(new Set());
+      setBatchSaving(false);
+      return;
     }
+
+    try {
+      const res = await fetch("/api/permanence", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ slots: payload }),
+      });
+      const data = await res.json();
+      if (data.created) {
+        setPermanences((prev) => [
+          ...prev,
+          ...data.created.map((p: { id: string; date: string; startTime: string; endTime: string }) => ({
+            ...p,
+            user: { username: currentUser!.username, role: currentUser!.role },
+          })),
+        ]);
+      }
+    } catch {}
     setSelected(new Set());
     setBatchSaving(false);
   };

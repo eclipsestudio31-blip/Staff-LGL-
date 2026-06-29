@@ -21,6 +21,60 @@ export async function POST(request: NextRequest) {
 
   const data = await request.json();
 
+  if (Array.isArray(data.slots)) {
+    const created = [];
+    const conflicts = [];
+
+    for (const slot of data.slots) {
+      const existing = await prisma.permanence.findUnique({
+        where: { date_startTime: { date: new Date(slot.date), startTime: slot.startTime } },
+      });
+      if (existing) {
+        conflicts.push(`${slot.startTime}`);
+        continue;
+      }
+      const p = await prisma.permanence.create({
+        data: {
+          userId: user.id,
+          date: new Date(slot.date),
+          startTime: slot.startTime,
+          endTime: slot.endTime,
+        },
+        include: { user: { select: { username: true, role: true } } },
+      });
+      created.push(p);
+    }
+
+    if (created.length > 0) {
+      const allStaff = await prisma.user.findMany({
+        where: { id: { not: user.id }, isActive: true },
+        select: { id: true },
+      });
+
+      await prisma.notification.createMany({
+        data: allStaff.map((s) => ({
+          userId: s.id,
+          title: "Nouvelle permanence",
+          message: `${user.username} a pris ${created.length} créneau(x) de permanence`,
+          type: "permanence",
+          link: "/permanence",
+        })),
+      });
+
+      const slotsList = created.map((p) => {
+        const dateStr = new Date(p.date).toLocaleDateString("fr-FR");
+        return `• ${dateStr} de **${p.startTime}** à **${p.endTime}**`;
+      }).join("\n");
+
+      sendWebhook("permanence", [
+        { name: "Membre", value: user.username },
+        { name: "Créneaux", value: slotsList },
+      ], user.discordId);
+    }
+
+    return NextResponse.json({ created, conflicts });
+  }
+
   const existing = await prisma.permanence.findUnique({
     where: { date_startTime: { date: new Date(data.date), startTime: data.startTime } },
   });
