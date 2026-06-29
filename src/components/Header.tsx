@@ -50,8 +50,8 @@ export default function Header() {
         const unread = list.filter((n: Notification) => !n.read).length;
         if (prevUnreadRef.current > 0 && unread > prevUnreadRef.current && notifSound !== "none") {
           try {
-            if (!notifSoundRef.current) notifSoundRef.current = new Audio(`/sounds/${notifSound}.wav`);
-            notifSoundRef.current.src = `/sounds/${notifSound}.wav`;
+            if (!notifSoundRef.current) notifSoundRef.current = new Audio(`/sounds/${notifSound}.mp3`);
+            notifSoundRef.current.src = `/sounds/${notifSound}.mp3`;
             notifSoundRef.current.currentTime = 0;
             notifSoundRef.current.volume = 0.5;
             notifSoundRef.current.play().catch(() => {});

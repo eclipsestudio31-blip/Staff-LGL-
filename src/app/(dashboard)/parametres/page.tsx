@@ -631,7 +631,7 @@ export default function ParametresPage() {
                       onClick={(e) => {
                         e.stopPropagation();
                         if (s.id !== "none") {
-                          const audio = new Audio(`/sounds/${s.id}.wav`);
+                          const audio = new Audio(`/sounds/${s.id}.mp3`);
                           audio.volume = 0.5;
                           audio.play().catch(() => {});
                         }
