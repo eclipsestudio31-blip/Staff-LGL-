@@ -58,12 +58,12 @@ const badgeColors: Record<string, string> = {
   remboursement_effectue: "#10b981",
 };
 
-const formFields: Record<string, { name: string; label: string; type?: string; options?: string[] }[]> = {
+const formFields: Record<string, { name: string; label: string; type?: string; options?: string[]; multiline?: boolean }[]> = {
   ban: [
     { name: "discord", label: "Discord" },
     { name: "nomPrenom", label: "Nom Prénom" },
     { name: "licence", label: "Licence" },
-    { name: "raison", label: "Raison" },
+    { name: "raison", label: "Raison", multiline: true },
     { name: "duree", label: "Durée" },
     { name: "staffPresent", label: "Staff présent" },
     { name: "preuves", label: "Preuves" },
@@ -72,7 +72,7 @@ const formFields: Record<string, { name: string; label: string; type?: string; o
     { name: "discord", label: "Discord" },
     { name: "nomPrenom", label: "Nom Prénom" },
     { name: "licence", label: "Licence" },
-    { name: "raison", label: "Raison" },
+    { name: "raison", label: "Raison", multiline: true },
     { name: "staffPresent", label: "Staff présent" },
     { name: "preuves", label: "Preuves" },
   ],
@@ -80,7 +80,7 @@ const formFields: Record<string, { name: string; label: string; type?: string; o
     { name: "discord", label: "Discord" },
     { name: "nomPrenom", label: "Nom Prénom" },
     { name: "licence", label: "Licence" },
-    { name: "raison", label: "Raison" },
+    { name: "raison", label: "Raison", multiline: true },
     { name: "duree", label: "Durée" },
     { name: "staffPresent", label: "Staff présent" },
     { name: "preuves", label: "Preuves" },
@@ -89,14 +89,14 @@ const formFields: Record<string, { name: string; label: string; type?: string; o
     { name: "discord", label: "Discord" },
     { name: "nomPrenom", label: "Nom Prénom" },
     { name: "licence", label: "Licence" },
-    { name: "raison", label: "Raison" },
+    { name: "raison", label: "Raison", multiline: true },
     { name: "nombreTig", label: "Nombre de TIG" },
     { name: "staffPresent", label: "Staff présent" },
     { name: "preuves", label: "Preuves" },
   ],
   bug: [
     { name: "nomBug", label: "Nom du bug" },
-    { name: "description", label: "Description" },
+    { name: "description", label: "Description", multiline: true },
     { name: "gravite", label: "Gravité", type: "select", options: ["Mineur", "Majeur", "Critique"] },
     { name: "capture", label: "Capture (URL)" },
     { name: "video", label: "Vidéo (URL)" },
@@ -106,7 +106,7 @@ const formFields: Record<string, { name: string; label: string; type?: string; o
     { name: "discord", label: "Discord" },
     { name: "nomPrenom", label: "Nom Prénom" },
     { name: "licence", label: "Licence" },
-    { name: "raison", label: "Raison du remboursement" },
+    { name: "raison", label: "Raison du remboursement", multiline: true },
     { name: "preuves", label: "Preuves (URL)" },
     { name: "staffPresent", label: "Staff présent" },
   ],
@@ -114,7 +114,7 @@ const formFields: Record<string, { name: string; label: string; type?: string; o
     { name: "discord", label: "Discord" },
     { name: "nomPrenom", label: "Nom Prénom" },
     { name: "licence", label: "Licence" },
-    { name: "raison", label: "Détails du remboursement" },
+    { name: "raison", label: "Détails du remboursement", multiline: true },
     { name: "preuves", label: "Preuves (URL)" },
     { name: "staffPresent", label: "Staff présent" },
   ],
@@ -555,6 +555,30 @@ export default function RapportsPage() {
                         </option>
                       ))}
                     </select>
+                  ) : field.multiline ? (
+                    <textarea
+                      value={formData[field.name] || ""}
+                      onChange={(e) => handleInputChange(field.name, e.target.value)}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" && e.shiftKey) {
+                          e.stopPropagation();
+                        }
+                      }}
+                      required
+                      rows={3}
+                      style={{
+                        width: "100%",
+                        padding: "0.5rem 0.75rem",
+                        borderRadius: "0.5rem",
+                        border: "1px solid var(--border-color)",
+                        background: "var(--bg-secondary)",
+                        color: "var(--text-primary)",
+                        fontSize: "0.875rem",
+                        outline: "none",
+                        resize: "vertical",
+                        fontFamily: "inherit",
+                      }}
+                    />
                   ) : (
                     <input
                       type="text"
