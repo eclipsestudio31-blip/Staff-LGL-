@@ -115,31 +115,9 @@ export default function DoorlockPage() {
       return;
     }
 
-    if (user?.discordId) {
-      setVerifying(true);
-      setVerifyError("");
-      try {
-        const res = await fetch("/api/doorlocks", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ doorlockId: doorId, discordId: user.discordId }),
-        });
-        const data = await res.json();
-        if (res.ok) {
-          setRevealedCodes((prev) => ({ ...prev, [doorId]: data.passcode }));
-        } else {
-          setVerifyError(data.error || "Erreur");
-        }
-      } catch {
-        setVerifyError("Erreur réseau");
-      } finally {
-        setVerifying(false);
-      }
-    } else {
-      setShowModal(doorId);
-      setDiscordInput("");
-      setVerifyError("");
-    }
+    setShowModal(doorId);
+    setDiscordInput(user?.discordId || "");
+    setVerifyError("");
   };
 
   const handleModalSubmit = async () => {
