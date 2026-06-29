@@ -73,7 +73,7 @@ export default function AdminPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!user || !hasMinRole(user.role, "A")) return;
+    if (!user || !hasMinRole(user.role, "A-T")) return;
 
     const fetchData = async () => {
       try {
@@ -132,7 +132,7 @@ export default function AdminPage() {
     fetchData();
   }, [user]);
 
-  if (!user || !hasMinRole(user.role, "A")) {
+  if (!user || !hasMinRole(user.role, "A-T")) {
     return (
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: "60vh", gap: "1rem" }}>
         <Shield size={48} style={{ color: "#ef4444" }} />

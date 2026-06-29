@@ -43,7 +43,7 @@ const navSections = [
   {
     title: "Système",
     items: [
-      { href: "/admin", label: "Dashboard Admin", icon: Zap, minRole: "A" },
+      { href: "/admin", label: "Dashboard Admin", icon: Zap, minRole: "A-T" },
       { href: "/parametres", label: "Paramètres", icon: Settings },
     ],
   },
