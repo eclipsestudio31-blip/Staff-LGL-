@@ -1,0 +1,210 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model User {
+  id                String    @id @default(uuid())
+  username          String    @unique
+  password          String
+  avatar            String?
+  discordId         String?
+  role              String    @default("S-T")
+  isFirstLogin      Boolean   @default(true)
+  isActive          Boolean   @default(true)
+  lastLogin         DateTime?
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  serviceSessions   ServiceSession[]
+  reports           Report[]
+  surveillance      Surveillance[]
+  planningEntries   PlanningEntry[]
+  loginHistory      LoginHistory[]
+  chatMessages      ChatMessage[]
+  staffActions      StaffAction[]
+  notifications     Notification[]
+  absences          Absence[]
+  permanences       Permanence[]
+}
+
+model LoginHistory {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  ip        String?
+  userAgent String?
+  action    String   @default("login")
+  createdAt DateTime @default(now())
+}
+
+model ServiceSession {
+  id        String    @id @default(uuid())
+  userId    String
+  user      User      @relation(fields: [userId], references: [id])
+  startTime DateTime  @default(now())
+  endTime   DateTime?
+  duration  Int?
+  isActive  Boolean   @default(true)
+  createdAt DateTime  @default(now())
+}
+
+model Report {
+  id           String   @id @default(uuid())
+  type         String
+  discord      String?
+  nomPrenom    String?
+  licence      String?
+  raison       String?
+  duree        String?
+  tigCount     Int?
+  staffPresent String?
+  preuves      String?
+  bugName      String?
+  bugSeverity  String?
+  bugCapture   String?
+  bugVideo     String?
+  bugAuthor    String?
+  authorId     String
+  author       User     @relation(fields: [authorId], references: [id])
+  createdAt    DateTime @default(now())
+}
+
+model Sanction {
+  id          String   @id @default(uuid())
+  infraction  String
+  sanction1   String
+  sanction2   String
+  sanction3   String
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Surveillance {
+  id           String   @id @default(uuid())
+  discord      String
+  nomPrenom    String
+  licence      String
+  raison       String
+  staffPresent String
+  status       String   @default("surveilled")
+  authorId     String
+  author       User     @relation(fields: [authorId], references: [id])
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model PlanningEntry {
+  id           String   @id @default(uuid())
+  userId       String
+  user         User     @relation(fields: [userId], references: [id])
+  date         DateTime
+  startTime    String
+  endTime      String?
+  status       String   @default("pending")
+  validatedBy  String?
+  createdAt    DateTime @default(now())
+}
+
+model ChatMessage {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  content   String
+  channel   String   @default("general")
+  createdAt DateTime @default(now())
+}
+
+model StaffAction {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  action    String
+  targetId  String?
+  details   String?
+  createdAt DateTime @default(now())
+}
+
+model IGCommand {
+  id        String   @id @default(uuid())
+  name      String
+  category  String
+  description String
+  usage     String?
+  createdAt DateTime @default(now())
+}
+
+model VehicleSpawn {
+  id        String   @id @default(uuid())
+  name      String
+  category  String
+  command   String
+  createdAt DateTime @default(now())
+}
+
+model CheatEntry {
+  id           String   @id @default(uuid())
+  name         String
+  description  String
+  symptoms     String
+  verification String
+  sanction     String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Setting {
+  id    String @id @default(uuid())
+  key   String @unique
+  value String
+}
+
+model Notification {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  title     String
+  message   String
+  type      String
+  read      Boolean  @default(false)
+  link      String?
+  createdAt DateTime @default(now())
+}
+
+model Absence {
+  id        String    @id @default(uuid())
+  userId    String
+  user      User      @relation(fields: [userId], references: [id])
+  date      DateTime
+  endDate   DateTime?
+  reason    String?
+  createdAt DateTime  @default(now())
+}
+
+model Permanence {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  date      DateTime
+  startTime String
+  endTime   String
+  createdAt DateTime @default(now())
+
+  @@unique([date, startTime])
+}
+
+model ProcedureStep {
+  id        String   @id @default(uuid())
+  title     String   @db.VarChar(191)
+  content   String   @db.Text
+  sortOrder Int      @default(0) @map("sort_order")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("procedurestep")
+}
