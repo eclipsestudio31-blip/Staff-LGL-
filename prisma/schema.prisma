@@ -43,14 +43,15 @@ model LoginHistory {
 }
 
 model ServiceSession {
-  id        String    @id @default(uuid())
-  userId    String
-  user      User      @relation(fields: [userId], references: [id])
-  startTime DateTime  @default(now())
-  endTime   DateTime?
-  duration  Int?
-  isActive  Boolean   @default(true)
-  createdAt DateTime  @default(now())
+  id              String    @id @default(uuid())
+  userId          String
+  user            User      @relation(fields: [userId], references: [id])
+  startTime       DateTime  @default(now())
+  endTime         DateTime?
+  duration        Int?
+  isActive        Boolean   @default(true)
+  webhookMessageId String?  @db.VarChar(100)
+  createdAt       DateTime  @default(now())
 }
 
 model Report {

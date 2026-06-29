@@ -2,6 +2,18 @@ import { NextRequest, NextResponse } from "next/server";
 import { getCurrentUser } from "@/lib/auth";
 import { hasMinRole } from "@/lib/roles";
 import { prisma } from "@/lib/prisma";
+import { sendWebhookAndGetId, editWebhookMessage } from "@/lib/webhook";
+
+function formatDuration(seconds: number): string {
+  const h = Math.floor(seconds / 3600);
+  const m = Math.floor((seconds % 3600) / 60);
+  const s = seconds % 60;
+  const parts: string[] = [];
+  if (h > 0) parts.push(`${h}h`);
+  if (m > 0) parts.push(`${m}m`);
+  if (s > 0 || parts.length === 0) parts.push(`${s}s`);
+  return parts.join(" ");
+}
 
 export async function GET(request: NextRequest) {
   const user = await getCurrentUser(request);
@@ -36,7 +48,24 @@ export async function POST(request: NextRequest) {
     const session = await prisma.serviceSession.create({
       data: { userId: user.id },
     });
-    return NextResponse.json({ session });
+
+    const startTime = new Date().toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" });
+
+    const webhookMsgId = await sendWebhookAndGetId("service", [
+      { name: "Membre", value: user.username },
+      { name: "Statut", value: "🟢 Prise de service" },
+      { name: "Heure de début", value: startTime },
+      { name: "Heure de fin", value: "⏳ En cours..." },
+    ], null, 0x22c55e);
+
+    if (webhookMsgId) {
+      await prisma.serviceSession.update({
+        where: { id: session.id },
+        data: { webhookMessageId: webhookMsgId },
+      });
+    }
+
+    return NextResponse.json({ session: { ...session, webhookMessageId: webhookMsgId } });
   }
 
   if (action === "stop") {
@@ -57,6 +86,32 @@ export async function POST(request: NextRequest) {
       where: { id: session.id },
       data: { endTime: now, duration, isActive: false },
     });
+
+    const startTime = session.startTime.toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" });
+    const endTime = now.toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" });
+    const durationStr = formatDuration(duration);
+
+    if (session.webhookMessageId) {
+      await editWebhookMessage("service", session.webhookMessageId, [
+        { name: "Membre", value: user.username },
+        { name: "Statut", value: "🔴 Fin de service" },
+        { name: "Heure de début", value: startTime },
+        { name: "Heure de fin", value: endTime },
+        { name: "Durée totale", value: durationStr },
+      ], 0xef4444);
+    } else {
+      const stopUser = isForceStop
+        ? await prisma.user.findUnique({ where: { id: stopUserId }, select: { username: true } })
+        : user;
+
+      await sendWebhookAndGetId("service", [
+        { name: "Membre", value: stopUser?.username || "Inconnu" },
+        { name: "Statut", value: "🔴 Fin de service" },
+        { name: "Heure de début", value: startTime },
+        { name: "Heure de fin", value: endTime },
+        { name: "Durée totale", value: durationStr },
+      ], null, 0xef4444);
+    }
 
     return NextResponse.json({ session: updated });
   }

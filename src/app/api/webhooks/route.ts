@@ -14,6 +14,7 @@ const WEBHOOK_KEYS = [
   "webhook_surveillance",
   "webhook_permanence",
   "webhook_doorlock",
+  "webhook_service",
 ];
 
 export async function GET(request: NextRequest) {
