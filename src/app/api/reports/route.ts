@@ -24,19 +24,19 @@ export async function POST(request: NextRequest) {
   const report = await prisma.report.create({
     data: {
       type: data.type,
-      discord: data.discord,
-      nomPrenom: data.nomPrenom,
-      licence: data.licence,
-      raison: data.raison,
-      duree: data.duree,
-      tigCount: data.tigCount,
-      staffPresent: data.staffPresent,
-      preuves: data.preuves,
-      bugName: data.bugName,
-      bugSeverity: data.bugSeverity,
-      bugCapture: data.bugCapture,
-      bugVideo: data.bugVideo,
-      bugAuthor: data.bugAuthor,
+      discord: data.discord || null,
+      nomPrenom: data.nomPrenom || null,
+      licence: data.licence || null,
+      raison: data.raison || null,
+      duree: data.duree || null,
+      tigCount: data.tigCount ? Number(data.tigCount) : null,
+      staffPresent: data.staffPresent || null,
+      preuves: data.preuves || null,
+      bugName: data.bugName || null,
+      bugSeverity: data.bugSeverity || null,
+      bugCapture: data.bugCapture || null,
+      bugVideo: data.bugVideo || null,
+      bugAuthor: data.bugAuthor || null,
       authorId: user.id,
     },
   });
@@ -46,15 +46,17 @@ export async function POST(request: NextRequest) {
     select: { id: true },
   });
 
-  await prisma.notification.createMany({
-    data: allStaff.map((s) => ({
-      userId: s.id,
-      title: "Nouveau rapport",
-      message: `${user.username} a créé un rapport ${data.type} pour ${data.nomPrenom}`,
-      type: "report",
-      link: "/rapports",
-    })),
-  });
+  if (allStaff.length > 0) {
+    await prisma.notification.createMany({
+      data: allStaff.map((s) => ({
+        userId: s.id,
+        title: "Nouveau rapport",
+        message: `${user.username} a créé un rapport ${data.type} pour ${data.nomPrenom || "N/A"}`,
+        type: "report",
+        link: "/rapports",
+      })),
+    });
+  }
 
   const webhookType = `rapport_${data.type}`;
   const webhookFields = [
@@ -72,7 +74,11 @@ export async function POST(request: NextRequest) {
     if (data.bugName) webhookFields.push({ name: "Bug", value: data.bugName, inline: true });
     if (data.bugSeverity) webhookFields.push({ name: "Gravité", value: data.bugSeverity, inline: true });
   }
-  sendWebhook(webhookType, webhookFields, user.discordId);
+  try {
+    await sendWebhook(webhookType, webhookFields, user.discordId);
+  } catch (e) {
+    console.error("[REPORT] Webhook failed:", e);
+  }
 
   return NextResponse.json({ report });
 }
