@@ -22,7 +22,7 @@ export async function getWebhookUrl(type: string): Promise<string | null> {
 export async function sendWebhook(
   type: string,
   fields: { name: string; value: string; inline?: boolean }[],
-  mentionDiscordId?: string | null
+  mentionDiscordIds?: string[] | string | null
 ) {
   const url = await getWebhookUrl(type);
   if (!url) return;
@@ -38,8 +38,9 @@ export async function sendWebhook(
 
   const body: Record<string, unknown> = { embeds: [embed] };
 
-  if (mentionDiscordId) {
-    body.content = `<@${mentionDiscordId}>`;
+  if (mentionDiscordIds) {
+    const ids = Array.isArray(mentionDiscordIds) ? mentionDiscordIds : [mentionDiscordIds];
+    body.content = ids.filter(Boolean).map((id) => `<@${id}>`).join(" ");
   }
 
   try {

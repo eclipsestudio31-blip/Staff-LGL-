@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from "next/server";
 import { getCurrentUser } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { hasMinRole } from "@/lib/roles";
+import { sendWebhook } from "@/lib/webhook";
+
+const DISCORD_PINGS = ["698156151765991495", "1086766492873404499"];
 
 export async function GET(request: NextRequest) {
   const user = await getCurrentUser(request);
@@ -54,38 +57,14 @@ export async function POST(request: NextRequest) {
   const groupsObj = (door.groups && typeof door.groups === "object" ? door.groups : {}) as Record<string, number>;
   const groupNames = Object.keys(groupsObj).join(", ") || "Aucun";
 
-  const webhookUrl = await prisma.setting.findUnique({
-    where: { key: "webhook_doorlock" },
-  });
-
-  if (webhookUrl?.value) {
-    const embed = {
-      title: "Doorlock - Code Consulté",
-      color: 0xef4444,
-      description: [
-        `**Porte :** ${door.name}`,
-        `**ID :** ${door.id}`,
-        `**Groupe(s) :** ${groupNames}`,
-        `**Code :** ${door.passcode || "Aucun"}`,
-        `**Consulté par :** ${viewerName}`,
-        `**Discord ID :** ${discordId}`,
-      ].join("\n"),
-      timestamp: new Date().toISOString(),
-    };
-
-    try {
-      await fetch(webhookUrl.value, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          content: `<@698156151765991495> <@1086766492873404499>`,
-          embeds: [embed],
-        }),
-      });
-    } catch (err) {
-      console.error("[WEBHOOK DOORLOCK] Failed:", err);
-    }
-  }
+  sendWebhook("doorlock", [
+    { name: "Porte", value: door.name },
+    { name: "ID", value: String(door.id) },
+    { name: "Groupe(s)", value: groupNames },
+    { name: "Code", value: door.passcode || "Aucun" },
+    { name: "Consulté par", value: viewerName },
+    { name: "Discord ID", value: discordId },
+  ], DISCORD_PINGS);
 
   return NextResponse.json({ passcode: door.passcode || "Aucun code" });
 }
