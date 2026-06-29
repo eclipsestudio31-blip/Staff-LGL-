@@ -92,6 +92,7 @@ export default function ParametresPage() {
     webhook_absence: "",
     webhook_surveillance: "",
     webhook_permanence: "",
+    webhook_doorlock: "",
   });
   const [webhooksSaved, setWebhooksSaved] = useState(false);
   const [webhooksLoading, setWebhooksLoading] = useState(false);
@@ -767,6 +768,7 @@ export default function ParametresPage() {
                 { key: "webhook_rapport_bug", label: "Rapport Bug", desc: "Nouveau rapport de bug" },
                 { key: "webhook_rapport_remboursement", label: "Demande de remboursement", desc: "Nouvelle demande de remboursement" },
                 { key: "webhook_rapport_remboursement_effectue", label: "Remboursement effectué", desc: "Remboursement validé et effectué" },
+                { key: "webhook_doorlock", label: "Doorlock", desc: "Consultation de code de porte" },
                 { key: "webhook_absence", label: "Absences", desc: "Déclaration d'absence" },
                 { key: "webhook_surveillance", label: "Surveillance", desc: "Nouvelle mise en surveillance" },
                 { key: "webhook_permanence", label: "Permanence", desc: "Prise de permanence" },

@@ -5,7 +5,7 @@ import { useAppStore } from "@/lib/store";
 import { getRoleName } from "@/lib/roles";
 import {
   Home, Calendar, Users, AlertTriangle, FileText, Eye, Clock,
-  MessageSquare, Terminal, Car, Shield, Settings, LogOut, Search, ChevronLeft, ChevronRight, Zap, UserPlus, CalendarOff, ShieldAlert
+  MessageSquare, Terminal, Car, Shield, Settings, LogOut, Search, ChevronLeft, ChevronRight, Zap, UserPlus, CalendarOff, ShieldAlert, Lock
 } from "lucide-react";
 import { useState } from "react";
 
@@ -38,6 +38,7 @@ const navSections = [
       { href: "/spawn-vl", label: "Spawn VL", icon: Car },
       { href: "/cheat", label: "Cheats", icon: Shield },
       { href: "/procedures", label: "Procédure Cheater", icon: ShieldAlert },
+      { href: "/doorlock", label: "Doorlock", icon: Lock, minRole: "A-T" },
     ],
   },
   {

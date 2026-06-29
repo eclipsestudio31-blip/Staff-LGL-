@@ -11,6 +11,7 @@ const TYPE_LABELS: Record<string, string> = {
   absence: "Absence",
   surveillance: "Surveillance",
   permanence: "Permanence",
+  doorlock: "Doorlock - Code Consulté",
 };
 
 export async function getWebhookUrl(type: string): Promise<string | null> {

@@ -208,3 +208,15 @@ model ProcedureStep {
 
   @@map("procedurestep")
 }
+
+model DoorLock {
+  id          Int    @id
+  name        String
+  state       Int    @default(1)
+  passcode    String?
+  groups      Json   @default("{}")
+  maxDistance Float  @default(4.0)
+  data        Json
+
+  @@map("doorlock")
+}
