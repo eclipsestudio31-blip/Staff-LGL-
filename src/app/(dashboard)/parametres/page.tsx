@@ -44,7 +44,7 @@ const fontSizes = [
 ];
 
 export default function ParametresPage() {
-  const { theme, setTheme, fontSize, setFontSize, user, setUser, notifSound, setNotifSound } = useAppStore();
+  const { theme, setTheme, user, setUser, notifSound, setNotifSound } = useAppStore();
 
   const allTabs = [
     { id: "profil", label: "Profil", icon: User },
@@ -60,7 +60,6 @@ export default function ParametresPage() {
 
   const [activeTab, setActiveTab] = useState("profil");
   const [pendingTheme, setPendingTheme] = useState(theme);
-  const [pendingFontSize, setPendingFontSize] = useState(fontSize);
   const [pendingNotifSound, setPendingNotifSound] = useState(notifSound);
   const [prefsSaved, setPrefsSaved] = useState(false);
 
@@ -104,9 +103,8 @@ export default function ParametresPage() {
 
   useEffect(() => {
     setPendingTheme(theme);
-    setPendingFontSize(fontSize);
     setPendingNotifSound(notifSound);
-  }, [theme, fontSize, notifSound]);
+  }, [theme, notifSound]);
 
   useEffect(() => {
     if (activeTab === "securite") {
@@ -208,7 +206,6 @@ export default function ParametresPage() {
 
   const handleSavePrefs = () => {
     setTheme(pendingTheme);
-    setFontSize(pendingFontSize);
     setNotifSound(pendingNotifSound);
     setPrefsSaved(true);
     setTimeout(() => setPrefsSaved(false), 2000);
@@ -546,51 +543,6 @@ export default function ParametresPage() {
 
           <div style={{ background: "var(--bg-secondary)", border: "1px solid var(--border-color)", borderRadius: "12px", padding: "1.5rem" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1.5rem" }}>
-              <Type size={20} style={{ color: "var(--accent)" }} />
-              <h2 style={{ fontSize: "1.15rem", fontWeight: 600, color: "var(--text-primary)", margin: 0 }}>
-                Taille du texte
-              </h2>
-            </div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: "1rem" }}>
-              {fontSizes.map((fs) => {
-                const isActive = pendingFontSize === fs.id;
-                const sizeMap = { normal: "14px", large: "16px", "x-large": "18px" };
-                return (
-                  <button
-                    key={fs.id}
-                    onClick={() => setPendingFontSize(fs.id)}
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
-                      gap: "0.75rem",
-                      padding: "1.25rem",
-                      borderRadius: "10px",
-                      border: `2px solid ${isActive ? "var(--accent)" : "var(--border-color)"}`,
-                      background: isActive ? "var(--accent-light)" : "var(--bg-tertiary)",
-                      cursor: "pointer",
-                      transition: "all 0.2s",
-                    }}
-                  >
-                    <span style={{ fontSize: sizeMap[fs.id], fontWeight: 700, color: isActive ? "var(--accent)" : "var(--text-primary)" }}>
-                      Aa
-                    </span>
-                    <span style={{ fontSize: "0.9rem", fontWeight: 600, color: isActive ? "var(--accent)" : "var(--text-secondary)" }}>
-                      {fs.label}
-                    </span>
-                    {isActive && (
-                      <div style={{ width: "20px", height: "20px", borderRadius: "50%", background: "var(--accent)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                        <Check size={12} style={{ color: "#fff" }} />
-                      </div>
-                    )}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-
-          <div style={{ background: "var(--bg-secondary)", border: "1px solid var(--border-color)", borderRadius: "12px", padding: "1.5rem" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1.5rem" }}>
               <Bell size={20} style={{ color: "var(--accent)" }} />
               <h2 style={{ fontSize: "1.15rem", fontWeight: 600, color: "var(--text-primary)", margin: 0 }}>
                 Son de notification
@@ -666,7 +618,7 @@ export default function ParametresPage() {
           <div style={{ display: "flex", justifyContent: "flex-end" }}>
             <button
               onClick={handleSavePrefs}
-              disabled={pendingTheme === theme && pendingFontSize === fontSize && pendingNotifSound === notifSound}
+              disabled={pendingTheme === theme && pendingNotifSound === notifSound}
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -678,8 +630,8 @@ export default function ParametresPage() {
                 color: "#fff",
                 fontSize: "0.9rem",
                 fontWeight: 600,
-                cursor: pendingTheme === theme && pendingFontSize === fontSize && pendingNotifSound === notifSound ? "not-allowed" : "pointer",
-                opacity: pendingTheme === theme && pendingFontSize === fontSize && pendingNotifSound === notifSound ? 0.5 : 1,
+                cursor: pendingTheme === theme && pendingNotifSound === notifSound ? "not-allowed" : "pointer",
+                opacity: pendingTheme === theme && pendingNotifSound === notifSound ? 0.5 : 1,
                 transition: "background 0.2s",
               }}
             >

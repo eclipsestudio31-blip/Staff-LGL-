@@ -25,8 +25,7 @@ export default function LoginPage() {
     document.documentElement.className = "";
     if (prefs.theme === "light") document.documentElement.classList.add("theme-light");
     if (prefs.theme === "high-contrast") document.documentElement.classList.add("high-contrast");
-    const sizes: Record<string, string> = { normal: "14px", large: "16px", "x-large": "18px" };
-    document.documentElement.style.fontSize = sizes[prefs.fontSize] || "14px";
+    document.documentElement.style.fontSize = "16px";
   }, []);
 
   const passwordChecks = [

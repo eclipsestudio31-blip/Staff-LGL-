@@ -32,19 +32,19 @@ interface AppState {
 }
 
 export function loadPrefs(): { theme: "dark" | "light" | "high-contrast"; fontSize: "normal" | "large" | "x-large"; notifSound: "classic" | "ding" | "none" } {
-  if (typeof window === "undefined") return { theme: "dark", fontSize: "normal", notifSound: "classic" };
+  if (typeof window === "undefined") return { theme: "light", fontSize: "large", notifSound: "classic" };
   try {
     const raw = localStorage.getItem("staff-rp-prefs");
     if (raw) {
       const p = JSON.parse(raw);
       return {
-        theme: p.theme || "dark",
-        fontSize: p.fontSize || "normal",
+        theme: p.theme || "light",
+        fontSize: "large",
         notifSound: p.notifSound || "classic",
       };
     }
   } catch {}
-  return { theme: "dark", fontSize: "normal", notifSound: "classic" };
+  return { theme: "light", fontSize: "large", notifSound: "classic" };
 }
 
 function savePrefs(theme: string, fontSize: string, notifSound: string) {
@@ -63,15 +63,15 @@ export const useAppStore = create<AppState>((set, get) => ({
     })),
   setTimerElapsed: (elapsed) =>
     set((state) => ({ timer: { ...state.timer, elapsed } })),
-  theme: "dark",
+  theme: "light",
   setTheme: (theme) => {
-    savePrefs(theme, get().fontSize, get().notifSound);
+    savePrefs(theme, "large", get().notifSound);
     set({ theme });
   },
-  fontSize: "normal",
+  fontSize: "large",
   setFontSize: (fontSize) => {
-    savePrefs(get().theme, fontSize, get().notifSound);
-    set({ fontSize });
+    savePrefs(get().theme, "large", get().notifSound);
+    set({ fontSize: "large" });
   },
   notifSound: "classic",
   setNotifSound: (notifSound) => {

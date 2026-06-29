@@ -8,13 +8,12 @@ import SearchModal from "@/components/SearchModal";
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   const router = useRouter();
-  const { setUser, theme, fontSize, setTheme, setFontSize, notifSound, setNotifSound } = useAppStore();
+  const { setUser, theme, setTheme, notifSound, setNotifSound } = useAppStore();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const prefs = loadPrefs();
     if (theme === "dark" && prefs.theme !== "dark") setTheme(prefs.theme);
-    if (fontSize === "normal" && prefs.fontSize !== "normal") setFontSize(prefs.fontSize);
     if (notifSound === "classic" && prefs.notifSound !== "classic") setNotifSound(prefs.notifSound);
   }, []);
 
@@ -46,9 +45,8 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     document.documentElement.className = "";
     if (theme === "light") document.documentElement.classList.add("theme-light");
     if (theme === "high-contrast") document.documentElement.classList.add("high-contrast");
-    const sizes: Record<string, string> = { normal: "14px", large: "16px", "x-large": "18px" };
-    document.documentElement.style.fontSize = sizes[fontSize] || "14px";
-  }, [theme, fontSize]);
+    document.documentElement.style.fontSize = "16px";
+  }, [theme]);
 
   if (loading) {
     return (
