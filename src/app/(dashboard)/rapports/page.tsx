@@ -129,6 +129,7 @@ export default function RapportsPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [formData, setFormData] = useState<Record<string, string>>({});
   const [deletingReport, setDeletingReport] = useState<Report | null>(null);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   useEffect(() => {
     fetchReports();
@@ -151,6 +152,7 @@ export default function RapportsPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitError(null);
     try {
       let payload: Record<string, string> = { type: activeTab, ...formData };
       if (activeTab === "bug") {
@@ -164,6 +166,12 @@ export default function RapportsPage() {
           bugAuthor: formData.auteurRapport || "",
         };
       }
+      if (activeTab === "tig") {
+        payload = {
+          ...payload,
+          tigCount: formData.nombreTig || "",
+        };
+      }
       const res = await fetch("/api/reports", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -173,9 +181,13 @@ export default function RapportsPage() {
         setShowModal(false);
         setFormData({});
         fetchReports();
+      } else {
+        const err = await res.json().catch(() => ({ error: "Erreur inconnue" }));
+        setSubmitError(err.error || `Erreur ${res.status}`);
       }
     } catch (e) {
       console.error(e);
+      setSubmitError("Erreur réseau");
     }
   };
 
@@ -594,6 +606,20 @@ export default function RapportsPage() {
                   )}
                 </div>
               ))}
+
+              {submitError && (
+                <div style={{
+                  padding: "0.6rem 0.8rem",
+                  borderRadius: "0.5rem",
+                  background: "rgba(239,68,68,0.1)",
+                  border: "1px solid rgba(239,68,68,0.3)",
+                  color: "#ef4444",
+                  fontSize: "0.8rem",
+                  fontWeight: 600,
+                }}>
+                  {submitError}
+                </div>
+              )}
 
               <div style={{ display: "flex", gap: "0.75rem", justifyContent: "flex-end", marginTop: "0.5rem" }}>
                 <button
