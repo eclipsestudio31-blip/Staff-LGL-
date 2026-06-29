@@ -38,10 +38,26 @@ export default function Header() {
     return () => clearInterval(interval);
   }, [timer.isOnService, timer.startTime]);
 
+  const prevUnreadRef = useRef(0);
+  const notifSoundRef = useRef<HTMLAudioElement | null>(null);
+
   const fetchNotifs = () => {
     fetch("/api/notifications")
       .then((r) => r.json())
-      .then((d) => setNotifications(d.notifications ?? []))
+      .then((d) => {
+        const list = d.notifications ?? [];
+        setNotifications(list);
+        const unread = list.filter((n: Notification) => !n.read).length;
+        if (prevUnreadRef.current > 0 && unread > prevUnreadRef.current) {
+          try {
+            if (!notifSoundRef.current) notifSoundRef.current = new Audio("/sounds/notification.wav");
+            notifSoundRef.current.currentTime = 0;
+            notifSoundRef.current.volume = 0.5;
+            notifSoundRef.current.play().catch(() => {});
+          } catch {}
+        }
+        prevUnreadRef.current = unread;
+      })
       .catch(() => {});
   };
 
