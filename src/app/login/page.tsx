@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Shield, Eye, EyeOff, ArrowRight, Lock, User, AlertCircle, Check } from "lucide-react";
+import { loadPrefs } from "@/lib/store";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -18,7 +19,15 @@ export default function LoginPage() {
   const [discordId, setDiscordId] = useState("");
   const [mounted, setMounted] = useState(false);
 
-  useEffect(() => { setMounted(true); }, []);
+  useEffect(() => {
+    setMounted(true);
+    const prefs = loadPrefs();
+    document.documentElement.className = "";
+    if (prefs.theme === "light") document.documentElement.classList.add("theme-light");
+    if (prefs.theme === "high-contrast") document.documentElement.classList.add("high-contrast");
+    const sizes: Record<string, string> = { normal: "14px", large: "16px", "x-large": "18px" };
+    document.documentElement.style.fontSize = sizes[prefs.fontSize] || "14px";
+  }, []);
 
   const passwordChecks = [
     { label: "16 caractères minimum", valid: newPassword.length >= 16 },

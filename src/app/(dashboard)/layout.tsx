@@ -1,15 +1,21 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { useAppStore } from "@/lib/store";
+import { useAppStore, loadPrefs } from "@/lib/store";
 import Sidebar from "@/components/Sidebar";
 import Header from "@/components/Header";
 import SearchModal from "@/components/SearchModal";
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   const router = useRouter();
-  const { setUser, theme, fontSize } = useAppStore();
+  const { setUser, theme, fontSize, setTheme, setFontSize } = useAppStore();
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const prefs = loadPrefs();
+    if (theme === "dark" && prefs.theme !== "dark") setTheme(prefs.theme);
+    if (fontSize === "normal" && prefs.fontSize !== "normal") setFontSize(prefs.fontSize);
+  }, []);
 
   useEffect(() => {
     const checkAuth = async () => {

@@ -29,7 +29,7 @@ interface AppState {
   setSearchOpen: (open: boolean) => void;
 }
 
-function loadPrefs(): { theme: "dark" | "light" | "high-contrast"; fontSize: "normal" | "large" | "x-large" } {
+export function loadPrefs(): { theme: "dark" | "light" | "high-contrast"; fontSize: "normal" | "large" | "x-large" } {
   if (typeof window === "undefined") return { theme: "dark", fontSize: "normal" };
   try {
     const raw = localStorage.getItem("staff-rp-prefs");
@@ -50,9 +50,7 @@ function savePrefs(theme: string, fontSize: string) {
   } catch {}
 }
 
-const initial = loadPrefs();
-
-export const useAppStore = create<AppState>((set) => ({
+export const useAppStore = create<AppState>((set, get) => ({
   user: null,
   setUser: (user) => set({ user }),
   timer: { isOnService: false, startTime: null, elapsed: 0 },
@@ -62,14 +60,14 @@ export const useAppStore = create<AppState>((set) => ({
     })),
   setTimerElapsed: (elapsed) =>
     set((state) => ({ timer: { ...state.timer, elapsed } })),
-  theme: initial.theme,
+  theme: "dark",
   setTheme: (theme) => {
-    savePrefs(theme, useAppStore.getState().fontSize);
+    savePrefs(theme, get().fontSize);
     set({ theme });
   },
-  fontSize: initial.fontSize,
+  fontSize: "normal",
   setFontSize: (fontSize) => {
-    savePrefs(useAppStore.getState().theme, fontSize);
+    savePrefs(get().theme, fontSize);
     set({ fontSize });
   },
   searchOpen: false,
