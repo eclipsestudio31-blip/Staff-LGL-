@@ -1,0 +1,8653 @@
+[
+  {
+    "id": 3,
+    "name": "trib1",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0,
+      "tribunal": 0,
+      "municipale": 0,
+      "gouvernement": 0,
+      "gendarmerie": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "auto": true,
+      "doors": [
+        {
+          "model": -585720859,
+          "coords": {
+            "x": -416.5018005371094,
+            "y": 1171.1224365234375,
+            "z": 326.7022705078125
+          },
+          "heading": 160
+        },
+        {
+          "model": -585720859,
+          "coords": {
+            "x": -408.9861755371094,
+            "y": 1168.83203125,
+            "z": 326.7022705078125
+          },
+          "heading": 346
+        }
+      ],
+      "groups": {
+        "police": 0,
+        "tribunal": 0,
+        "municipale": 0,
+        "gouvernement": 0,
+        "gendarmerie": 0
+      },
+      "coords": {
+        "x": -412.7439880371094,
+        "y": 1169.977294921875,
+        "z": 326.7022705078125
+      },
+      "maxDistance": 2,
+      "state": 1
+    }
+  },
+  {
+    "id": 73,
+    "name": "stanauto1",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "stanauto": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "auto": true,
+      "groups": {
+        "stanauto": 0
+      },
+      "coords": {
+        "x": 1560.760498046875,
+        "y": 3564.495849609375,
+        "z": 36.27892684936523
+      },
+      "maxDistance": 2,
+      "doors": [
+        {
+          "model": -1119680854,
+          "heading": 300,
+          "coords": {
+            "x": 1560.1126708984375,
+            "y": 3565.61767578125,
+            "z": 36.27892684936523
+          }
+        },
+        {
+          "model": -1119680854,
+          "heading": 120,
+          "coords": {
+            "x": 1561.408203125,
+            "y": 3563.3740234375,
+            "z": 36.27892684936523
+          }
+        }
+      ],
+      "state": 1
+    }
+  },
+  {
+    "id": 79,
+    "name": "PN1",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "municipale": 0,
+      "gendarmerie": 0,
+      "police national": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "auto": true,
+      "groups": {
+        "municipale": 0,
+        "gendarmerie": 0,
+        "police national ": 0
+      },
+      "autolock": 5,
+      "coords": {
+        "x": 478.3983459472656,
+        "y": -979.4161987304688,
+        "z": 26.98891639709472
+      },
+      "maxDistance": 2.5,
+      "doors": [
+        {
+          "model": 1918799109,
+          "heading": 180,
+          "coords": {
+            "x": 479.7020568847656,
+            "y": -979.4161987304688,
+            "z": 26.98891639709472
+          }
+        },
+        {
+          "model": 1918799109,
+          "heading": 0,
+          "coords": {
+            "x": 477.0946350097656,
+            "y": -979.4161987304688,
+            "z": 26.98891639709472
+          }
+        }
+      ],
+      "state": 1
+    }
+  },
+  {
+    "id": 80,
+    "name": "GAV1",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "municipale": 0,
+      "gendarmerie": 0,
+      "police": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "auto": true,
+      "groups": {
+        "municipale": 0,
+        "gendarmerie": 0,
+        "police": 0
+      },
+      "autolock": 5,
+      "coords": {
+        "x": 484.9137878417969,
+        "y": -1004.9652099609375,
+        "z": 26.29685974121093
+      },
+      "maxDistance": 2.5,
+      "heading": 270,
+      "doors": false,
+      "state": 1,
+      "model": -801376572
+    }
+  },
+  {
+    "id": 81,
+    "name": "GAV2",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0,
+      "gendarmerie": 0,
+      "municipale": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "maxDistance": 2.5,
+      "state": 1,
+      "heading": 270,
+      "model": -801376572,
+      "autolock": 5,
+      "coords": {
+        "x": 484.90594482421875,
+        "y": -1006.9190673828125,
+        "z": 26.29685974121093
+      },
+      "auto": true,
+      "groups": {
+        "police": 0,
+        "gendarmerie": 0,
+        "municipale": 0
+      },
+      "doors": false
+    }
+  },
+  {
+    "id": 82,
+    "name": "GAV3",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0,
+      "gendarmerie": 0,
+      "municipale": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "maxDistance": 2.5,
+      "state": 1,
+      "heading": 270,
+      "model": -801376572,
+      "autolock": 5,
+      "coords": {
+        "x": 484.90594482421875,
+        "y": -1009.4995727539062,
+        "z": 26.29685974121093
+      },
+      "auto": true,
+      "groups": {
+        "police": 0,
+        "gendarmerie": 0,
+        "municipale": 0
+      },
+      "doors": false
+    }
+  },
+  {
+    "id": 83,
+    "name": "GAV4",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0,
+      "gendarmerie": 0,
+      "municipale": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "maxDistance": 2.5,
+      "state": 1,
+      "heading": 270,
+      "model": -801376572,
+      "autolock": 5,
+      "coords": {
+        "x": 484.90594482421875,
+        "y": -1012.0859985351562,
+        "z": 26.29685974121093
+      },
+      "auto": true,
+      "groups": {
+        "police": 0,
+        "gendarmerie": 0,
+        "municipale": 0
+      },
+      "doors": false
+    }
+  },
+  {
+    "id": 84,
+    "name": "GAV5",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0,
+      "gendarmerie": 0,
+      "municipale": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "maxDistance": 2.5,
+      "state": 1,
+      "heading": 180,
+      "model": -801376572,
+      "autolock": 5,
+      "coords": {
+        "x": 483.5555725097656,
+        "y": -1012.9317626953125,
+        "z": 26.30086135864257
+      },
+      "auto": true,
+      "groups": {
+        "police": 0,
+        "gendarmerie": 0,
+        "municipale": 0
+      },
+      "doors": false
+    }
+  },
+  {
+    "id": 85,
+    "name": "GAV6",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0,
+      "gendarmerie": 0,
+      "municipale": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "maxDistance": 2.5,
+      "state": 1,
+      "heading": 180,
+      "model": -801376572,
+      "autolock": 5,
+      "coords": {
+        "x": 480.9381103515625,
+        "y": -1012.9317626953125,
+        "z": 26.30086135864257
+      },
+      "auto": true,
+      "groups": {
+        "police": 0,
+        "gendarmerie": 0,
+        "municipale": 0
+      },
+      "doors": false
+    }
+  },
+  {
+    "id": 86,
+    "name": "GAV6",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0,
+      "gendarmerie": 0,
+      "municipale": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "maxDistance": 2.5,
+      "state": 1,
+      "heading": 180,
+      "model": -801376572,
+      "autolock": 5,
+      "coords": {
+        "x": 478.33306884765625,
+        "y": -1012.9317626953125,
+        "z": 26.30086135864257
+      },
+      "auto": true,
+      "groups": {
+        "police": 0,
+        "gendarmerie": 0,
+        "municipale": 0
+      },
+      "doors": false
+    }
+  },
+  {
+    "id": 88,
+    "name": "portailPN2",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "gendarmerie": 0,
+      "municipale": 0,
+      "police": 0
+    },
+    "maxDistance": 5,
+    "data": {
+      "auto": true,
+      "maxDistance": 5,
+      "state": 1,
+      "doors": false,
+      "groups": {
+        "gendarmerie": 0,
+        "municipale": 0,
+        "police": 0
+      },
+      "autolock": 5,
+      "coords": {
+        "x": 488.916015625,
+        "y": -1019.95556640625,
+        "z": 27.14934539794922
+      },
+      "heading": 90,
+      "model": -1603817716
+    }
+  },
+  {
+    "id": 89,
+    "name": "PN2",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "municipales": 0,
+      "gendarmerie": 0,
+      "police": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "auto": true,
+      "groups": {
+        "municipales": 0,
+        "gendarmerie": 0,
+        "police": 0
+      },
+      "autolock": 5,
+      "coords": {
+        "x": 457.05035400390625,
+        "y": -972.2056274414062,
+        "z": 30.74395561218261
+      },
+      "maxDistance": 2.5,
+      "doors": [
+        {
+          "model": 1337093550,
+          "heading": 0,
+          "coords": {
+            "x": 458.1330261230469,
+            "y": -972.2056274414062,
+            "z": 30.74395561218261
+          }
+        },
+        {
+          "model": 1337093550,
+          "heading": 180,
+          "coords": {
+            "x": 455.9676818847656,
+            "y": -972.2056274414062,
+            "z": 30.74395561218261
+          }
+        }
+      ],
+      "state": 1
+    }
+  },
+  {
+    "id": 90,
+    "name": "PNENTREE",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "gouvernement": 0,
+      "police": 0,
+      "gendarmerie": 0,
+      "municipales": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "maxDistance": 2.5,
+      "state": 1,
+      "autolock": 5,
+      "coords": {
+        "x": 434.862060546875,
+        "y": -981.9119262695312,
+        "z": 29.69270896911621
+      },
+      "auto": true,
+      "groups": {
+        "gouvernement": 0,
+        "police": 0,
+        "gendarmerie": 0,
+        "municipales": 0
+      },
+      "doors": [
+        {
+          "coords": {
+            "x": 434.862060546875,
+            "y": -980.6116943359375,
+            "z": 29.69270896911621
+          },
+          "heading": 270,
+          "model": 1918799109
+        },
+        {
+          "coords": {
+            "x": 434.862060546875,
+            "y": -983.212158203125,
+            "z": 29.69270896911621
+          },
+          "heading": 90,
+          "model": 1918799109
+        }
+      ]
+    }
+  },
+  {
+    "id": 91,
+    "name": "PN3",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "gouvernement": 0,
+      "police": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "maxDistance": 2.5,
+      "state": 1,
+      "autolock": 5,
+      "coords": {
+        "x": 446.6227111816406,
+        "y": -998.6936645507812,
+        "z": 29.68929290771484
+      },
+      "auto": true,
+      "groups": {
+        "gouvernement": 0,
+        "police": 0
+      },
+      "doors": [
+        {
+          "coords": {
+            "x": 445.3218994140625,
+            "y": -998.6936645507812,
+            "z": 29.68929290771484
+          },
+          "heading": 0,
+          "model": 1918799109
+        },
+        {
+          "coords": {
+            "x": 447.92352294921875,
+            "y": -998.6936645507812,
+            "z": 29.68929290771484
+          },
+          "heading": 180,
+          "model": 1918799109
+        }
+      ]
+    }
+  },
+  {
+    "id": 92,
+    "name": "PN4",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "municipales": 0,
+      "gendarmerie": 0,
+      "police": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "auto": true,
+      "groups": {
+        "municipales": 0,
+        "gendarmerie": 0,
+        "police": 0
+      },
+      "autolock": 5,
+      "coords": {
+        "x": 459.6451416015625,
+        "y": -1008.6317749023438,
+        "z": 28.30887985229492
+      },
+      "maxDistance": 2.5,
+      "heading": 270,
+      "doors": false,
+      "state": 1,
+      "model": -1514493633
+    }
+  },
+  {
+    "id": 93,
+    "name": "PN6",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0,
+      "gendarmerie": 0,
+      "municipale": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "maxDistance": 2.5,
+      "state": 1,
+      "autolock": 5,
+      "coords": {
+        "x": 468.57415771484375,
+        "y": -1014.4586181640625,
+        "z": 26.59119796752929
+      },
+      "auto": true,
+      "groups": {
+        "police": 0,
+        "gendarmerie": 0,
+        "municipale": 0
+      },
+      "doors": [
+        {
+          "coords": {
+            "x": 467.3910217285156,
+            "y": -1014.4600830078125,
+            "z": 26.59119796752929
+          },
+          "heading": 0,
+          "model": -1200630391
+        },
+        {
+          "coords": {
+            "x": 469.75732421875,
+            "y": -1014.4570922851562,
+            "z": 26.59119796752929
+          },
+          "heading": 180,
+          "model": -1200630391
+        }
+      ]
+    }
+  },
+  {
+    "id": 94,
+    "name": "PNphotocallcellule",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0,
+      "gendarmerie": 0,
+      "municipale": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "maxDistance": 2.5,
+      "state": 1,
+      "heading": 180,
+      "model": -1498975473,
+      "autolock": 5,
+      "coords": {
+        "x": 476.022216796875,
+        "y": -1008.973876953125,
+        "z": 26.35126304626465
+      },
+      "auto": true,
+      "groups": {
+        "police": 0,
+        "gendarmerie": 0,
+        "municipale": 0
+      },
+      "doors": false
+    }
+  },
+  {
+    "id": 95,
+    "name": "PNAUDITION2",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0,
+      "gendarmerie": 0,
+      "municipale": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "maxDistance": 2.5,
+      "state": 1,
+      "heading": 90,
+      "model": -1498975473,
+      "autolock": 5,
+      "coords": {
+        "x": 481.001708984375,
+        "y": -1000.4376831054688,
+        "z": 26.35574150085449
+      },
+      "auto": true,
+      "groups": {
+        "police": 0,
+        "gendarmerie": 0,
+        "municipale": 0
+      },
+      "doors": false
+    }
+  },
+  {
+    "id": 96,
+    "name": "PNAUDITION3",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0,
+      "gendarmerie": 0,
+      "municipale": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "maxDistance": 2.5,
+      "state": 1,
+      "heading": 90,
+      "model": -1498975473,
+      "autolock": 5,
+      "coords": {
+        "x": 481.00079345703125,
+        "y": -994.203125,
+        "z": 26.35552215576172
+      },
+      "auto": true,
+      "groups": {
+        "police": 0,
+        "gendarmerie": 0,
+        "municipale": 0
+      },
+      "doors": false
+    }
+  },
+  {
+    "id": 97,
+    "name": "PN8",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "gendarmerie": 0,
+      "police": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "maxDistance": 2.5,
+      "state": 1,
+      "autolock": 5,
+      "coords": {
+        "x": 469.56805419921875,
+        "y": -1005.5018920898438,
+        "z": 26.35355186462402
+      },
+      "auto": true,
+      "groups": {
+        "gendarmerie": 0,
+        "police": 0
+      },
+      "doors": [
+        {
+          "coords": {
+            "x": 468.26806640625,
+            "y": -1005.5018920898438,
+            "z": 26.35355186462402
+          },
+          "heading": 0,
+          "model": -35610440
+        },
+        {
+          "coords": {
+            "x": 470.8680114746094,
+            "y": -1005.5018920898438,
+            "z": 26.35355186462402
+          },
+          "heading": 180,
+          "model": -35610440
+        }
+      ]
+    }
+  },
+  {
+    "id": 98,
+    "name": "PN9",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0,
+      "gendarmerie": 0,
+      "municipale": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "maxDistance": 2.5,
+      "state": 1,
+      "heading": 90,
+      "model": -801376572,
+      "autolock": 5,
+      "coords": {
+        "x": 477.3315124511719,
+        "y": -1006.4984741210938,
+        "z": 26.29228401184082
+      },
+      "auto": true,
+      "groups": {
+        "police": 0,
+        "gendarmerie": 0,
+        "municipale": 0
+      },
+      "doors": false
+    }
+  },
+  {
+    "id": 119,
+    "name": "PNPORTAIL1",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "gouvernement": 0,
+      "police": 0,
+      "gendarmerie": 0,
+      "municipales": 0
+    },
+    "maxDistance": 5,
+    "data": {
+      "maxDistance": 5,
+      "state": 1,
+      "heading": 90,
+      "model": 1286535678,
+      "autolock": 5,
+      "coords": {
+        "x": 420.2330627441406,
+        "y": -1017.67041015625,
+        "z": 28.30375862121582
+      },
+      "auto": true,
+      "groups": {
+        "gouvernement": 0,
+        "police": 0,
+        "gendarmerie": 0,
+        "municipales": 0
+      },
+      "doors": false
+    }
+  },
+  {
+    "id": 120,
+    "name": "PNHELIPORT",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "municipales": 0,
+      "gendarmerie": 0,
+      "police": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "doors": false,
+      "state": 1,
+      "coords": {
+        "x": 466.74737548828125,
+        "y": -989.2900390625,
+        "z": 41.07754135131836
+      },
+      "heading": 90,
+      "groups": {
+        "municipales": 0,
+        "gendarmerie": 0,
+        "police": 0
+      },
+      "autolock": 5,
+      "maxDistance": 2.5,
+      "auto": true,
+      "model": -1514493633
+    }
+  },
+  {
+    "id": 121,
+    "name": "ENTREEMUNI",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0,
+      "gendarmerie": 0,
+      "municipale": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "maxDistance": 2.5,
+      "model": 28318325,
+      "auto": true,
+      "coords": {
+        "x": 201.2059326171875,
+        "y": -1626.966064453125,
+        "z": 29.44462966918945
+      },
+      "heading": 140,
+      "autolock": 5,
+      "groups": {
+        "police": 0,
+        "gendarmerie": 0,
+        "municipale": 0
+      },
+      "doors": false,
+      "state": 1
+    }
+  },
+  {
+    "id": 122,
+    "name": "ENTREEMUMU2",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0,
+      "gendarmerie": 0,
+      "municipale": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "maxDistance": 2.5,
+      "model": 28318325,
+      "auto": true,
+      "coords": {
+        "x": 207.4219207763672,
+        "y": -1661.806396484375,
+        "z": 29.44462966918945
+      },
+      "heading": 50,
+      "autolock": 5,
+      "groups": {
+        "police": 0,
+        "gendarmerie": 0,
+        "municipale": 0
+      },
+      "doors": false,
+      "state": 1
+    }
+  },
+  {
+    "id": 123,
+    "name": "PORTAILMUMU",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "municipale": 0,
+      "police": 0,
+      "gendarmerie": 0
+    },
+    "maxDistance": 10,
+    "data": {
+      "maxDistance": 10,
+      "coords": {
+        "x": 230.56500244140625,
+        "y": -1651.282470703125,
+        "z": 28.30723190307617
+      },
+      "model": 1286605868,
+      "groups": {
+        "municipale": 0,
+        "police": 0,
+        "gendarmerie": 0
+      },
+      "auto": true,
+      "doors": false,
+      "state": 1,
+      "autolock": 5,
+      "heading": 140
+    }
+  },
+  {
+    "id": 124,
+    "name": "PETITPORTAILMUMU",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "municipale": 0,
+      "police": 0,
+      "gendarmerie": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "maxDistance": 2.5,
+      "coords": {
+        "x": 226.3270263671875,
+        "y": -1647.553466796875,
+        "z": 29.4492073059082
+      },
+      "model": 2081942267,
+      "groups": {
+        "municipale": 0,
+        "police": 0,
+        "gendarmerie": 0
+      },
+      "auto": true,
+      "doors": false,
+      "state": 1,
+      "autolock": 5,
+      "heading": 140
+    }
+  },
+  {
+    "id": 127,
+    "name": "ROIBURGER",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "roiburger": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "state": 1,
+      "coords": {
+        "x": -347.2174072265625,
+        "y": -237.82977294921875,
+        "z": 36.16833114624023
+      },
+      "maxDistance": 2.5,
+      "groups": {
+        "roiburger": 0
+      },
+      "doors": [
+        {
+          "coords": {
+            "x": -345.8926696777344,
+            "y": -237.34762573242188,
+            "z": 36.16833114624023
+          },
+          "heading": 200,
+          "model": -312576269
+        },
+        {
+          "coords": {
+            "x": -348.5421142578125,
+            "y": -238.3119354248047,
+            "z": 36.16833114624023
+          },
+          "heading": 20,
+          "model": -312576269
+        }
+      ]
+    }
+  },
+  {
+    "id": 128,
+    "name": "roiburger1",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "roiburger": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "state": 1,
+      "coords": {
+        "x": -334.12548828125,
+        "y": -238.51260375976562,
+        "z": 36.16833114624023
+      },
+      "maxDistance": 2.5,
+      "groups": {
+        "roiburger": 0
+      },
+      "doors": [
+        {
+          "coords": {
+            "x": -332.8009338378906,
+            "y": -238.03050231933594,
+            "z": 36.16833114624023
+          },
+          "heading": 200,
+          "model": -312576269
+        },
+        {
+          "coords": {
+            "x": -335.4500732421875,
+            "y": -238.99472045898438,
+            "z": 36.16833114624023
+          },
+          "heading": 20,
+          "model": -312576269
+        }
+      ]
+    }
+  },
+  {
+    "id": 129,
+    "name": "PIZZASUD",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "pizzathis": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "heading": 140,
+      "model": 1433701288,
+      "state": 1,
+      "maxDistance": 2.5,
+      "doors": false,
+      "coords": {
+        "x": -1527.5460205078125,
+        "y": -909.439697265625,
+        "z": 9.20713233947753
+      },
+      "groups": {
+        "pizzathis": 0
+      }
+    }
+  },
+  {
+    "id": 131,
+    "name": "PIZZATHIS1",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "pizzathis": 0
+    },
+    "maxDistance": 1,
+    "data": {
+      "heading": 140,
+      "auto": true,
+      "model": 144556925,
+      "state": 1,
+      "maxDistance": 1,
+      "doors": false,
+      "autolock": 5,
+      "groups": {
+        "pizzathis": 0
+      },
+      "coords": {
+        "x": -1520.5625,
+        "y": -905.8170776367188,
+        "z": 10.36039733886718
+      }
+    }
+  },
+  {
+    "id": 137,
+    "name": "century22",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "realestateagent": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "auto": true,
+      "autolock": 5,
+      "groups": {
+        "realestateagent": 0
+      },
+      "coords": {
+        "x": -653.75439453125,
+        "y": -412.5985107421875,
+        "z": 35.14627456665039
+      },
+      "state": 1,
+      "doors": [
+        {
+          "coords": {
+            "x": -653.79833984375,
+            "y": -413.8954162597656,
+            "z": 35.14627456665039
+          },
+          "heading": 268,
+          "model": 2114701598
+        },
+        {
+          "coords": {
+            "x": -653.7103881835938,
+            "y": -411.30157470703125,
+            "z": 35.14627456665039
+          },
+          "heading": 88,
+          "model": 2114701598
+        }
+      ],
+      "maxDistance": 2.5
+    }
+  },
+  {
+    "id": 138,
+    "name": "century22",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "realestateagent": 0
+    },
+    "maxDistance": 5,
+    "data": {
+      "auto": true,
+      "autolock": 5,
+      "model": 874586700,
+      "groups": {
+        "realestateagent": 0
+      },
+      "coords": {
+        "x": -719.8511352539062,
+        "y": -425.66229248046875,
+        "z": 35.62578201293945
+      },
+      "state": 1,
+      "doors": false,
+      "heading": 267,
+      "maxDistance": 5
+    }
+  },
+  {
+    "id": 142,
+    "name": "DISCO1",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "nightclub": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "auto": true,
+      "autolock": 5,
+      "groups": {
+        "nightclub": 0
+      },
+      "coords": {
+        "x": 370.9224853515625,
+        "y": 251.98419189453125,
+        "z": 103.16255950927734
+      },
+      "state": 1,
+      "doors": [
+        {
+          "coords": {
+            "x": 369.69793701171875,
+            "y": 252.42990112304688,
+            "z": 103.16255950927734
+          },
+          "heading": 340,
+          "model": 1648717293
+        },
+        {
+          "coords": {
+            "x": 372.1470642089844,
+            "y": 251.53848266601562,
+            "z": 103.16255950927734
+          },
+          "heading": 160,
+          "model": 1648717293
+        }
+      ],
+      "maxDistance": 2.5
+    }
+  },
+  {
+    "id": 143,
+    "name": "DISCO2",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "nightclub": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "auto": true,
+      "autolock": 5,
+      "model": 869100519,
+      "groups": {
+        "nightclub": 0
+      },
+      "coords": {
+        "x": 348.8319091796875,
+        "y": 227.59188842773438,
+        "z": 97.85970306396484
+      },
+      "state": 1,
+      "doors": false,
+      "heading": 250,
+      "maxDistance": 2.5
+    }
+  },
+  {
+    "id": 144,
+    "name": "DISCOBOSS",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "nightclub": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "auto": true,
+      "autolock": 5,
+      "model": 869100519,
+      "groups": {
+        "nightclub": 0
+      },
+      "coords": {
+        "x": 340.97357177734375,
+        "y": 222.28944396972656,
+        "z": 101.6236801147461
+      },
+      "state": 1,
+      "doors": false,
+      "heading": 340,
+      "maxDistance": 2.5
+    }
+  },
+  {
+    "id": 146,
+    "name": "TRIBUNAL1",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "gendarmerie": 0,
+      "tribunal": 0,
+      "police": 0,
+      "municipale": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "auto": true,
+      "autolock": 5,
+      "groups": {
+        "gendarmerie": 0,
+        "tribunal": 0,
+        "police": 0,
+        "municipale": 0
+      },
+      "coords": {
+        "x": -463.627685546875,
+        "y": 1099.27978515625,
+        "z": 335.697509765625
+      },
+      "state": 1,
+      "doors": [
+        {
+          "coords": {
+            "x": -463.9211730957031,
+            "y": 1098.3009033203125,
+            "z": 335.697509765625
+          },
+          "heading": 74,
+          "model": 912677436
+        },
+        {
+          "coords": {
+            "x": -463.334228515625,
+            "y": 1100.2587890625,
+            "z": 335.697509765625
+          },
+          "heading": 254,
+          "model": 912677436
+        }
+      ],
+      "maxDistance": 2.5
+    }
+  },
+  {
+    "id": 147,
+    "name": "tribunal3",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "gendarmerie": 0,
+      "tribunal": 0,
+      "police": 0,
+      "municipale": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "auto": true,
+      "autolock": 5,
+      "groups": {
+        "gendarmerie": 0,
+        "tribunal": 0,
+        "police": 0,
+        "municipale": 0
+      },
+      "coords": {
+        "x": -409.44976806640625,
+        "y": 1083.337890625,
+        "z": 335.54205322265625
+      },
+      "state": 1,
+      "doors": [
+        {
+          "coords": {
+            "x": -409.7499694824219,
+            "y": 1082.3616943359375,
+            "z": 335.54266357421875
+          },
+          "heading": 74,
+          "model": 912677436
+        },
+        {
+          "coords": {
+            "x": -409.1495666503906,
+            "y": 1084.31396484375,
+            "z": 335.5414733886719
+          },
+          "heading": 254,
+          "model": 912677436
+        }
+      ],
+      "maxDistance": 2.5
+    }
+  },
+  {
+    "id": 148,
+    "name": "tribunal4",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "tribunal": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "auto": true,
+      "autolock": 5,
+      "groups": {
+        "tribunal": 0
+      },
+      "coords": {
+        "x": -469.2474365234375,
+        "y": 1081.3336181640625,
+        "z": 335.7154235839844
+      },
+      "state": 1,
+      "doors": [
+        {
+          "coords": {
+            "x": -468.9486083984375,
+            "y": 1082.3104248046875,
+            "z": 335.7154235839844
+          },
+          "heading": 253,
+          "model": 912677436
+        },
+        {
+          "coords": {
+            "x": -469.5462951660156,
+            "y": 1080.3568115234375,
+            "z": 335.7154235839844
+          },
+          "heading": 73,
+          "model": 912677436
+        }
+      ],
+      "maxDistance": 2.5
+    }
+  },
+  {
+    "id": 163,
+    "name": "stanauto2",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "stanauto": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "auto": true,
+      "groups": {
+        "stanauto": 0
+      },
+      "state": 1,
+      "coords": {
+        "x": 1559.18017578125,
+        "y": 3567.23291015625,
+        "z": 36.27892684936523
+      },
+      "maxDistance": 2,
+      "doors": [
+        {
+          "coords": {
+            "x": 1558.5323486328125,
+            "y": 3568.35498046875,
+            "z": 36.27892684936523
+          },
+          "model": -1119680854,
+          "heading": 300
+        },
+        {
+          "coords": {
+            "x": 1559.8280029296875,
+            "y": 3566.11083984375,
+            "z": 36.27892684936523
+          },
+          "model": -1119680854,
+          "heading": 120
+        }
+      ]
+    }
+  },
+  {
+    "id": 164,
+    "name": "stanauto3",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "stanauto": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "auto": true,
+      "groups": {
+        "stanauto": 0
+      },
+      "state": 1,
+      "coords": {
+        "x": 1548.92431640625,
+        "y": 3579.30322265625,
+        "z": 36.39059066772461
+      },
+      "maxDistance": 2,
+      "doors": false,
+      "model": -728539053,
+      "heading": 120
+    }
+  },
+  {
+    "id": 165,
+    "name": "stanauto4",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "stanauto": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "auto": true,
+      "groups": {
+        "stanauto": 0
+      },
+      "state": 1,
+      "coords": {
+        "x": 1607.6309814453125,
+        "y": 3568.090087890625,
+        "z": 34.43947601318359
+      },
+      "maxDistance": 2,
+      "doors": false,
+      "model": 1945705312,
+      "heading": 75
+    }
+  },
+  {
+    "id": 166,
+    "name": "stanauto5",
+    "state": 0,
+    "passcode": null,
+    "groups": {
+      "stanauto": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "groups": {
+        "stanauto": 0
+      },
+      "state": 0,
+      "coords": {
+        "x": 1527.02587890625,
+        "y": 3573.40478515625,
+        "z": 36.39059066772461
+      },
+      "maxDistance": 2,
+      "doors": false,
+      "model": -728539053,
+      "heading": 300
+    }
+  },
+  {
+    "id": 184,
+    "name": "pref1",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "gouvernement": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "heading": 270,
+      "doors": false,
+      "coords": {
+        "x": -570.7593383789062,
+        "y": -599.74365234375,
+        "z": 34.82048797607422
+      },
+      "auto": true,
+      "groups": {
+        "gouvernement": 0
+      },
+      "state": 1,
+      "model": -1563640173,
+      "maxDistance": 2
+    }
+  },
+  {
+    "id": 185,
+    "name": "pref2",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "gouvernement": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "heading": 270,
+      "doors": false,
+      "coords": {
+        "x": -579.7225341796875,
+        "y": -601.3762817382812,
+        "z": 34.83470916748047
+      },
+      "auto": true,
+      "groups": {
+        "gouvernement": 0
+      },
+      "state": 1,
+      "model": -1563640173,
+      "maxDistance": 2
+    }
+  },
+  {
+    "id": 187,
+    "name": "pref4",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "gouvernement": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "heading": 360,
+      "doors": false,
+      "coords": {
+        "x": -556.1747436523438,
+        "y": -587.943603515625,
+        "z": 34.82925796508789
+      },
+      "auto": true,
+      "groups": {
+        "gouvernement": 0
+      },
+      "state": 1,
+      "model": -1563640173,
+      "maxDistance": 2
+    }
+  },
+  {
+    "id": 188,
+    "name": "pref5",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "gouvernement": 4
+    },
+    "maxDistance": 2,
+    "data": {
+      "state": 1,
+      "maxDistance": 2,
+      "coords": {
+        "x": -540.3097534179688,
+        "y": -600.5400390625,
+        "z": 34.82319641113281
+      },
+      "autolock": 5,
+      "groups": {
+        "gouvernement": 4
+      },
+      "doors": false,
+      "heading": 270,
+      "auto": true,
+      "model": -1563640173
+    }
+  },
+  {
+    "id": 189,
+    "name": "ordre2",
+    "state": 1,
+    "passcode": "1806",
+    "groups": {},
+    "maxDistance": 2,
+    "data": {
+      "maxDistance": 2,
+      "state": 1,
+      "auto": true,
+      "passcode": "1806",
+      "doors": [
+        {
+          "coords": {
+            "x": -311.2818603515625,
+            "y": 220.83726501464844,
+            "z": 88.16383361816406
+          },
+          "model": 692644553,
+          "heading": 190
+        },
+        {
+          "coords": {
+            "x": -308.7242736816406,
+            "y": 221.28823852539062,
+            "z": 88.16383361816406
+          },
+          "model": -18625569,
+          "heading": 190
+        }
+      ],
+      "coords": {
+        "x": -310.0030517578125,
+        "y": 221.062744140625,
+        "z": 88.16383361816406
+      }
+    }
+  },
+  {
+    "id": 190,
+    "name": "ordre1",
+    "state": 1,
+    "passcode": "1806",
+    "groups": {},
+    "maxDistance": 2,
+    "data": {
+      "maxDistance": 2,
+      "state": 1,
+      "auto": true,
+      "passcode": "1806",
+      "doors": [
+        {
+          "coords": {
+            "x": -297.2005310058594,
+            "y": 182.14259338378906,
+            "z": 88.03864288330078
+          },
+          "model": -1825993669,
+          "heading": 90
+        },
+        {
+          "coords": {
+            "x": -297.21478271484375,
+            "y": 179.951171875,
+            "z": 88.03864288330078
+          },
+          "model": -1825993669,
+          "heading": 270
+        }
+      ],
+      "coords": {
+        "x": -297.2076416015625,
+        "y": 181.046875,
+        "z": 88.03864288330078
+      }
+    }
+  },
+  {
+    "id": 191,
+    "name": "ordre3",
+    "state": 1,
+    "passcode": "1806",
+    "groups": {},
+    "maxDistance": 2,
+    "data": {
+      "maxDistance": 2,
+      "state": 1,
+      "auto": true,
+      "passcode": "1806",
+      "doors": [
+        {
+          "coords": {
+            "x": -309.23883056640625,
+            "y": 180.81874084472656,
+            "z": 88.03864288330078
+          },
+          "model": -1825993669,
+          "heading": 100
+        },
+        {
+          "coords": {
+            "x": -308.8567199707031,
+            "y": 178.660888671875,
+            "z": 88.03864288330078
+          },
+          "model": -1825993669,
+          "heading": 280
+        }
+      ],
+      "coords": {
+        "x": -309.04779052734375,
+        "y": 179.73980712890625,
+        "z": 88.03864288330078
+      }
+    }
+  },
+  {
+    "id": 198,
+    "name": "craftmun",
+    "state": 1,
+    "passcode": "496780",
+    "groups": {},
+    "maxDistance": 2,
+    "data": {
+      "maxDistance": 2,
+      "passcode": "496780",
+      "coords": {
+        "x": 5064.8701171875,
+        "y": -4593.6455078125,
+        "z": 3.12105894088745
+      },
+      "doors": [
+        {
+          "heading": 160,
+          "model": 1526539404,
+          "coords": {
+            "x": 5066.7548828125,
+            "y": -4594.3310546875,
+            "z": 3.12105894088745
+          }
+        },
+        {
+          "heading": 160,
+          "model": 227019171,
+          "coords": {
+            "x": 5062.98583984375,
+            "y": -4592.9599609375,
+            "z": 3.12105894088745
+          }
+        }
+      ],
+      "state": 1,
+      "auto": true
+    }
+  },
+  {
+    "id": 200,
+    "name": "newgn",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "gendarmerie": 0,
+      "police": 0,
+      "gouvernement": 0,
+      "municipale": 0
+    },
+    "maxDistance": 7,
+    "data": {
+      "coords": {
+        "x": 812.2432861328125,
+        "y": 3709.35302734375,
+        "z": 33.53912353515625
+      },
+      "auto": true,
+      "groups": {
+        "gendarmerie": 0,
+        "police": 0,
+        "gouvernement": 0,
+        "municipale": 0
+      },
+      "doors": false,
+      "maxDistance": 7,
+      "state": 1,
+      "autolock": 7,
+      "model": 1286535678,
+      "heading": 25
+    }
+  },
+  {
+    "id": 205,
+    "name": "Percuteurs",
+    "state": 1,
+    "passcode": "475301",
+    "groups": {},
+    "maxDistance": 2,
+    "data": {
+      "coords": {
+        "x": 1991.10595703125,
+        "y": 3053.10546875,
+        "z": 47.36528778076172
+      },
+      "model": -287662406,
+      "doors": false,
+      "auto": true,
+      "autolock": 3,
+      "passcode": "475301",
+      "heading": 148,
+      "state": 1,
+      "maxDistance": 2
+    }
+  },
+  {
+    "id": 206,
+    "name": "Blanchiment ",
+    "state": 1,
+    "passcode": "925081",
+    "groups": {},
+    "maxDistance": 2,
+    "data": {
+      "coords": {
+        "x": 707.1533813476562,
+        "y": -962.4588623046875,
+        "z": 30.54528999328613
+      },
+      "model": 426403179,
+      "doors": false,
+      "auto": true,
+      "autolock": 3,
+      "passcode": "925081",
+      "heading": 0,
+      "state": 1,
+      "maxDistance": 2
+    }
+  },
+  {
+    "id": 207,
+    "name": "Blanchiment ",
+    "state": 1,
+    "passcode": "925081",
+    "groups": {},
+    "maxDistance": 2,
+    "data": {
+      "coords": {
+        "x": 709.9788818359375,
+        "y": -964.1820678710938,
+        "z": 30.54529190063476
+      },
+      "model": 551491569,
+      "doors": false,
+      "auto": true,
+      "autolock": 3,
+      "passcode": "925081",
+      "heading": 90,
+      "state": 1,
+      "maxDistance": 2
+    }
+  },
+  {
+    "id": 209,
+    "name": "bureaucolonel",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "gendarmerie": 9
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "groups": {
+        "gendarmerie": 9
+      },
+      "coords": {
+        "x": 803.373779296875,
+        "y": 3747.81103515625,
+        "z": 43.59481811523437
+      },
+      "state": 1,
+      "doors": false,
+      "autolock": 5,
+      "auto": true,
+      "model": -2020634581,
+      "maxDistance": 2.5,
+      "heading": 205
+    }
+  },
+  {
+    "id": 210,
+    "name": "bureaucommandant",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "gendarmerie": 9
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "groups": {
+        "gendarmerie": 9
+      },
+      "coords": {
+        "x": 804.389892578125,
+        "y": 3745.61181640625,
+        "z": 43.59481811523437
+      },
+      "state": 1,
+      "doors": false,
+      "autolock": 5,
+      "auto": true,
+      "model": -2020634581,
+      "maxDistance": 2.5,
+      "heading": 205
+    }
+  },
+  {
+    "id": 211,
+    "name": "bureauencadrementgn",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "gendarmerie": 8
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "groups": {
+        "gendarmerie": 8
+      },
+      "coords": {
+        "x": 808.206298828125,
+        "y": 3745.24560546875,
+        "z": 43.59481811523437
+      },
+      "state": 1,
+      "doors": [
+        {
+          "model": -2020634581,
+          "heading": 205,
+          "coords": {
+            "x": 809.3848266601562,
+            "y": 3745.795166015625,
+            "z": 43.59481811523437
+          }
+        },
+        {
+          "model": -2020634581,
+          "heading": 25,
+          "coords": {
+            "x": 807.02783203125,
+            "y": 3744.696044921875,
+            "z": 43.59481811523437
+          }
+        }
+      ],
+      "autolock": 5,
+      "auto": true,
+      "maxDistance": 2.5
+    }
+  },
+  {
+    "id": 212,
+    "name": "bureauedcfgn",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "gendarmerie": 4
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "groups": {
+        "gendarmerie": 4
+      },
+      "coords": {
+        "x": 814.044677734375,
+        "y": 3747.9677734375,
+        "z": 43.59481811523437
+      },
+      "state": 1,
+      "doors": [
+        {
+          "model": -2020634581,
+          "heading": 25,
+          "coords": {
+            "x": 812.8668823242188,
+            "y": 3747.418701171875,
+            "z": 43.59481811523437
+          }
+        },
+        {
+          "model": -2020634581,
+          "heading": 205,
+          "coords": {
+            "x": 815.222412109375,
+            "y": 3748.51708984375,
+            "z": 43.59481811523437
+          }
+        }
+      ],
+      "autolock": 5,
+      "auto": true,
+      "maxDistance": 2.5,
+      "characters": [
+        "gendarmerie"
+      ]
+    }
+  },
+  {
+    "id": 213,
+    "name": "bureaupsig",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "gendarmerie": 4
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "groups": {
+        "gendarmerie": 4
+      },
+      "coords": {
+        "x": 800.9970092773438,
+        "y": 3756.91748046875,
+        "z": 43.59481811523437
+      },
+      "state": 1,
+      "doors": [
+        {
+          "model": -2020634581,
+          "heading": 205,
+          "coords": {
+            "x": 802.1748046875,
+            "y": 3757.466552734375,
+            "z": 43.59481811523437
+          }
+        },
+        {
+          "model": -2020634581,
+          "heading": 25,
+          "coords": {
+            "x": 799.8192138671875,
+            "y": 3756.3681640625,
+            "z": 43.59481811523437
+          }
+        }
+      ],
+      "autolock": 5,
+      "auto": true,
+      "maxDistance": 2.5
+    }
+  },
+  {
+    "id": 214,
+    "name": "bureaugnbr",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "gendarmerie": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "groups": {
+        "gendarmerie": 0
+      },
+      "coords": {
+        "x": 809.8321533203125,
+        "y": 3760.979248046875,
+        "z": 43.59481811523437
+      },
+      "state": 1,
+      "doors": false,
+      "autolock": 5,
+      "auto": true,
+      "model": -2020634581,
+      "maxDistance": 2.5,
+      "heading": 25
+    }
+  },
+  {
+    "id": 215,
+    "name": "porteaccescellule",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0,
+      "gendarmerie": 0,
+      "municipale": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "groups": {
+        "police": 0,
+        "gendarmerie": 0,
+        "municipale": 0
+      },
+      "coords": {
+        "x": 812.1765747070312,
+        "y": 3758.989990234375,
+        "z": 39.22749328613281
+      },
+      "state": 1,
+      "doors": false,
+      "autolock": 5,
+      "auto": true,
+      "model": -2020634581,
+      "maxDistance": 2.5,
+      "heading": 25
+    }
+  },
+  {
+    "id": 216,
+    "name": "porteaccescellule2",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0,
+      "gendarmerie": 0,
+      "municipale": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "groups": {
+        "police": 0,
+        "gendarmerie": 0,
+        "municipale": 0
+      },
+      "coords": {
+        "x": 807.4506225585938,
+        "y": 3758.4091796875,
+        "z": 39.22749328613281
+      },
+      "state": 1,
+      "doors": false,
+      "autolock": 5,
+      "auto": true,
+      "model": -2020634581,
+      "maxDistance": 2.5,
+      "heading": 295
+    }
+  },
+  {
+    "id": 217,
+    "name": "bureauauditiongn1",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0,
+      "gendarmerie": 0,
+      "municipale": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "groups": {
+        "police": 0,
+        "gendarmerie": 0,
+        "municipale": 0
+      },
+      "coords": {
+        "x": 806.8442993164062,
+        "y": 3759.70947265625,
+        "z": 39.22749328613281
+      },
+      "state": 1,
+      "doors": false,
+      "autolock": 5,
+      "auto": true,
+      "model": -2020634581,
+      "maxDistance": 2.5,
+      "heading": 115
+    }
+  },
+  {
+    "id": 218,
+    "name": "bureauaudition2",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0,
+      "gendarmerie": 0,
+      "municipale": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "groups": {
+        "police": 0,
+        "gendarmerie": 0,
+        "municipale": 0
+      },
+      "coords": {
+        "x": 805.1723022460938,
+        "y": 3763.295166015625,
+        "z": 39.22749328613281
+      },
+      "state": 1,
+      "doors": false,
+      "autolock": 5,
+      "auto": true,
+      "model": -2020634581,
+      "maxDistance": 2.5,
+      "heading": 115
+    }
+  },
+  {
+    "id": 219,
+    "name": "gngav1",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0,
+      "gendarmerie": 0,
+      "municipale": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "groups": {
+        "police": 0,
+        "gendarmerie": 0,
+        "municipale": 0
+      },
+      "coords": {
+        "x": 806.9495849609375,
+        "y": 3766.12646484375,
+        "z": 39.3305778503418
+      },
+      "state": 1,
+      "doors": false,
+      "autolock": 5,
+      "auto": true,
+      "model": -781467110,
+      "maxDistance": 2.5,
+      "heading": 115
+    }
+  },
+  {
+    "id": 220,
+    "name": "gngav2",
+    "state": 0,
+    "passcode": null,
+    "groups": {
+      "police": 0,
+      "gendarmerie": 0,
+      "municipale": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "groups": {
+        "police": 0,
+        "gendarmerie": 0,
+        "municipale": 0
+      },
+      "coords": {
+        "x": 807.6473388671875,
+        "y": 3764.630126953125,
+        "z": 39.3305778503418
+      },
+      "state": 0,
+      "doors": false,
+      "autolock": 5,
+      "model": -781467110,
+      "maxDistance": 2.5,
+      "heading": 295
+    }
+  },
+  {
+    "id": 221,
+    "name": "gngav3",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0,
+      "gendarmerie": 0,
+      "municipale": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "groups": {
+        "police": 0,
+        "gendarmerie": 0,
+        "municipale": 0
+      },
+      "coords": {
+        "x": 808.9824829101562,
+        "y": 3761.766845703125,
+        "z": 39.3305778503418
+      },
+      "state": 1,
+      "doors": false,
+      "autolock": 5,
+      "model": -781467110,
+      "maxDistance": 2.5,
+      "heading": 295
+    }
+  },
+  {
+    "id": 222,
+    "name": "bureaugn1er",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0,
+      "gendarmerie": 0,
+      "municipale": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "groups": {
+        "police": 0,
+        "gendarmerie": 0,
+        "municipale": 0
+      },
+      "coords": {
+        "x": 815.2830200195312,
+        "y": 3752.304443359375,
+        "z": 39.22749328613281
+      },
+      "state": 1,
+      "doors": false,
+      "autolock": 5,
+      "auto": true,
+      "model": -2020634581,
+      "maxDistance": 2.5,
+      "heading": 25
+    }
+  },
+  {
+    "id": 223,
+    "name": "entréegn",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "gendarmerie": 0,
+      "police": 0,
+      "gouvernement": 0,
+      "municipale": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "coords": {
+        "x": 803.6359252929688,
+        "y": 3748.9091796875,
+        "z": 34.76852035522461
+      },
+      "auto": true,
+      "groups": {
+        "gendarmerie": 0,
+        "police": 0,
+        "gouvernement": 0,
+        "municipale": 0
+      },
+      "doors": [
+        {
+          "coords": {
+            "x": 804.1851196289062,
+            "y": 3747.7314453125,
+            "z": 34.76852035522461
+          },
+          "model": -2020634581,
+          "heading": 115
+        },
+        {
+          "coords": {
+            "x": 803.0867309570312,
+            "y": 3750.0869140625,
+            "z": 34.76852035522461
+          },
+          "model": -2020634581,
+          "heading": 295
+        }
+      ],
+      "maxDistance": 2.5,
+      "autolock": 5,
+      "state": 1
+    }
+  },
+  {
+    "id": 224,
+    "name": "accèsgn",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0,
+      "gendarmerie": 0,
+      "municipale": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "groups": {
+        "police": 0,
+        "gendarmerie": 0,
+        "municipale": 0
+      },
+      "coords": {
+        "x": 806.7894897460938,
+        "y": 3706.03515625,
+        "z": 33.50093078613281
+      },
+      "state": 1,
+      "doors": false,
+      "autolock": 5,
+      "auto": true,
+      "model": 883853530,
+      "maxDistance": 2.5,
+      "heading": 205
+    }
+  },
+  {
+    "id": 225,
+    "name": "accesterrain2",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "gendarmerie": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "groups": {
+        "gendarmerie": 0
+      },
+      "coords": {
+        "x": 800.3804931640625,
+        "y": 3703.046630859375,
+        "z": 33.50093078613281
+      },
+      "state": 1,
+      "doors": false,
+      "autolock": 5,
+      "auto": true,
+      "model": 883853530,
+      "maxDistance": 2.5,
+      "heading": 25
+    }
+  },
+  {
+    "id": 226,
+    "name": "portailincorpo",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "gendarmerie": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "groups": {
+        "gendarmerie": 0
+      },
+      "coords": {
+        "x": 796.1441040039062,
+        "y": 3712.674560546875,
+        "z": 33.50093078613281
+      },
+      "state": 1,
+      "doors": false,
+      "autolock": 5,
+      "auto": true,
+      "model": 883853530,
+      "maxDistance": 2.5,
+      "heading": 115
+    }
+  },
+  {
+    "id": 227,
+    "name": "porteaccueil",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "gendarmerie": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "groups": {
+        "gendarmerie": 0
+      },
+      "coords": {
+        "x": 791.433349609375,
+        "y": 3717.305419921875,
+        "z": 34.97229766845703
+      },
+      "state": 1,
+      "doors": false,
+      "autolock": 5,
+      "auto": true,
+      "model": -2020634581,
+      "maxDistance": 2.5,
+      "heading": 115
+    }
+  },
+  {
+    "id": 228,
+    "name": "porteaccueilgn",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "gendarmerie": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "groups": {
+        "gendarmerie": 0
+      },
+      "coords": {
+        "x": 783.8609619140625,
+        "y": 3720.176513671875,
+        "z": 34.97229766845703
+      },
+      "state": 1,
+      "doors": false,
+      "autolock": 5,
+      "auto": true,
+      "model": -2020634581,
+      "maxDistance": 2.5,
+      "heading": 205
+    }
+  },
+  {
+    "id": 229,
+    "name": "portailplateaumoto",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "gendarmerie": 0
+    },
+    "maxDistance": 7,
+    "data": {
+      "groups": {
+        "gendarmerie": 0
+      },
+      "coords": {
+        "x": 773.2063598632812,
+        "y": 3799.803955078125,
+        "z": 33.53912353515625
+      },
+      "state": 1,
+      "doors": false,
+      "autolock": 5,
+      "auto": true,
+      "model": 1286535678,
+      "maxDistance": 7,
+      "heading": 205
+    }
+  },
+  {
+    "id": 230,
+    "name": "portailentrainementgn",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "gendarmerie": 0
+    },
+    "maxDistance": 7,
+    "data": {
+      "groups": {
+        "gendarmerie": 0
+      },
+      "coords": {
+        "x": 819.7022705078125,
+        "y": 3821.492431640625,
+        "z": 33.57775115966797
+      },
+      "state": 1,
+      "doors": false,
+      "autolock": 5,
+      "auto": true,
+      "model": 1286535678,
+      "maxDistance": 7,
+      "heading": 205
+    }
+  },
+  {
+    "id": 234,
+    "name": "entrée bureau vert",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "autovert": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "auto": true,
+      "coords": {
+        "x": 606.54931640625,
+        "y": 2746.3583984375,
+        "z": 42.2415771484375
+      },
+      "autolock": 5,
+      "doors": false,
+      "maxDistance": 2.5,
+      "model": -1829125497,
+      "heading": 184,
+      "state": 1,
+      "groups": {
+        "autovert": 0
+      }
+    }
+  },
+  {
+    "id": 235,
+    "name": "Entrée vl vert",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "autovert": 0
+    },
+    "maxDistance": 7,
+    "data": {
+      "coords": {
+        "x": 591.7511596679688,
+        "y": 2745.4033203125,
+        "z": 42.99848175048828
+      },
+      "doors": false,
+      "maxDistance": 7,
+      "model": 1322342314,
+      "heading": 4,
+      "state": 1,
+      "groups": {
+        "autovert": 0
+      }
+    }
+  },
+  {
+    "id": 236,
+    "name": "Comando PORTAIL",
+    "state": 1,
+    "passcode": "0706",
+    "groups": {},
+    "maxDistance": 6,
+    "data": {
+      "maxDistance": 6,
+      "passcode": "0706",
+      "coords": {
+        "x": -2752.7138671875,
+        "y": 1481.164794921875,
+        "z": 102.03780364990234
+      },
+      "doors": [
+        {
+          "heading": 188,
+          "model": 270130812,
+          "coords": {
+            "x": -2756.60009765625,
+            "y": 1480.690185546875,
+            "z": 102.03780364990234
+          }
+        },
+        {
+          "heading": 7,
+          "model": 270130812,
+          "coords": {
+            "x": -2748.827880859375,
+            "y": 1481.639404296875,
+            "z": 102.03780364990234
+          }
+        }
+      ],
+      "state": 1,
+      "auto": true,
+      "autolock": 4
+    }
+  },
+  {
+    "id": 237,
+    "name": "porteaccèscelluleint",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "maxDistance": 2.5,
+      "state": 1,
+      "autolock": 5,
+      "coords": {
+        "x": 479.13470458984375,
+        "y": -992.7392578125,
+        "z": 26.35172843933105
+      },
+      "auto": true,
+      "groups": {
+        "police": 0
+      },
+      "doors": [
+        {
+          "coords": {
+            "x": 480.43408203125,
+            "y": -992.7392578125,
+            "z": 26.35172843933105
+          },
+          "heading": 180,
+          "model": -35610440
+        },
+        {
+          "coords": {
+            "x": 477.8353271484375,
+            "y": -992.7391967773438,
+            "z": 26.35172843933105
+          },
+          "heading": 0,
+          "model": -35610440
+        }
+      ]
+    }
+  },
+  {
+    "id": 238,
+    "name": "valfleuryporte",
+    "state": 1,
+    "passcode": "1478",
+    "groups": {},
+    "maxDistance": 2,
+    "data": {
+      "heading": 1,
+      "coords": {
+        "x": 899.1785278320312,
+        "y": 860.9164428710938,
+        "z": 188.32247924804688
+      },
+      "passcode": "1478",
+      "auto": true,
+      "state": 1,
+      "model": -626684119,
+      "maxDistance": 2,
+      "doors": false
+    }
+  },
+  {
+    "id": 241,
+    "name": "Centreautosud",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "autosud": 0
+    },
+    "maxDistance": 6,
+    "data": {
+      "doors": false,
+      "coords": {
+        "x": 871.2044677734375,
+        "y": -2112.94091796875,
+        "z": 31.75130844116211
+      },
+      "maxDistance": 6,
+      "groups": {
+        "autosud": 0
+      },
+      "doorRate": 1,
+      "model": -1958316735,
+      "heading": 265,
+      "state": 1
+    }
+  },
+  {
+    "id": 242,
+    "name": "centreautosud",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "autosud": 0
+    },
+    "maxDistance": 6,
+    "data": {
+      "doors": false,
+      "coords": {
+        "x": 908.8868408203125,
+        "y": -2097.85498046875,
+        "z": 31.74398803710937
+      },
+      "maxDistance": 6,
+      "groups": {
+        "autosud": 0
+      },
+      "doorRate": 1,
+      "model": -1958316735,
+      "heading": 175,
+      "state": 1
+    }
+  },
+  {
+    "id": 243,
+    "name": "centreautosud",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "autosud": 0
+    },
+    "maxDistance": 6,
+    "data": {
+      "doors": false,
+      "coords": {
+        "x": -1474.12890625,
+        "y": 68.38936614990234,
+        "z": 52.5270881652832
+      },
+      "maxDistance": 6,
+      "groups": {
+        "autosud": 0
+      },
+      "doorRate": 1,
+      "model": -2125423493,
+      "heading": 5,
+      "state": 1
+    }
+  },
+  {
+    "id": 244,
+    "name": "centreautosud",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "autosud": 0
+    },
+    "maxDistance": 6,
+    "data": {
+      "doors": false,
+      "coords": {
+        "x": -1616.23193359375,
+        "y": 79.7791976928711,
+        "z": 60.77870178222656
+      },
+      "maxDistance": 6,
+      "groups": {
+        "autosud": 0
+      },
+      "doorRate": 1,
+      "model": -2125423493,
+      "heading": 329,
+      "state": 1
+    }
+  },
+  {
+    "id": 245,
+    "name": "Gitans",
+    "state": 1,
+    "passcode": "1802",
+    "groups": {},
+    "maxDistance": 5,
+    "data": {
+      "state": 1,
+      "autolock": 3,
+      "maxDistance": 5,
+      "passcode": "1802",
+      "doors": false,
+      "model": 1286392437,
+      "auto": true,
+      "heading": 67,
+      "coords": {
+        "x": 2653.704833984375,
+        "y": 3457.5341796875,
+        "z": 55.72090911865234
+      }
+    }
+  },
+  {
+    "id": 246,
+    "name": "Gitans",
+    "state": 1,
+    "passcode": "1802",
+    "groups": {},
+    "maxDistance": 5,
+    "data": {
+      "model": 540462370,
+      "coords": {
+        "x": 2699.36962890625,
+        "y": 3522.122314453125,
+        "z": 57.48411560058594
+      },
+      "auto": true,
+      "doors": false,
+      "autolock": 3,
+      "passcode": "1802",
+      "heading": 155,
+      "maxDistance": 5,
+      "state": 1
+    }
+  },
+  {
+    "id": 247,
+    "name": "Gitans",
+    "state": 1,
+    "passcode": "1802",
+    "groups": {},
+    "maxDistance": 3,
+    "data": {
+      "model": -815851463,
+      "coords": {
+        "x": 2685.93115234375,
+        "y": 3529.5302734375,
+        "z": 56.99267196655273
+      },
+      "auto": true,
+      "doors": false,
+      "autolock": 3,
+      "passcode": "1802",
+      "heading": 335,
+      "maxDistance": 3,
+      "state": 1
+    }
+  },
+  {
+    "id": 248,
+    "name": "Gitans",
+    "state": 1,
+    "passcode": "1802",
+    "groups": {},
+    "maxDistance": 3,
+    "data": {
+      "model": 464151082,
+      "coords": {
+        "x": 2672.1650390625,
+        "y": 3535.0703125,
+        "z": 56.99312591552734
+      },
+      "auto": true,
+      "doors": false,
+      "autolock": 3,
+      "passcode": "1802",
+      "heading": 155,
+      "maxDistance": 3,
+      "state": 1
+    }
+  },
+  {
+    "id": 250,
+    "name": "pm1",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "gendarmerie": 0,
+      "police": 0,
+      "gouvernement": 0,
+      "municipale": 0
+    },
+    "maxDistance": 6,
+    "data": {
+      "coords": {
+        "x": -1064.5679931640625,
+        "y": -1264.0322265625,
+        "z": 5.06263923645019
+      },
+      "auto": true,
+      "groups": {
+        "gendarmerie": 0,
+        "police": 0,
+        "gouvernement": 0,
+        "municipale": 0
+      },
+      "doors": false,
+      "maxDistance": 6,
+      "state": 1,
+      "model": 2739697,
+      "heading": 210
+    }
+  },
+  {
+    "id": 252,
+    "name": "pm2",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "municipale": 0,
+      "police": 0,
+      "gendarmerie": 0
+    },
+    "maxDistance": 3,
+    "data": {
+      "doors": [
+        {
+          "coords": {
+            "x": -1094.17333984375,
+            "y": -1280.8338623046875,
+            "z": 5.67459678649902
+          },
+          "model": 1288178236,
+          "heading": 210
+        },
+        {
+          "coords": {
+            "x": -1096.0653076171875,
+            "y": -1281.9466552734375,
+            "z": 5.67459678649902
+          },
+          "model": 1288178236,
+          "heading": 31
+        }
+      ],
+      "maxDistance": 3,
+      "auto": true,
+      "groups": {
+        "municipale": 0,
+        "police": 0,
+        "gendarmerie": 0
+      },
+      "state": 1,
+      "coords": {
+        "x": -1095.119384765625,
+        "y": -1281.3902587890625,
+        "z": 5.67459678649902
+      }
+    }
+  },
+  {
+    "id": 253,
+    "name": "Accès Garage Banks",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "banks": 0
+    },
+    "maxDistance": 7,
+    "data": {
+      "model": 2090476135,
+      "doors": false,
+      "heading": 20,
+      "state": 1,
+      "coords": {
+        "x": 1371.020263671875,
+        "y": 3618.976806640625,
+        "z": 36.77830123901367
+      },
+      "groups": {
+        "banks": 0
+      },
+      "maxDistance": 7
+    }
+  },
+  {
+    "id": 254,
+    "name": "Coffre banks",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "banks": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "auto": true,
+      "doors": false,
+      "heading": 20,
+      "state": 1,
+      "coords": {
+        "x": 1366.7802734375,
+        "y": 3635.5234375,
+        "z": 36.3146858215332
+      },
+      "autolock": 4,
+      "maxDistance": 2.5,
+      "model": 1230486511,
+      "groups": {
+        "banks": 0
+      }
+    }
+  },
+  {
+    "id": 255,
+    "name": "accès garage banks double",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "banks": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "auto": true,
+      "doors": [
+        {
+          "coords": {
+            "x": 1360.244140625,
+            "y": 3633.34619140625,
+            "z": 35.83584594726562
+          },
+          "heading": 200,
+          "model": -2051651622
+        },
+        {
+          "coords": {
+            "x": 1362.685791015625,
+            "y": 3634.2255859375,
+            "z": 35.83584594726562
+          },
+          "heading": 20,
+          "model": -2051651622
+        }
+      ],
+      "state": 1,
+      "coords": {
+        "x": 1361.4649658203125,
+        "y": 3633.785888671875,
+        "z": 35.83584594726562
+      },
+      "autolock": 5,
+      "maxDistance": 2.5,
+      "groups": {
+        "banks": 0
+      }
+    }
+  },
+  {
+    "id": 256,
+    "name": "accès garage banks dispatch",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "banks": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "auto": true,
+      "doors": false,
+      "heading": 290,
+      "state": 1,
+      "coords": {
+        "x": 1365.59130859375,
+        "y": 3617.538818359375,
+        "z": 35.83015441894531
+      },
+      "autolock": 5,
+      "maxDistance": 2.5,
+      "model": -538477509,
+      "groups": {
+        "banks": 0
+      }
+    }
+  },
+  {
+    "id": 258,
+    "name": "entrée bakns",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "banks": 0
+    },
+    "maxDistance": 5,
+    "data": {
+      "auto": true,
+      "doors": [
+        {
+          "coords": {
+            "x": 1347.7535400390625,
+            "y": 3617.65234375,
+            "z": 36.15579605102539
+          },
+          "heading": 290,
+          "model": -1848357657
+        },
+        {
+          "coords": {
+            "x": 1348.704833984375,
+            "y": 3615.010986328125,
+            "z": 36.15579605102539
+          },
+          "heading": 110,
+          "model": -1848357657
+        }
+      ],
+      "state": 1,
+      "coords": {
+        "x": 1348.229248046875,
+        "y": 3616.33154296875,
+        "z": 36.15579605102539
+      },
+      "groups": {
+        "banks": 0
+      },
+      "maxDistance": 5
+    }
+  },
+  {
+    "id": 259,
+    "name": "accès étage banks",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "banks": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "auto": true,
+      "doors": [
+        {
+          "coords": {
+            "x": 1342.2213134765625,
+            "y": 3642.236083984375,
+            "z": 35.83584594726562
+          },
+          "heading": 20,
+          "model": -538477509
+        },
+        {
+          "coords": {
+            "x": 1339.7772216796875,
+            "y": 3641.355712890625,
+            "z": 35.83584594726562
+          },
+          "heading": 200,
+          "model": -538477509
+        }
+      ],
+      "state": 1,
+      "coords": {
+        "x": 1340.999267578125,
+        "y": 3641.7958984375,
+        "z": 35.83584594726562
+      },
+      "autolock": 5,
+      "maxDistance": 2.5,
+      "groups": {
+        "banks": 0
+      }
+    }
+  },
+  {
+    "id": 260,
+    "name": "stand de tir banks",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "banks": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "auto": true,
+      "doors": [
+        {
+          "coords": {
+            "x": 1348.1357421875,
+            "y": 3641.479248046875,
+            "z": 35.83584594726562
+          },
+          "heading": 110,
+          "model": -340230128
+        },
+        {
+          "coords": {
+            "x": 1347.2584228515625,
+            "y": 3643.915283203125,
+            "z": 35.83584594726562
+          },
+          "heading": 290,
+          "model": -340230128
+        }
+      ],
+      "state": 1,
+      "coords": {
+        "x": 1347.697021484375,
+        "y": 3642.697265625,
+        "z": 35.83584594726562
+      },
+      "autolock": 5,
+      "maxDistance": 2.5,
+      "groups": {
+        "banks": 0
+      }
+    }
+  },
+  {
+    "id": 261,
+    "name": "entrée banks 2",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "banks": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "auto": true,
+      "doors": [
+        {
+          "coords": {
+            "x": 1336.3056640625,
+            "y": 3633.4697265625,
+            "z": 36.16339111328125
+          },
+          "heading": 20,
+          "model": -1848357657
+        },
+        {
+          "coords": {
+            "x": 1338.9305419921875,
+            "y": 3634.4150390625,
+            "z": 36.16339111328125
+          },
+          "heading": 200,
+          "model": -1848357657
+        }
+      ],
+      "state": 1,
+      "coords": {
+        "x": 1337.6181640625,
+        "y": 3633.9423828125,
+        "z": 36.16339111328125
+      },
+      "autolock": 5,
+      "maxDistance": 2.5,
+      "groups": {
+        "banks": 0
+      }
+    }
+  },
+  {
+    "id": 262,
+    "name": "armurerie banks",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "banks": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "auto": true,
+      "doors": false,
+      "heading": 20,
+      "state": 1,
+      "coords": {
+        "x": 1352.2354736328125,
+        "y": 3634.09716796875,
+        "z": 35.83584594726562
+      },
+      "autolock": 5,
+      "maxDistance": 2.5,
+      "model": -340230128,
+      "groups": {
+        "banks": 0
+      }
+    }
+  },
+  {
+    "id": 263,
+    "name": "accès terrasse banks",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "banks": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "auto": true,
+      "doors": [
+        {
+          "coords": {
+            "x": 1341.2391357421875,
+            "y": 3635.781494140625,
+            "z": 40.89961242675781
+          },
+          "heading": 110,
+          "model": -1848357657
+        },
+        {
+          "coords": {
+            "x": 1340.2901611328125,
+            "y": 3638.41650390625,
+            "z": 40.89961242675781
+          },
+          "heading": 290,
+          "model": -1848357657
+        }
+      ],
+      "state": 1,
+      "coords": {
+        "x": 1340.7646484375,
+        "y": 3637.09912109375,
+        "z": 40.89961242675781
+      },
+      "autolock": 5,
+      "maxDistance": 2.5,
+      "groups": {
+        "banks": 0
+      }
+    }
+  },
+  {
+    "id": 264,
+    "name": "accès pieton parking pv banks",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "banks": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "auto": true,
+      "doors": false,
+      "heading": 290,
+      "state": 1,
+      "coords": {
+        "x": 1351.304443359375,
+        "y": 3610.709716796875,
+        "z": 35.82451248168945
+      },
+      "autolock": 5,
+      "maxDistance": 2.5,
+      "model": 2060132041,
+      "groups": {
+        "banks": 0
+      }
+    }
+  },
+  {
+    "id": 265,
+    "name": "portail banks",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "banks": 0
+    },
+    "maxDistance": 7,
+    "data": {
+      "auto": true,
+      "doors": false,
+      "heading": 20,
+      "state": 1,
+      "coords": {
+        "x": 1377.345947265625,
+        "y": 3595.41796875,
+        "z": 34.6564712524414
+      },
+      "autolock": 5,
+      "maxDistance": 7,
+      "model": 1533459361,
+      "groups": {
+        "banks": 0
+      }
+    }
+  },
+  {
+    "id": 267,
+    "name": "pn44",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "groups": {
+        "police": 0
+      },
+      "state": 1,
+      "model": -1726818330,
+      "auto": true,
+      "heading": 270,
+      "doors": false,
+      "coords": {
+        "x": 461.3142395019531,
+        "y": -1001.3619995117188,
+        "z": 30.83595466613769
+      },
+      "maxDistance": 2
+    }
+  },
+  {
+    "id": 269,
+    "name": "GARAGEPN",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0,
+      "municipale": 0,
+      "gendarmerie": 0
+    },
+    "maxDistance": 5,
+    "data": {
+      "maxDistance": 5,
+      "heading": 0,
+      "model": 2030132228,
+      "groups": {
+        "police": 0,
+        "municipale": 0,
+        "gendarmerie": 0
+      },
+      "coords": {
+        "x": 433.7119445800781,
+        "y": -1000.9818115234375,
+        "z": 26.70940971374511
+      },
+      "doors": false,
+      "state": 1,
+      "auto": true,
+      "autolock": 5
+    }
+  },
+  {
+    "id": 270,
+    "name": "banks",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "vigne": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "coords": {
+        "x": -9.95854663848877,
+        "y": -658.7781372070312,
+        "z": 31.89381408691406
+      },
+      "maxDistance": 2,
+      "groups": {
+        "vigne": 0
+      },
+      "state": 1,
+      "heading": 5,
+      "model": -844827165,
+      "doors": false,
+      "auto": true
+    }
+  },
+  {
+    "id": 271,
+    "name": "porte cour pm",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "gendarmerie": 0,
+      "police": 0,
+      "gouvernement": 0,
+      "municipale": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "coords": {
+        "x": -1112.44189453125,
+        "y": -1273.368408203125,
+        "z": 5.80047750473022
+      },
+      "auto": true,
+      "groups": {
+        "gendarmerie": 0,
+        "police": 0,
+        "gouvernement": 0,
+        "municipale": 0
+      },
+      "doors": false,
+      "maxDistance": 2.5,
+      "state": 1,
+      "autolock": 5,
+      "model": -1244743934,
+      "heading": 210
+    }
+  },
+  {
+    "id": 272,
+    "name": "portillon pm1",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "gendarmerie": 0,
+      "police": 0,
+      "gouvernement": 0,
+      "municipale": 0
+    },
+    "maxDistance": 6,
+    "data": {
+      "coords": {
+        "x": -1089.2825927734375,
+        "y": -1241.3656005859375,
+        "z": 5.72334241867065
+      },
+      "auto": true,
+      "groups": {
+        "gendarmerie": 0,
+        "police": 0,
+        "gouvernement": 0,
+        "municipale": 0
+      },
+      "doors": false,
+      "maxDistance": 6,
+      "state": 1,
+      "autolock": 5,
+      "model": -1156020871,
+      "heading": 120
+    }
+  },
+  {
+    "id": 273,
+    "name": "portillon pm2",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "gendarmerie": 0,
+      "police": 0,
+      "gouvernement": 0,
+      "municipale": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "coords": {
+        "x": -1101.6513671875,
+        "y": -1248.4940185546875,
+        "z": 5.72334241867065
+      },
+      "auto": true,
+      "groups": {
+        "gendarmerie": 0,
+        "police": 0,
+        "gouvernement": 0,
+        "municipale": 0
+      },
+      "doors": false,
+      "maxDistance": 2.5,
+      "state": 1,
+      "autolock": 5,
+      "model": -1156020871,
+      "heading": 120
+    }
+  },
+  {
+    "id": 274,
+    "name": "tribunal arrière",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "tribunal": 0,
+      "gouvernement": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "coords": {
+        "x": -444.2326965332031,
+        "y": 1062.1695556640625,
+        "z": 329.9576110839844
+      },
+      "auto": true,
+      "groups": {
+        "tribunal": 0,
+        "gouvernement": 0
+      },
+      "doors": false,
+      "maxDistance": 2.5,
+      "state": 1,
+      "autolock": 5,
+      "model": 981498314,
+      "heading": 164
+    }
+  },
+  {
+    "id": 275,
+    "name": "tribunale entrée",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "gendarmerie": 0,
+      "police": 0,
+      "tribunal": 0,
+      "municipale": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "coords": {
+        "x": -432.5845642089844,
+        "y": 1105.2076416015625,
+        "z": 330.1365966796875
+      },
+      "auto": true,
+      "groups": {
+        "gendarmerie": 0,
+        "police": 0,
+        "tribunal": 0,
+        "municipale": 0
+      },
+      "doors": [
+        {
+          "coords": {
+            "x": -433.6056823730469,
+            "y": 1105.493896484375,
+            "z": 330.1365966796875
+          },
+          "model": 1045365099,
+          "heading": 345
+        },
+        {
+          "coords": {
+            "x": -431.5634460449219,
+            "y": 1104.92138671875,
+            "z": 330.1365966796875
+          },
+          "model": -668998848,
+          "heading": 165
+        }
+      ],
+      "maxDistance": 2.5,
+      "autolock": 5,
+      "state": 1
+    }
+  },
+  {
+    "id": 278,
+    "name": "Blanchiment ",
+    "state": 1,
+    "passcode": "925081",
+    "groups": {},
+    "maxDistance": 3,
+    "data": {
+      "maxDistance": 3,
+      "passcode": "925081",
+      "coords": {
+        "x": 718.081298828125,
+        "y": -975.4195556640625,
+        "z": 25.00571632385254
+      },
+      "doors": [
+        {
+          "heading": 0,
+          "model": -681066206,
+          "coords": {
+            "x": 719.3818359375,
+            "y": -975.4185180664062,
+            "z": 25.00571632385254
+          }
+        },
+        {
+          "heading": 180,
+          "model": 245182344,
+          "coords": {
+            "x": 716.7808227539062,
+            "y": -975.420654296875,
+            "z": 25.00571632385254
+          }
+        }
+      ],
+      "state": 1,
+      "auto": true,
+      "autolock": 3
+    }
+  },
+  {
+    "id": 279,
+    "name": "Loups noir portails",
+    "state": 1,
+    "passcode": "2010",
+    "groups": {},
+    "maxDistance": 6,
+    "data": {
+      "state": 1,
+      "maxDistance": 6,
+      "coords": {
+        "x": -844.051025390625,
+        "y": 155.9619140625,
+        "z": 66.03221130371094
+      },
+      "autolock": 5,
+      "doors": false,
+      "heading": 90,
+      "auto": true,
+      "model": -2125423493,
+      "passcode": "2010"
+    }
+  },
+  {
+    "id": 281,
+    "name": "loup noir maison",
+    "state": 1,
+    "passcode": "2010",
+    "groups": {},
+    "maxDistance": 4,
+    "data": {
+      "state": 1,
+      "maxDistance": 4,
+      "coords": {
+        "x": -816.411376953125,
+        "y": 178.30441284179688,
+        "z": 72.82737731933594
+      },
+      "autolock": 4,
+      "doors": [
+        {
+          "model": 159994461,
+          "coords": {
+            "x": -816.7160034179688,
+            "y": 179.09796142578125,
+            "z": 72.82737731933594
+          },
+          "heading": 291
+        },
+        {
+          "model": -1686014385,
+          "coords": {
+            "x": -816.1068115234375,
+            "y": 177.5108642578125,
+            "z": 72.82737731933594
+          },
+          "heading": 291
+        }
+      ],
+      "auto": true,
+      "passcode": "2010"
+    }
+  },
+  {
+    "id": 282,
+    "name": "loup noire maison",
+    "state": 1,
+    "passcode": "2010",
+    "groups": {},
+    "maxDistance": 4,
+    "data": {
+      "state": 1,
+      "maxDistance": 4,
+      "coords": {
+        "x": -795.535400390625,
+        "y": 177.61688232421875,
+        "z": 73.04045104980469
+      },
+      "autolock": 4,
+      "doors": [
+        {
+          "model": 1245831483,
+          "coords": {
+            "x": -794.505126953125,
+            "y": 178.0123748779297,
+            "z": 73.04045104980469
+          },
+          "heading": 21
+        },
+        {
+          "model": -1454760130,
+          "coords": {
+            "x": -796.565673828125,
+            "y": 177.22137451171875,
+            "z": 73.04045104980469
+          },
+          "heading": 21
+        }
+      ],
+      "auto": true,
+      "passcode": "2010"
+    }
+  },
+  {
+    "id": 283,
+    "name": "Loup Noire",
+    "state": 1,
+    "passcode": "2010",
+    "groups": {},
+    "maxDistance": 4,
+    "data": {
+      "state": 1,
+      "maxDistance": 4,
+      "coords": {
+        "x": -793.789794921875,
+        "y": 181.53773498535156,
+        "z": 73.04045104980469
+      },
+      "autolock": 4,
+      "doors": [
+        {
+          "model": 1245831483,
+          "coords": {
+            "x": -794.185302734375,
+            "y": 182.56800842285156,
+            "z": 73.04045104980469
+          },
+          "heading": 111
+        },
+        {
+          "model": -1454760130,
+          "coords": {
+            "x": -793.3943481445312,
+            "y": 180.50746154785156,
+            "z": 73.04045104980469
+          },
+          "heading": 111
+        }
+      ],
+      "auto": true,
+      "passcode": "2010"
+    }
+  },
+  {
+    "id": 284,
+    "name": "Loup noire maison",
+    "state": 1,
+    "passcode": "2010",
+    "groups": {},
+    "maxDistance": 4,
+    "data": {
+      "state": 1,
+      "maxDistance": 4,
+      "coords": {
+        "x": -806.28173828125,
+        "y": 186.0246124267578,
+        "z": 72.6240463256836
+      },
+      "autolock": 4,
+      "doors": false,
+      "heading": 201,
+      "auto": true,
+      "model": -1563640173,
+      "passcode": "2010"
+    }
+  },
+  {
+    "id": 294,
+    "name": "bspp",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "ambulancesandy": 0
+    },
+    "maxDistance": 9,
+    "data": {
+      "auto": true,
+      "doors": false,
+      "maxDistance": 9,
+      "heading": 359,
+      "groups": {
+        "ambulancesandy": 0
+      },
+      "coords": {
+        "x": 1149.59716796875,
+        "y": -1462.882568359375,
+        "z": 34.23584365844726
+      },
+      "state": 1,
+      "model": 1286535678
+    }
+  },
+  {
+    "id": 295,
+    "name": "bspp2",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "ambulancesandy": 0
+    },
+    "maxDistance": 9,
+    "data": {
+      "auto": true,
+      "doors": false,
+      "maxDistance": 9,
+      "heading": 179,
+      "groups": {
+        "ambulancesandy": 0
+      },
+      "coords": {
+        "x": 1141.7818603515625,
+        "y": -1462.611328125,
+        "z": 34.23584365844726
+      },
+      "state": 1,
+      "model": 1286535678
+    }
+  },
+  {
+    "id": 297,
+    "name": "ordrenoirboss",
+    "state": 1,
+    "passcode": "095854",
+    "groups": {},
+    "maxDistance": 2,
+    "data": {
+      "coords": {
+        "x": -317.0998229980469,
+        "y": 197.39183044433594,
+        "z": 90.7551040649414
+      },
+      "auto": true,
+      "state": 1,
+      "autolock": 2,
+      "passcode": "095854",
+      "maxDistance": 2,
+      "doors": [
+        {
+          "heading": 280,
+          "coords": {
+            "x": -317.2301940917969,
+            "y": 198.13064575195312,
+            "z": 90.7551040649414
+          },
+          "model": -1240156945
+        },
+        {
+          "heading": 100,
+          "coords": {
+            "x": -316.9694519042969,
+            "y": 196.65301513671875,
+            "z": 90.7551040649414
+          },
+          "model": -1240156945
+        }
+      ]
+    }
+  },
+  {
+    "id": 298,
+    "name": "ordrenoirgeneral",
+    "state": 1,
+    "passcode": "075879",
+    "groups": {},
+    "maxDistance": 2,
+    "data": {
+      "doors": [
+        {
+          "heading": 10,
+          "coords": {
+            "x": -305.3929138183594,
+            "y": 189.71884155273438,
+            "z": 86.37916564941406
+          },
+          "model": -1240156945
+        },
+        {
+          "heading": 190,
+          "coords": {
+            "x": -303.915283203125,
+            "y": 189.97955322265625,
+            "z": 86.37916564941406
+          },
+          "model": -1240156945
+        }
+      ],
+      "state": 1,
+      "passcode": "075879",
+      "coords": {
+        "x": -304.65411376953125,
+        "y": 189.8491973876953,
+        "z": 86.37916564941406
+      },
+      "maxDistance": 2,
+      "auto": true
+    }
+  },
+  {
+    "id": 300,
+    "name": "gitanbosss",
+    "state": 1,
+    "passcode": "1239",
+    "groups": {},
+    "maxDistance": 2,
+    "data": {
+      "model": 1629879861,
+      "coords": {
+        "x": 2688.991455078125,
+        "y": 3518.3017578125,
+        "z": 62.30043029785156
+      },
+      "auto": true,
+      "doors": false,
+      "autolock": 2,
+      "passcode": "1239",
+      "heading": 335,
+      "maxDistance": 2,
+      "state": 1
+    }
+  },
+  {
+    "id": 301,
+    "name": "gitangeneral",
+    "state": 1,
+    "passcode": "1802",
+    "groups": {},
+    "maxDistance": 2,
+    "data": {
+      "model": 1629879861,
+      "coords": {
+        "x": 2681.27880859375,
+        "y": 3523.370361328125,
+        "z": 62.30043029785156
+      },
+      "auto": true,
+      "doors": false,
+      "autolock": 1,
+      "passcode": "1802",
+      "heading": 335,
+      "maxDistance": 2,
+      "state": 1
+    }
+  },
+  {
+    "id": 302,
+    "name": "Comando GENERAL",
+    "state": 1,
+    "passcode": "0320",
+    "groups": {},
+    "maxDistance": 2,
+    "data": {
+      "maxDistance": 2,
+      "passcode": "0320",
+      "model": -637233066,
+      "coords": {
+        "x": -2826.330078125,
+        "y": 1402.4775390625,
+        "z": 86.82218933105469
+      },
+      "doors": false,
+      "state": 1,
+      "auto": true,
+      "autolock": 1,
+      "heading": 90
+    }
+  },
+  {
+    "id": 303,
+    "name": "Comando BOSS",
+    "state": 1,
+    "passcode": "1404",
+    "groups": {},
+    "maxDistance": 2,
+    "data": {
+      "maxDistance": 2,
+      "passcode": "1404",
+      "model": -637233066,
+      "coords": {
+        "x": -2826.330078125,
+        "y": 1418.386474609375,
+        "z": 86.69214630126953
+      },
+      "doors": false,
+      "state": 1,
+      "auto": true,
+      "autolock": 1,
+      "heading": 90
+    }
+  },
+  {
+    "id": 304,
+    "name": "lutzboss",
+    "state": 1,
+    "passcode": "1224",
+    "groups": {},
+    "maxDistance": 2,
+    "data": {
+      "autolock": 1,
+      "state": 1,
+      "auto": true,
+      "maxDistance": 2,
+      "heading": 348,
+      "passcode": "1224",
+      "doors": false,
+      "coords": {
+        "x": 539.6968383789062,
+        "y": 6694.15869140625,
+        "z": 46.2372817993164
+      },
+      "model": -215184123
+    }
+  },
+  {
+    "id": 305,
+    "name": "lutsgeneral",
+    "state": 1,
+    "passcode": "2110",
+    "groups": {},
+    "maxDistance": 2,
+    "data": {
+      "autolock": 2,
+      "state": 1,
+      "auto": true,
+      "maxDistance": 2,
+      "heading": 78,
+      "passcode": "2110",
+      "doors": false,
+      "coords": {
+        "x": 541.7153930664062,
+        "y": 6703.37890625,
+        "z": 42.58517837524414
+      },
+      "model": -215184123
+    }
+  },
+  {
+    "id": 306,
+    "name": "picassoboss",
+    "state": 1,
+    "passcode": "3850",
+    "groups": {},
+    "maxDistance": 2,
+    "data": {
+      "state": 1,
+      "maxDistance": 2,
+      "passcode": "3850",
+      "doors": false,
+      "model": -833759002,
+      "auto": true,
+      "heading": 180,
+      "autolock": 2,
+      "coords": {
+        "x": 1576.02587890625,
+        "y": 3244.923095703125,
+        "z": 59.97312927246094
+      }
+    }
+  },
+  {
+    "id": 307,
+    "name": "picassogene",
+    "state": 1,
+    "passcode": "6943",
+    "groups": {},
+    "maxDistance": 2,
+    "data": {
+      "state": 1,
+      "maxDistance": 2,
+      "passcode": "6943",
+      "doors": false,
+      "model": -833759002,
+      "auto": true,
+      "heading": 180,
+      "autolock": 2,
+      "coords": {
+        "x": 1584.393310546875,
+        "y": 3244.923095703125,
+        "z": 59.97312927246094
+      }
+    }
+  },
+  {
+    "id": 308,
+    "name": "riverougeboss",
+    "state": 1,
+    "passcode": "0904",
+    "groups": {},
+    "maxDistance": 2,
+    "data": {
+      "passcode": "0904",
+      "coords": {
+        "x": 834.7069091796875,
+        "y": -277.7642517089844,
+        "z": 67.5528564453125
+      },
+      "maxDistance": 2,
+      "autolock": 2,
+      "auto": true,
+      "heading": 184,
+      "model": 1890297615,
+      "doors": false,
+      "state": 1
+    }
+  },
+  {
+    "id": 309,
+    "name": "rivegeneral",
+    "state": 1,
+    "passcode": "2609",
+    "groups": {},
+    "maxDistance": 2,
+    "data": {
+      "coords": {
+        "x": 844.9137573242188,
+        "y": -274.4356384277344,
+        "z": 67.5528564453125
+      },
+      "heading": 94,
+      "auto": true,
+      "maxDistance": 2,
+      "state": 1,
+      "passcode": "2609",
+      "doors": false,
+      "autolock": 2,
+      "model": 1890297615
+    }
+  },
+  {
+    "id": 310,
+    "name": "rivegeneral1",
+    "state": 1,
+    "passcode": "69200",
+    "groups": {},
+    "maxDistance": 2,
+    "data": {
+      "passcode": "69200",
+      "coords": {
+        "x": 834.414794921875,
+        "y": -290.59747314453125,
+        "z": 67.5528564453125
+      },
+      "maxDistance": 2,
+      "autolock": 2,
+      "auto": true,
+      "heading": 184,
+      "model": 1890297615,
+      "doors": false,
+      "state": 1
+    }
+  },
+  {
+    "id": 313,
+    "name": "loupnoirboss",
+    "state": 1,
+    "passcode": "690752",
+    "groups": {},
+    "maxDistance": 2,
+    "data": {
+      "state": 1,
+      "passcode": "690752",
+      "doors": false,
+      "autolock": 2,
+      "auto": true,
+      "maxDistance": 2,
+      "coords": {
+        "x": -809.2808837890625,
+        "y": 177.85536193847656,
+        "z": 76.89032745361328
+      },
+      "model": -384976104,
+      "heading": 201
+    }
+  },
+  {
+    "id": 314,
+    "name": "loupnoirgene",
+    "state": 1,
+    "passcode": "531864",
+    "groups": {},
+    "maxDistance": 2,
+    "data": {
+      "state": 1,
+      "passcode": "531864",
+      "doors": false,
+      "autolock": 2,
+      "auto": true,
+      "maxDistance": 2,
+      "coords": {
+        "x": -804.9542846679688,
+        "y": 171.86256408691406,
+        "z": 76.89032745361328
+      },
+      "model": -384976104,
+      "heading": 21
+    }
+  },
+  {
+    "id": 315,
+    "name": "blanchiment",
+    "state": 1,
+    "passcode": "5684431387",
+    "groups": {},
+    "maxDistance": 2,
+    "data": {
+      "maxDistance": 2,
+      "auto": true,
+      "model": -815851463,
+      "state": 1,
+      "coords": {
+        "x": 23.34465026855468,
+        "y": -1897.604736328125,
+        "z": 23.11135292053222
+      },
+      "doors": false,
+      "autolock": 1,
+      "passcode": "5684431387",
+      "heading": 320
+    }
+  },
+  {
+    "id": 316,
+    "name": "Black Armada",
+    "state": 1,
+    "passcode": "1112",
+    "groups": {},
+    "maxDistance": 2,
+    "data": {
+      "state": 1,
+      "maxDistance": 2,
+      "passcode": "1112",
+      "doors": [
+        {
+          "coords": {
+            "x": -3304.80419921875,
+            "y": 537.781005859375,
+            "z": 14.45696258544921
+          },
+          "model": 823886385,
+          "heading": 119
+        },
+        {
+          "coords": {
+            "x": -3306.740478515625,
+            "y": 536.6919555664062,
+            "z": 14.45696258544921
+          },
+          "model": 823886385,
+          "heading": 299
+        }
+      ],
+      "auto": true,
+      "autolock": 3,
+      "coords": {
+        "x": -3305.7724609375,
+        "y": 537.2364501953125,
+        "z": 14.45696258544921
+      }
+    }
+  },
+  {
+    "id": 317,
+    "name": "Black Armada",
+    "state": 1,
+    "passcode": "1403",
+    "groups": {},
+    "maxDistance": 1,
+    "data": {
+      "state": 1,
+      "maxDistance": 1,
+      "passcode": "1403",
+      "doors": [
+        {
+          "coords": {
+            "x": -3327.556884765625,
+            "y": 543.9082641601562,
+            "z": 17.2005615234375
+          },
+          "model": 1084723221,
+          "heading": 28
+        },
+        {
+          "coords": {
+            "x": -3328.37353515625,
+            "y": 545.4069213867188,
+            "z": 17.2005615234375
+          },
+          "model": -700013674,
+          "heading": 209
+        }
+      ],
+      "auto": true,
+      "autolock": 3,
+      "coords": {
+        "x": -3327.96533203125,
+        "y": 544.6575927734375,
+        "z": 17.2005615234375
+      }
+    }
+  },
+  {
+    "id": 318,
+    "name": "Black Armada",
+    "state": 1,
+    "passcode": "1112",
+    "groups": {},
+    "maxDistance": 1,
+    "data": {
+      "state": 1,
+      "maxDistance": 1,
+      "passcode": "1112",
+      "doors": [
+        {
+          "coords": {
+            "x": -3336.919921875,
+            "y": 554.9796142578125,
+            "z": 13.85792446136474
+          },
+          "model": -2082151919,
+          "heading": 29
+        },
+        {
+          "coords": {
+            "x": -3337.96435546875,
+            "y": 556.7806396484375,
+            "z": 13.85792446136474
+          },
+          "model": -2082151919,
+          "heading": 210
+        }
+      ],
+      "auto": true,
+      "autolock": 3,
+      "coords": {
+        "x": -3337.442138671875,
+        "y": 555.880126953125,
+        "z": 13.85792446136474
+      }
+    }
+  },
+  {
+    "id": 319,
+    "name": "Black Armada",
+    "state": 1,
+    "passcode": "1112",
+    "groups": {},
+    "maxDistance": 1,
+    "data": {
+      "state": 1,
+      "maxDistance": 1,
+      "passcode": "1112",
+      "doors": false,
+      "model": -1443762372,
+      "auto": true,
+      "heading": 220,
+      "autolock": 3,
+      "coords": {
+        "x": -3329.007568359375,
+        "y": 574.6143188476562,
+        "z": 14.42131042480468
+      }
+    }
+  },
+  {
+    "id": 320,
+    "name": "Black Armada",
+    "state": 1,
+    "passcode": "1112",
+    "groups": {},
+    "maxDistance": 5,
+    "data": {
+      "state": 1,
+      "maxDistance": 5,
+      "passcode": "1112",
+      "doors": [
+        {
+          "coords": {
+            "x": -3059.574951171875,
+            "y": 422.39605712890625,
+            "z": 7.42685985565185
+          },
+          "model": 1653418708,
+          "heading": 68
+        },
+        {
+          "coords": {
+            "x": -3062.544189453125,
+            "y": 415.11151123046875,
+            "z": 7.47341012954711
+          },
+          "model": -1049302886,
+          "heading": 68
+        }
+      ],
+      "auto": true,
+      "autolock": 3,
+      "coords": {
+        "x": -3061.0595703125,
+        "y": 418.7537841796875,
+        "z": 7.45013523101806
+      }
+    }
+  },
+  {
+    "id": 337,
+    "name": "piuzaathis",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "pizzathis": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "heading": 4,
+      "coords": {
+        "x": 632.0328369140625,
+        "y": 2747.746826171875,
+        "z": 42.57009887695312
+      },
+      "groups": {
+        "pizzathis": 0
+      },
+      "state": 1,
+      "model": -2034972125,
+      "maxDistance": 2,
+      "doors": false,
+      "auto": true
+    }
+  },
+  {
+    "id": 338,
+    "name": "pizzaa",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "pizzathis": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "coords": {
+        "x": 629.5350341796875,
+        "y": 2757.77099609375,
+        "z": 42.60034561157226
+      },
+      "groups": {
+        "pizzathis": 0
+      },
+      "state": 1,
+      "maxDistance": 2,
+      "doors": [
+        {
+          "coords": {
+            "x": 631.0418701171875,
+            "y": 2757.87744140625,
+            "z": 42.60034561157226
+          },
+          "heading": 184,
+          "model": 1831295132
+        },
+        {
+          "coords": {
+            "x": 628.0282592773438,
+            "y": 2757.66455078125,
+            "z": 42.60034561157226
+          },
+          "heading": 4,
+          "model": 1831295132
+        }
+      ],
+      "auto": true
+    }
+  },
+  {
+    "id": 356,
+    "name": "dir1",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "dir": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "auto": true,
+      "heading": 202,
+      "doors": false,
+      "state": 1,
+      "groups": {
+        "dir": 0
+      },
+      "maxDistance": 2,
+      "coords": {
+        "x": 2912.162109375,
+        "y": 4377.6025390625,
+        "z": 50.51442337036133
+      },
+      "model": -223244946
+    }
+  },
+  {
+    "id": 357,
+    "name": "dir2",
+    "state": 1,
+    "passcode": "222",
+    "groups": {
+      "dir": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "passcode": "222",
+      "auto": true,
+      "heading": 292,
+      "doors": false,
+      "state": 1,
+      "groups": {
+        "dir": 0
+      },
+      "maxDistance": 2,
+      "coords": {
+        "x": 2906.71337890625,
+        "y": 4380.76513671875,
+        "z": 51.34038543701172
+      },
+      "model": -574109626
+    }
+  },
+  {
+    "id": 358,
+    "name": "dir3",
+    "state": 1,
+    "passcode": "222",
+    "groups": {
+      "dir": 0
+    },
+    "maxDistance": 5,
+    "data": {
+      "passcode": "222",
+      "auto": true,
+      "heading": 292,
+      "doors": false,
+      "state": 1,
+      "groups": {
+        "dir": 0
+      },
+      "maxDistance": 5,
+      "coords": {
+        "x": 2904.071044921875,
+        "y": 4387.357421875,
+        "z": 51.33222961425781
+      },
+      "model": -574109626
+    }
+  },
+  {
+    "id": 359,
+    "name": "dir4",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "dir": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "doors": false,
+      "groups": {
+        "dir": 0
+      },
+      "maxDistance": 2,
+      "auto": true,
+      "coords": {
+        "x": 2901.39697265625,
+        "y": 4393.8857421875,
+        "z": 51.33975982666015
+      },
+      "model": -574109626,
+      "heading": 292,
+      "state": 1
+    }
+  },
+  {
+    "id": 360,
+    "name": "dir6",
+    "state": 1,
+    "passcode": "222",
+    "groups": {
+      "dir": 0
+    },
+    "maxDistance": 9,
+    "data": {
+      "passcode": "222",
+      "auto": true,
+      "heading": 292,
+      "doors": false,
+      "state": 1,
+      "groups": {
+        "dir": 0
+      },
+      "maxDistance": 9,
+      "coords": {
+        "x": 2898.817626953125,
+        "y": 4400.46484375,
+        "z": 51.3324089050293
+      },
+      "model": -574109626
+    }
+  },
+  {
+    "id": 361,
+    "name": "dir8",
+    "state": 1,
+    "passcode": "222",
+    "groups": {
+      "dir": 0
+    },
+    "maxDistance": 9,
+    "data": {
+      "passcode": "222",
+      "auto": true,
+      "heading": 23,
+      "doors": false,
+      "state": 1,
+      "groups": {
+        "dir": 0
+      },
+      "maxDistance": 9,
+      "coords": {
+        "x": 2884.855712890625,
+        "y": 4413.6005859375,
+        "z": 48.93657302856445
+      },
+      "model": -1677365856
+    }
+  },
+  {
+    "id": 363,
+    "name": "dirr1",
+    "state": 1,
+    "passcode": "222",
+    "groups": {
+      "dir": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "passcode": "222",
+      "auto": true,
+      "heading": 295,
+      "doors": false,
+      "state": 1,
+      "groups": {
+        "dir": 0
+      },
+      "maxDistance": 2,
+      "coords": {
+        "x": 2906.785400390625,
+        "y": 4350.2099609375,
+        "z": 51.47513198852539
+      },
+      "model": -574109626
+    }
+  },
+  {
+    "id": 364,
+    "name": "dirr3",
+    "state": 1,
+    "passcode": "222",
+    "groups": {
+      "dir": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "passcode": "222",
+      "auto": true,
+      "heading": 294,
+      "doors": false,
+      "state": 1,
+      "groups": {
+        "dir": 0
+      },
+      "maxDistance": 2,
+      "coords": {
+        "x": 2909.732666015625,
+        "y": 4343.744140625,
+        "z": 51.47515487670898
+      },
+      "model": -574109626
+    }
+  },
+  {
+    "id": 365,
+    "name": "dirr3",
+    "state": 1,
+    "passcode": "222",
+    "groups": {
+      "dir": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "passcode": "222",
+      "auto": true,
+      "heading": 294,
+      "doors": false,
+      "state": 1,
+      "groups": {
+        "dir": 0
+      },
+      "maxDistance": 2,
+      "coords": {
+        "x": 2912.6513671875,
+        "y": 4337.32275390625,
+        "z": 51.47515487670898
+      },
+      "model": -574109626
+    }
+  },
+  {
+    "id": 366,
+    "name": "dirr4",
+    "state": 1,
+    "passcode": "222",
+    "groups": {
+      "dir": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "passcode": "222",
+      "auto": true,
+      "heading": 295,
+      "doors": false,
+      "state": 1,
+      "groups": {
+        "dir": 0
+      },
+      "maxDistance": 2,
+      "coords": {
+        "x": 2915.515869140625,
+        "y": 4330.85791015625,
+        "z": 51.47515487670898
+      },
+      "model": -574109626
+    }
+  },
+  {
+    "id": 367,
+    "name": "dirr5",
+    "state": 1,
+    "passcode": "222",
+    "groups": {
+      "dir": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "passcode": "222",
+      "auto": true,
+      "heading": 295,
+      "doors": false,
+      "state": 1,
+      "groups": {
+        "dir": 0
+      },
+      "maxDistance": 2,
+      "coords": {
+        "x": 2918.435302734375,
+        "y": 4324.3955078125,
+        "z": 51.47515487670898
+      },
+      "model": -574109626
+    }
+  },
+  {
+    "id": 372,
+    "name": "dir",
+    "state": 1,
+    "passcode": "222",
+    "groups": {
+      "dir": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "passcode": "222",
+      "auto": true,
+      "doors": [
+        {
+          "coords": {
+            "x": 2873.242431640625,
+            "y": 4397.646484375,
+            "z": 50.58513641357422
+          },
+          "heading": 295,
+          "model": -1315140340
+        },
+        {
+          "coords": {
+            "x": 2874.182373046875,
+            "y": 4395.66552734375,
+            "z": 50.58513641357422
+          },
+          "heading": 116,
+          "model": -1315140340
+        }
+      ],
+      "state": 1,
+      "groups": {
+        "dir": 0
+      },
+      "maxDistance": 2,
+      "coords": {
+        "x": 2873.71240234375,
+        "y": 4396.65625,
+        "z": 50.58513641357422
+      }
+    }
+  },
+  {
+    "id": 373,
+    "name": "Acid Chloridrique",
+    "state": 1,
+    "passcode": "478129",
+    "groups": {},
+    "maxDistance": 1,
+    "data": {
+      "maxDistance": 1,
+      "passcode": "478129",
+      "coords": {
+        "x": -605.6319580078125,
+        "y": -1626.263916015625,
+        "z": 33.16058731079101
+      },
+      "doors": [
+        {
+          "heading": 355,
+          "model": 362975687,
+          "coords": {
+            "x": -606.927490234375,
+            "y": -1626.1505126953125,
+            "z": 33.16058731079101
+          }
+        },
+        {
+          "heading": 175,
+          "model": 362975687,
+          "coords": {
+            "x": -604.33642578125,
+            "y": -1626.377197265625,
+            "z": 33.16058731079101
+          }
+        }
+      ],
+      "state": 1,
+      "auto": true,
+      "autolock": 3
+    }
+  },
+  {
+    "id": 374,
+    "name": "Acid Chloridrique",
+    "state": 1,
+    "passcode": "478129",
+    "groups": {},
+    "maxDistance": 1,
+    "data": {
+      "coords": {
+        "x": -624.3125,
+        "y": -1624.62939453125,
+        "z": 33.16058731079101
+      },
+      "state": 1,
+      "doors": [
+        {
+          "model": 362975687,
+          "coords": {
+            "x": -625.6080932617188,
+            "y": -1624.5159912109375,
+            "z": 33.16058731079101
+          },
+          "heading": 355
+        },
+        {
+          "model": 362975687,
+          "coords": {
+            "x": -623.0169677734375,
+            "y": -1624.7427978515625,
+            "z": 33.16058731079101
+          },
+          "heading": 175
+        }
+      ],
+      "auto": true,
+      "autolock": 3,
+      "passcode": "478129",
+      "maxDistance": 1
+    }
+  },
+  {
+    "id": 375,
+    "name": "Craft Armes",
+    "state": 1,
+    "passcode": "943682",
+    "groups": {},
+    "maxDistance": 1,
+    "data": {
+      "auto": true,
+      "autolock": 3,
+      "maxDistance": 1,
+      "model": 1413187371,
+      "coords": {
+        "x": 4435.7900390625,
+        "y": -4449.18896484375,
+        "z": 7.4907579421997
+      },
+      "passcode": "943682",
+      "state": 1,
+      "doors": false,
+      "heading": 109
+    }
+  },
+  {
+    "id": 377,
+    "name": "Pecuteurs",
+    "state": 1,
+    "passcode": "475301",
+    "groups": {},
+    "maxDistance": 1,
+    "data": {
+      "coords": {
+        "x": 1988.3529052734375,
+        "y": 3054.410888671875,
+        "z": 47.32038497924805
+      },
+      "model": 479144380,
+      "doors": false,
+      "auto": true,
+      "autolock": 3,
+      "passcode": "475301",
+      "heading": 58,
+      "state": 1,
+      "maxDistance": 1
+    }
+  },
+  {
+    "id": 378,
+    "name": "Pseudo",
+    "state": 1,
+    "passcode": "297504",
+    "groups": {},
+    "maxDistance": 1,
+    "data": {
+      "coords": {
+        "x": 1972.7689208984375,
+        "y": 3815.365966796875,
+        "z": 33.66325759887695
+      },
+      "model": 132154435,
+      "doors": false,
+      "auto": true,
+      "autolock": 3,
+      "passcode": "297504",
+      "heading": 30,
+      "state": 1,
+      "maxDistance": 1
+    }
+  },
+  {
+    "id": 379,
+    "name": "Traitement du Shit ",
+    "state": 1,
+    "passcode": "503975",
+    "groups": {},
+    "maxDistance": 1,
+    "data": {
+      "coords": {
+        "x": -14.86892127990722,
+        "y": -1441.18212890625,
+        "z": 31.1932258605957
+      },
+      "model": 520341586,
+      "doors": false,
+      "auto": true,
+      "autolock": 3,
+      "passcode": "503975",
+      "heading": 180,
+      "state": 1,
+      "maxDistance": 1
+    }
+  },
+  {
+    "id": 380,
+    "name": "lej",
+    "state": 1,
+    "passcode": "2609",
+    "groups": {},
+    "maxDistance": 2,
+    "data": {
+      "doors": false,
+      "passcode": "2609",
+      "heading": 45,
+      "coords": {
+        "x": 163.96044921875,
+        "y": 6647.9365234375,
+        "z": 31.84843254089355
+      },
+      "auto": true,
+      "state": 1,
+      "maxDistance": 2,
+      "model": -1020799246
+    }
+  },
+  {
+    "id": 381,
+    "name": "lej2",
+    "state": 1,
+    "passcode": "2609",
+    "groups": {},
+    "maxDistance": 2,
+    "data": {
+      "doors": false,
+      "passcode": "2609",
+      "heading": 225,
+      "coords": {
+        "x": 157.74871826171875,
+        "y": 6657.478515625,
+        "z": 31.84696960449218
+      },
+      "auto": true,
+      "state": 1,
+      "maxDistance": 2,
+      "model": -658747851
+    }
+  },
+  {
+    "id": 382,
+    "name": "cardealer2",
+    "state": 0,
+    "passcode": null,
+    "groups": {
+      "cardealer": 0
+    },
+    "maxDistance": 9,
+    "data": {
+      "doors": false,
+      "maxDistance": 9,
+      "coords": {
+        "x": 1097.46728515625,
+        "y": 2642.28125,
+        "z": 40.14018630981445
+      },
+      "model": 618600566,
+      "state": 0,
+      "groups": {
+        "cardealer": 0
+      },
+      "heading": 271
+    }
+  },
+  {
+    "id": 383,
+    "name": "cardealer 2",
+    "state": 0,
+    "passcode": null,
+    "groups": {
+      "cardealer": 0
+    },
+    "maxDistance": 9,
+    "data": {
+      "heading": 269,
+      "doors": false,
+      "state": 0,
+      "autolock": 9,
+      "maxDistance": 9,
+      "coords": {
+        "x": 1097.4180908203125,
+        "y": 2635.2353515625,
+        "z": 40.15391159057617
+      },
+      "groups": {
+        "cardealer": 0
+      },
+      "model": 618600566
+    }
+  },
+  {
+    "id": 384,
+    "name": "car5",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "cardealer": 0
+    },
+    "maxDistance": 5,
+    "data": {
+      "doors": false,
+      "maxDistance": 5,
+      "coords": {
+        "x": 1102.7098388671875,
+        "y": 2676.035400390625,
+        "z": 37.90194320678711
+      },
+      "model": -995516848,
+      "state": 1,
+      "groups": {
+        "cardealer": 0
+      },
+      "heading": 177
+    }
+  },
+  {
+    "id": 385,
+    "name": "cardealer",
+    "state": 1,
+    "passcode": "11225",
+    "groups": {},
+    "maxDistance": 2,
+    "data": {
+      "model": -1821777087,
+      "auto": true,
+      "heading": 90,
+      "coords": {
+        "x": 1150.3236083984375,
+        "y": 2635.0439453125,
+        "z": 41.90295028686523
+      },
+      "autolock": 9,
+      "passcode": "11225",
+      "maxDistance": 2,
+      "state": 1,
+      "doors": false
+    }
+  },
+  {
+    "id": 386,
+    "name": "pizzaaa",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "pizzathis": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "maxDistance": 2,
+      "model": 2128215041,
+      "auto": true,
+      "groups": {
+        "pizzathis": 0
+      },
+      "doors": false,
+      "heading": 94,
+      "state": 1,
+      "coords": {
+        "x": 641.5867919921875,
+        "y": 2791.620361328125,
+        "z": 42.42469024658203
+      }
+    }
+  },
+  {
+    "id": 387,
+    "name": "pizzzzz",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "pizzathis": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "maxDistance": 2,
+      "auto": true,
+      "groups": {
+        "pizzathis": 0
+      },
+      "doors": [
+        {
+          "heading": 274,
+          "coords": {
+            "x": 634.44091796875,
+            "y": 2773.63720703125,
+            "z": 42.17251586914062
+          },
+          "model": 1901651314
+        },
+        {
+          "heading": 94,
+          "coords": {
+            "x": 634.2716064453125,
+            "y": 2776.07958984375,
+            "z": 42.17251586914062
+          },
+          "model": 1901651314
+        }
+      ],
+      "state": 1,
+      "coords": {
+        "x": 634.3562622070312,
+        "y": 2774.8583984375,
+        "z": 42.17251586914062
+      }
+    }
+  },
+  {
+    "id": 389,
+    "name": "BACOFFRE",
+    "state": 1,
+    "passcode": "0642",
+    "groups": {},
+    "maxDistance": 2,
+    "data": {
+      "autolock": 3,
+      "state": 1,
+      "auto": true,
+      "maxDistance": 2,
+      "heading": 78,
+      "passcode": "0642",
+      "doors": false,
+      "coords": {
+        "x": 537.1103515625,
+        "y": 6704.259765625,
+        "z": 41.43513488769531
+      },
+      "model": -334833300
+    }
+  },
+  {
+    "id": 391,
+    "name": "vec3(2863.012939, 4395.992676, 50.560894)",
+    "state": 0,
+    "passcode": null,
+    "groups": {
+      "dir": 6
+    },
+    "maxDistance": 2,
+    "data": {
+      "heading": 115,
+      "doors": false,
+      "state": 0,
+      "groups": {
+        "dir": 6
+      },
+      "maxDistance": 2,
+      "coords": {
+        "x": 2863.012939453125,
+        "y": 4395.99267578125,
+        "z": 50.56089401245117
+      },
+      "model": 228366157
+    }
+  },
+  {
+    "id": 392,
+    "name": "vec3(2866.288574, 4389.104004, 50.546520)",
+    "state": 0,
+    "passcode": null,
+    "groups": {
+      "dir": 6
+    },
+    "maxDistance": 2,
+    "data": {
+      "heading": 115,
+      "doors": false,
+      "state": 0,
+      "groups": {
+        "dir": 6
+      },
+      "maxDistance": 2,
+      "coords": {
+        "x": 2866.28857421875,
+        "y": 4389.10400390625,
+        "z": 50.5465202331543
+      },
+      "model": 228366157
+    }
+  },
+  {
+    "id": 395,
+    "name": "Comando PORTE 1",
+    "state": 1,
+    "passcode": "0706",
+    "groups": {},
+    "maxDistance": 3,
+    "data": {
+      "maxDistance": 3,
+      "passcode": "0706",
+      "coords": {
+        "x": -2810.766357421875,
+        "y": 1429.786865234375,
+        "z": 101.18629455566406
+      },
+      "doors": [
+        {
+          "heading": 272,
+          "model": -1884151452,
+          "coords": {
+            "x": -2810.804931640625,
+            "y": 1430.899169921875,
+            "z": 101.18629455566406
+          }
+        },
+        {
+          "heading": 92,
+          "model": -1884151452,
+          "coords": {
+            "x": -2810.727783203125,
+            "y": 1428.6744384765625,
+            "z": 101.18629455566406
+          }
+        }
+      ],
+      "state": 1,
+      "auto": true,
+      "autolock": 2
+    }
+  },
+  {
+    "id": 396,
+    "name": "Comando PORTE 2",
+    "state": 1,
+    "passcode": "0706",
+    "groups": {},
+    "maxDistance": 3,
+    "data": {
+      "maxDistance": 3,
+      "passcode": "0706",
+      "coords": {
+        "x": -2825.46923828125,
+        "y": 1434.190673828125,
+        "z": 101.25778198242188
+      },
+      "doors": [
+        {
+          "heading": 358,
+          "model": -1884151452,
+          "coords": {
+            "x": -2826.58203125,
+            "y": 1434.2166748046875,
+            "z": 101.25778198242188
+          }
+        },
+        {
+          "heading": 178,
+          "model": -1884151452,
+          "coords": {
+            "x": -2824.3564453125,
+            "y": 1434.16455078125,
+            "z": 101.25778198242188
+          }
+        }
+      ],
+      "state": 1,
+      "auto": true,
+      "autolock": 2
+    }
+  },
+  {
+    "id": 397,
+    "name": "tribunal",
+    "state": 1,
+    "passcode": "0000",
+    "groups": {},
+    "maxDistance": 5,
+    "data": {
+      "doors": false,
+      "autolock": 5,
+      "heading": 251,
+      "state": 1,
+      "coords": {
+        "x": -492.49188232421875,
+        "y": 1107.2745361328125,
+        "z": 334.0447692871094
+      },
+      "auto": true,
+      "passcode": "0000",
+      "maxDistance": 5,
+      "model": 2003255600
+    }
+  },
+  {
+    "id": 399,
+    "name": "vigne1",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "vigne": 0
+    },
+    "maxDistance": 9,
+    "data": {
+      "heading": 255,
+      "coords": {
+        "x": -1887.793212890625,
+        "y": 2004.12158203125,
+        "z": 141.1157989501953
+      },
+      "groups": {
+        "vigne": 0
+      },
+      "model": -1585380451,
+      "auto": true,
+      "state": 1,
+      "doors": false,
+      "maxDistance": 9
+    }
+  },
+  {
+    "id": 400,
+    "name": "vigne2",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "vigne": 0
+    },
+    "maxDistance": 9,
+    "data": {
+      "heading": 75,
+      "coords": {
+        "x": -1885.9610595703125,
+        "y": 2011.095947265625,
+        "z": 141.1157989501953
+      },
+      "groups": {
+        "vigne": 0
+      },
+      "model": -1585380451,
+      "auto": true,
+      "state": 1,
+      "doors": false,
+      "maxDistance": 9
+    }
+  },
+  {
+    "id": 401,
+    "name": "vigne3",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "vigne": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "heading": 180,
+      "coords": {
+        "x": -1900.2734375,
+        "y": 1998.3319091796875,
+        "z": 141.1622772216797
+      },
+      "groups": {
+        "vigne": 0
+      },
+      "model": -1765806565,
+      "auto": true,
+      "state": 1,
+      "doors": false,
+      "maxDistance": 2
+    }
+  },
+  {
+    "id": 402,
+    "name": "vigne4",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "vigne": 0
+    },
+    "maxDistance": 9,
+    "data": {
+      "heading": 360,
+      "coords": {
+        "x": -1894.8392333984375,
+        "y": 1998.310302734375,
+        "z": 141.1622772216797
+      },
+      "groups": {
+        "vigne": 0
+      },
+      "model": -1765806565,
+      "auto": true,
+      "state": 1,
+      "doors": false,
+      "maxDistance": 9
+    }
+  },
+  {
+    "id": 405,
+    "name": "portail casse les morenos",
+    "state": 1,
+    "passcode": "987456321",
+    "groups": {},
+    "maxDistance": 2,
+    "data": {
+      "coords": {
+        "x": 2750.98974609375,
+        "y": 3426.452880859375,
+        "z": 55.5742301940918
+      },
+      "auto": true,
+      "doors": [
+        {
+          "model": 1286392437,
+          "heading": 337,
+          "coords": {
+            "x": 2750.5625,
+            "y": 3428.48583984375,
+            "z": 55.72789001464844
+          }
+        },
+        {
+          "model": 304890764,
+          "heading": 247,
+          "coords": {
+            "x": 2751.4169921875,
+            "y": 3424.419921875,
+            "z": 55.42057037353515
+          }
+        }
+      ],
+      "autolock": 3,
+      "passcode": "987456321",
+      "state": 1,
+      "maxDistance": 2
+    }
+  },
+  {
+    "id": 406,
+    "name": "GAV NEW PN 2",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "municipale": 0,
+      "police": 0,
+      "gendarmerie": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "groups": {
+        "municipale": 0,
+        "police": 0,
+        "gendarmerie": 0
+      },
+      "autolock": 2,
+      "maxDistance": 2,
+      "state": 1,
+      "heading": 320,
+      "model": -541742718,
+      "coords": {
+        "x": 256.5764465332031,
+        "y": -1339.29833984375,
+        "z": 23.7071533203125
+      },
+      "doors": false,
+      "auto": true
+    }
+  },
+  {
+    "id": 407,
+    "name": "GAV NEW PN 1",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "municipale": 0,
+      "police": 0,
+      "gendarmerie": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "groups": {
+        "municipale": 0,
+        "police": 0,
+        "gendarmerie": 0
+      },
+      "autolock": 2,
+      "maxDistance": 2,
+      "state": 1,
+      "heading": 320,
+      "model": -541742718,
+      "coords": {
+        "x": 252.90940856933594,
+        "y": -1336.2213134765625,
+        "z": 23.7071533203125
+      },
+      "doors": false,
+      "auto": true
+    }
+  },
+  {
+    "id": 408,
+    "name": "GAV NEW PN 3",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "municipale": 0,
+      "police": 0,
+      "gendarmerie": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "groups": {
+        "municipale": 0,
+        "police": 0,
+        "gendarmerie": 0
+      },
+      "autolock": 2,
+      "maxDistance": 2,
+      "state": 1,
+      "heading": 320,
+      "model": -541742718,
+      "coords": {
+        "x": 260.2544860839844,
+        "y": -1342.3846435546875,
+        "z": 23.7071533203125
+      },
+      "doors": false,
+      "auto": true
+    }
+  },
+  {
+    "id": 409,
+    "name": "GAV NEW PN 4",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "municipale": 0,
+      "police": 0,
+      "gendarmerie": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "groups": {
+        "municipale": 0,
+        "police": 0,
+        "gendarmerie": 0
+      },
+      "autolock": 2,
+      "maxDistance": 2,
+      "state": 1,
+      "heading": 320,
+      "model": -541742718,
+      "coords": {
+        "x": 263.9548034667969,
+        "y": -1345.4896240234375,
+        "z": 23.7071533203125
+      },
+      "doors": false,
+      "auto": true
+    }
+  },
+  {
+    "id": 410,
+    "name": "GAV NEW PN 5",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "municipale": 0,
+      "police": 0,
+      "gendarmerie": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "groups": {
+        "municipale": 0,
+        "police": 0,
+        "gendarmerie": 0
+      },
+      "autolock": 2,
+      "maxDistance": 2,
+      "state": 1,
+      "heading": 230,
+      "model": -541742718,
+      "coords": {
+        "x": 263.1918640136719,
+        "y": -1349.3228759765625,
+        "z": 23.7071533203125
+      },
+      "doors": false,
+      "auto": true
+    }
+  },
+  {
+    "id": 411,
+    "name": "GAV NEW PN 7",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "municipale": 0,
+      "police": 0,
+      "gendarmerie": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "groups": {
+        "municipale ": 0,
+        "police": 0,
+        "gendarmerie ": 0
+      },
+      "autolock": 2,
+      "maxDistance": 2,
+      "state": 1,
+      "heading": 140,
+      "model": -541742718,
+      "coords": {
+        "x": 245.8057098388672,
+        "y": -1361.78857421875,
+        "z": 23.7071533203125
+      },
+      "doors": false,
+      "auto": true
+    }
+  },
+  {
+    "id": 412,
+    "name": "GAV NEW PN 6",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "municipale": 0,
+      "police": 0,
+      "gendarmerie": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "groups": {
+        "municipale": 0,
+        "police": 0,
+        "gendarmerie": 0
+      },
+      "autolock": 2,
+      "maxDistance": 2,
+      "state": 1,
+      "heading": 140,
+      "model": -541742718,
+      "coords": {
+        "x": 249.46775817871094,
+        "y": -1364.861328125,
+        "z": 23.7071533203125
+      },
+      "doors": false,
+      "auto": true
+    }
+  },
+  {
+    "id": 413,
+    "name": "GAV NEW PN 8",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "municipale": 0,
+      "police": 0,
+      "gendarmerie": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "groups": {
+        "municipale": 0,
+        "police": 0,
+        "gendarmerie": 0
+      },
+      "autolock": 2,
+      "maxDistance": 2,
+      "state": 1,
+      "heading": 140,
+      "model": -541742718,
+      "coords": {
+        "x": 242.14328002929688,
+        "y": -1358.71533203125,
+        "z": 23.7071533203125
+      },
+      "doors": false,
+      "auto": true
+    }
+  },
+  {
+    "id": 414,
+    "name": "GAV NEW PN 9",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "municipale": 0,
+      "police": 0,
+      "gendarmerie": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "groups": {
+        "municipale": 0,
+        "police": 0,
+        "gendarmerie": 0
+      },
+      "autolock": 2,
+      "maxDistance": 2,
+      "state": 1,
+      "heading": 140,
+      "model": -541742718,
+      "coords": {
+        "x": 238.4223175048828,
+        "y": -1355.593017578125,
+        "z": 23.7071533203125
+      },
+      "doors": false,
+      "auto": true
+    }
+  },
+  {
+    "id": 415,
+    "name": "GAV NEW PN 10",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0,
+      "municipale": 0,
+      "gendarmerie": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "groups": {
+        "police ": 0,
+        "municipale": 0,
+        "gendarmerie": 0
+      },
+      "autolock": 2,
+      "maxDistance": 2,
+      "state": 1,
+      "heading": 50,
+      "model": -541742718,
+      "coords": {
+        "x": 235.4027557373047,
+        "y": -1352.147216796875,
+        "z": 23.7071533203125
+      },
+      "doors": false,
+      "auto": true
+    }
+  },
+  {
+    "id": 416,
+    "name": "garage new pn",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "municipale": 0,
+      "police": 0,
+      "gendarmerie": 0
+    },
+    "maxDistance": 6,
+    "data": {
+      "groups": {
+        "municipale": 0,
+        "police": 0,
+        "gendarmerie": 0
+      },
+      "autolock": 6,
+      "maxDistance": 6,
+      "state": 1,
+      "heading": 140,
+      "model": -436370568,
+      "coords": {
+        "x": 278.36968994140625,
+        "y": -1355.2606201171875,
+        "z": 23.70370483398437
+      },
+      "doors": false,
+      "auto": true
+    }
+  },
+  {
+    "id": 417,
+    "name": "GAV NEW PN 11",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "municipale": 0,
+      "police": 0,
+      "gendarmerie": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "groups": {
+        "municipale": 0,
+        "police": 0,
+        "gendarmerie": 0
+      },
+      "autolock": 2,
+      "maxDistance": 2,
+      "state": 1,
+      "heading": 50,
+      "model": -541742718,
+      "coords": {
+        "x": 238.87510681152344,
+        "y": -1348.009033203125,
+        "z": 23.7071533203125
+      },
+      "doors": false,
+      "auto": true
+    }
+  },
+  {
+    "id": 418,
+    "name": "GAV NEW PN 12",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "municipale": 0,
+      "police": 0,
+      "gendarmerie": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "groups": {
+        "municipale": 0,
+        "police": 0,
+        "gendarmerie": 0
+      },
+      "autolock": 2,
+      "maxDistance": 2,
+      "state": 1,
+      "heading": 50,
+      "model": -541742718,
+      "coords": {
+        "x": 243.8978271484375,
+        "y": -1342.023193359375,
+        "z": 23.7071533203125
+      },
+      "doors": false,
+      "auto": true
+    }
+  },
+  {
+    "id": 419,
+    "name": "New porter exterieur",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "groups": {
+        "police": 0
+      },
+      "autolock": 2,
+      "maxDistance": 2,
+      "state": 1,
+      "heading": 230,
+      "model": -242369737,
+      "coords": {
+        "x": 252.44308471679688,
+        "y": -1358.652099609375,
+        "z": 29.54630088806152
+      },
+      "doors": false,
+      "auto": true
+    }
+  },
+  {
+    "id": 420,
+    "name": "GAV NEW PN 13",
+    "state": 0,
+    "passcode": null,
+    "groups": {
+      "municipale": 0,
+      "police": 0,
+      "gendarmerie": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "groups": {
+        "municipale": 0,
+        "police": 0,
+        "gendarmerie": 0
+      },
+      "autolock": 2,
+      "maxDistance": 2,
+      "state": 0,
+      "heading": 50,
+      "model": -541742718,
+      "coords": {
+        "x": 247.36355590820312,
+        "y": -1337.8929443359375,
+        "z": 23.7071533203125
+      },
+      "doors": false
+    }
+  },
+  {
+    "id": 423,
+    "name": "porte secours 1",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "groups": {
+        "police": 0
+      },
+      "autolock": 2,
+      "maxDistance": 2,
+      "state": 1,
+      "heading": 320,
+      "model": -1068977357,
+      "coords": {
+        "x": 239.66416931152344,
+        "y": -1395.2451171875,
+        "z": 34.28415298461914
+      },
+      "doors": false,
+      "auto": true
+    }
+  },
+  {
+    "id": 424,
+    "name": "Porte secours 2 PN",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "groups": {
+        "police": 0
+      },
+      "autolock": 2,
+      "maxDistance": 2,
+      "state": 1,
+      "heading": 320,
+      "model": -1068977357,
+      "coords": {
+        "x": 239.66416931152344,
+        "y": -1395.2451171875,
+        "z": 37.95925140380859
+      },
+      "doors": false,
+      "auto": true
+    }
+  },
+  {
+    "id": 427,
+    "name": "Saisie New PN",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "groups": {
+        "police": 0
+      },
+      "autolock": 2,
+      "maxDistance": 2,
+      "state": 1,
+      "heading": 140,
+      "model": 515894602,
+      "coords": {
+        "x": 262.970458984375,
+        "y": -1362.50634765625,
+        "z": 24.90120315551757
+      },
+      "doors": false,
+      "auto": true
+    }
+  },
+  {
+    "id": 428,
+    "name": "New porte PN garage escalier ",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "autolock": 2,
+      "auto": true,
+      "model": 515894602,
+      "coords": {
+        "x": 255.27101135253906,
+        "y": -1374.95458984375,
+        "z": 30.75078582763672
+      },
+      "doors": false,
+      "heading": 50,
+      "groups": {
+        "police": 0
+      },
+      "state": 1,
+      "maxDistance": 2
+    }
+  },
+  {
+    "id": 429,
+    "name": "Maison ELY",
+    "state": 1,
+    "passcode": "2709",
+    "groups": {},
+    "maxDistance": 5,
+    "data": {
+      "autolock": 5,
+      "auto": true,
+      "coords": {
+        "x": -124.30226135253906,
+        "y": 900.76904296875,
+        "z": 235.97833251953125
+      },
+      "doorRate": 5,
+      "doors": [
+        {
+          "coords": {
+            "x": -123.90235900878906,
+            "y": 898.0499267578125,
+            "z": 235.97833251953125
+          },
+          "heading": 98,
+          "model": -349730013
+        },
+        {
+          "coords": {
+            "x": -124.70216369628906,
+            "y": 903.4880981445312,
+            "z": 235.97833251953125
+          },
+          "heading": 98,
+          "model": -1918480350
+        }
+      ],
+      "state": 1,
+      "passcode": "2709",
+      "maxDistance": 5
+    }
+  },
+  {
+    "id": 431,
+    "name": "Leclerc house",
+    "state": 1,
+    "passcode": "3110",
+    "groups": {},
+    "maxDistance": 5,
+    "data": {
+      "autolock": 5,
+      "auto": true,
+      "coords": {
+        "x": -1800.3653564453125,
+        "y": 473.03912353515625,
+        "z": 133.95870971679688
+      },
+      "doors": [
+        {
+          "coords": {
+            "x": -1799.039306640625,
+            "y": 470.6358642578125,
+            "z": 133.95050048828125
+          },
+          "heading": 119,
+          "model": 546378757
+        },
+        {
+          "coords": {
+            "x": -1801.69140625,
+            "y": 475.4423828125,
+            "z": 133.9669189453125
+          },
+          "heading": 119,
+          "model": -1249591818
+        }
+      ],
+      "state": 1,
+      "passcode": "3110",
+      "maxDistance": 5
+    }
+  },
+  {
+    "id": 432,
+    "name": "Leclerc house 2",
+    "state": 1,
+    "passcode": "3110",
+    "groups": {},
+    "maxDistance": 2,
+    "data": {
+      "autolock": 2,
+      "auto": true,
+      "model": 724862427,
+      "coords": {
+        "x": -1798.2308349609375,
+        "y": 468.82476806640625,
+        "z": 133.77560424804688
+      },
+      "doors": false,
+      "heading": 119,
+      "passcode": "3110",
+      "state": 1,
+      "maxDistance": 2
+    }
+  },
+  {
+    "id": 435,
+    "name": "Porte accueil Police Nationale",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "maxDistance": 2,
+      "auto": true,
+      "groups": {
+        "police": 0
+      },
+      "coords": {
+        "x": 245.00448608398438,
+        "y": -1381.7784423828125,
+        "z": 31.0132884979248
+      },
+      "state": 1,
+      "doors": [
+        {
+          "coords": {
+            "x": 244.0629119873047,
+            "y": -1382.9005126953125,
+            "z": 31.0132884979248
+          },
+          "heading": 50,
+          "model": 468533844
+        },
+        {
+          "coords": {
+            "x": 245.946044921875,
+            "y": -1380.6563720703125,
+            "z": 31.0132884979248
+          },
+          "heading": 230,
+          "model": 468533844
+        }
+      ],
+      "autolock": 2
+    }
+  },
+  {
+    "id": 436,
+    "name": "Porte accueil couloir PN",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "maxDistance": 2,
+      "auto": true,
+      "groups": {
+        "police": 0
+      },
+      "coords": {
+        "x": 250.8535919189453,
+        "y": -1380.83984375,
+        "z": 30.75078582763672
+      },
+      "heading": 320,
+      "doors": false,
+      "model": 515894602,
+      "autolock": 2,
+      "state": 1
+    }
+  },
+  {
+    "id": 437,
+    "name": "REU PM",
+    "state": 1,
+    "passcode": "LGLBLASPM84800",
+    "groups": {},
+    "maxDistance": 3,
+    "data": {
+      "state": 1,
+      "auto": true,
+      "doors": [
+        {
+          "model": -1918480350,
+          "coords": {
+            "x": -1477.228759765625,
+            "y": 887.6490478515625,
+            "z": 183.07188415527344
+          },
+          "heading": 79
+        },
+        {
+          "model": -349730013,
+          "coords": {
+            "x": -1478.256591796875,
+            "y": 882.2430419921875,
+            "z": 183.07188415527344
+          },
+          "heading": 79
+        }
+      ],
+      "autolock": 5,
+      "passcode": "LGLBLASPM84800",
+      "doorRate": 3,
+      "maxDistance": 3,
+      "coords": {
+        "x": -1477.74267578125,
+        "y": 884.946044921875,
+        "z": 183.07188415527344
+      }
+    }
+  },
+  {
+    "id": 438,
+    "name": "KADA",
+    "state": 1,
+    "passcode": "6969",
+    "groups": {},
+    "maxDistance": 3,
+    "data": {
+      "state": 1,
+      "auto": true,
+      "doors": [
+        {
+          "model": -349730013,
+          "coords": {
+            "x": -1534.178955078125,
+            "y": -42.26300430297851,
+            "z": 57.47746658325195
+          },
+          "heading": 14
+        },
+        {
+          "model": -1918480350,
+          "coords": {
+            "x": -1528.8773193359375,
+            "y": -40.91020584106445,
+            "z": 57.47461318969726
+          },
+          "heading": 14
+        }
+      ],
+      "autolock": 5,
+      "passcode": "6969",
+      "doorRate": 3,
+      "maxDistance": 3,
+      "coords": {
+        "x": -1531.528076171875,
+        "y": -41.58660507202148,
+        "z": 57.47603988647461
+      }
+    }
+  },
+  {
+    "id": 439,
+    "name": "Amunation",
+    "state": 1,
+    "passcode": "37846746",
+    "groups": {},
+    "maxDistance": 2,
+    "data": {
+      "coords": {
+        "x": 17.34993553161621,
+        "y": -1115.05029296875,
+        "z": 29.94693756103515
+      },
+      "doors": [
+        {
+          "heading": 340,
+          "coords": {
+            "x": 18.57200241088867,
+            "y": -1115.4951171875,
+            "z": 29.94693756103515
+          },
+          "model": -8873588
+        },
+        {
+          "heading": 160,
+          "coords": {
+            "x": 16.12786865234375,
+            "y": -1114.6055908203125,
+            "z": 29.94693756103515
+          },
+          "model": 97297972
+        }
+      ],
+      "maxDistance": 2,
+      "passcode": "37846746",
+      "state": 1
+    }
+  },
+  {
+    "id": 440,
+    "name": "Ammunation",
+    "state": 1,
+    "passcode": "1303706921764651079",
+    "groups": {},
+    "maxDistance": 2,
+    "data": {
+      "coords": {
+        "x": 2569.604248046875,
+        "y": 303.3556213378906,
+        "z": 108.88481903076172
+      },
+      "doors": [
+        {
+          "heading": 180,
+          "coords": {
+            "x": 2568.3037109375,
+            "y": 303.3556213378906,
+            "z": 108.88481903076172
+          },
+          "model": -8873588
+        },
+        {
+          "heading": 360,
+          "coords": {
+            "x": 2570.90478515625,
+            "y": 303.3556213378906,
+            "z": 108.88481903076172
+          },
+          "model": 97297972
+        }
+      ],
+      "maxDistance": 2,
+      "passcode": "1303706921764651079",
+      "state": 1
+    }
+  },
+  {
+    "id": 441,
+    "name": "ammution",
+    "state": 1,
+    "passcode": "1303706921764651079",
+    "groups": {},
+    "maxDistance": 2,
+    "data": {
+      "coords": {
+        "x": 811.87744140625,
+        "y": -2148.26953125,
+        "z": 29.76892471313476
+      },
+      "doors": [
+        {
+          "heading": 360,
+          "coords": {
+            "x": 813.1779174804688,
+            "y": -2148.26953125,
+            "z": 29.76892471313476
+          },
+          "model": 97297972
+        },
+        {
+          "heading": 180,
+          "coords": {
+            "x": 810.576904296875,
+            "y": -2148.26953125,
+            "z": 29.76892471313476
+          },
+          "model": -8873588
+        }
+      ],
+      "maxDistance": 2,
+      "passcode": "1303706921764651079",
+      "state": 1
+    }
+  },
+  {
+    "id": 442,
+    "name": "Ammunation",
+    "state": 1,
+    "passcode": "1303706921764651079",
+    "groups": {},
+    "maxDistance": 2,
+    "data": {
+      "coords": {
+        "x": -663.9419555664062,
+        "y": -944.3255615234375,
+        "z": 21.97915267944336
+      },
+      "doors": [
+        {
+          "heading": 180,
+          "coords": {
+            "x": -665.242431640625,
+            "y": -944.3255615234375,
+            "z": 21.97915267944336
+          },
+          "model": 97297972
+        },
+        {
+          "heading": 0,
+          "coords": {
+            "x": -662.6414794921875,
+            "y": -944.3255615234375,
+            "z": 21.97915267944336
+          },
+          "model": -8873588
+        }
+      ],
+      "maxDistance": 2,
+      "passcode": "1303706921764651079",
+      "state": 1
+    }
+  },
+  {
+    "id": 443,
+    "name": "Ammunation",
+    "state": 1,
+    "passcode": "1303706921764651079",
+    "groups": {},
+    "maxDistance": 2,
+    "data": {
+      "coords": {
+        "x": 244.28265380859375,
+        "y": -45.30117034912109,
+        "z": 70.09098052978516
+      },
+      "doors": [
+        {
+          "heading": 70,
+          "coords": {
+            "x": 244.7274627685547,
+            "y": -44.07910919189453,
+            "z": 70.09098052978516
+          },
+          "model": 97297972
+        },
+        {
+          "heading": 250,
+          "coords": {
+            "x": 243.83786010742188,
+            "y": -46.52323532104492,
+            "z": 70.09098052978516
+          },
+          "model": -8873588
+        }
+      ],
+      "maxDistance": 2,
+      "passcode": "1303706921764651079",
+      "state": 1
+    }
+  },
+  {
+    "id": 444,
+    "name": "Ammunation",
+    "state": 1,
+    "passcode": "1303706921764651079",
+    "groups": {},
+    "maxDistance": 2,
+    "data": {
+      "coords": {
+        "x": 1699.056884765625,
+        "y": 3752.462890625,
+        "z": 34.85526275634765
+      },
+      "doors": [
+        {
+          "heading": 47,
+          "coords": {
+            "x": 1699.937255859375,
+            "y": 3753.420166015625,
+            "z": 34.85526275634765
+          },
+          "model": -8873588
+        },
+        {
+          "heading": 227,
+          "coords": {
+            "x": 1698.1763916015625,
+            "y": 3751.505859375,
+            "z": 34.85526275634765
+          },
+          "model": 97297972
+        }
+      ],
+      "maxDistance": 2,
+      "passcode": "1303706921764651079",
+      "state": 1
+    }
+  },
+  {
+    "id": 445,
+    "name": "Ammunation",
+    "state": 1,
+    "passcode": "1303706921764651079",
+    "groups": {},
+    "maxDistance": 2,
+    "data": {
+      "coords": {
+        "x": -325.192626953125,
+        "y": 6076.189453125,
+        "z": 31.60470199584961
+      },
+      "doors": [
+        {
+          "heading": 225,
+          "coords": {
+            "x": -326.11224365234375,
+            "y": 6075.27001953125,
+            "z": 31.60470199584961
+          },
+          "model": 97297972
+        },
+        {
+          "heading": 45,
+          "coords": {
+            "x": -324.2730407714844,
+            "y": 6077.109375,
+            "z": 31.60470199584961
+          },
+          "model": -8873588
+        }
+      ],
+      "maxDistance": 2,
+      "passcode": "1303706921764651079",
+      "state": 1
+    }
+  },
+  {
+    "id": 446,
+    "name": "Ammunation",
+    "state": 1,
+    "passcode": "1303706921764651079",
+    "groups": {},
+    "maxDistance": 2,
+    "data": {
+      "coords": {
+        "x": -1113.0399169921875,
+        "y": 2690.637451171875,
+        "z": 18.70406532287597
+      },
+      "doors": [
+        {
+          "heading": 42,
+          "coords": {
+            "x": -1112.07080078125,
+            "y": 2691.504638671875,
+            "z": 18.70406532287597
+          },
+          "model": -8873588
+        },
+        {
+          "heading": 222,
+          "coords": {
+            "x": -1114.009033203125,
+            "y": 2689.770263671875,
+            "z": 18.70406532287597
+          },
+          "model": 97297972
+        }
+      ],
+      "maxDistance": 2,
+      "passcode": "1303706921764651079",
+      "state": 1
+    }
+  },
+  {
+    "id": 447,
+    "name": "Ammunation",
+    "state": 1,
+    "passcode": "1303706921764651079",
+    "groups": {},
+    "maxDistance": 2,
+    "data": {
+      "coords": {
+        "x": 844.0689697265625,
+        "y": -1024.5391845703125,
+        "z": 28.34477996826172
+      },
+      "doors": [
+        {
+          "heading": 180,
+          "coords": {
+            "x": 842.7684936523438,
+            "y": -1024.5391845703125,
+            "z": 28.34477996826172
+          },
+          "model": -8873588
+        },
+        {
+          "heading": 360,
+          "coords": {
+            "x": 845.3694458007812,
+            "y": -1024.5391845703125,
+            "z": 28.34477996826172
+          },
+          "model": 97297972
+        }
+      ],
+      "maxDistance": 2,
+      "passcode": "1303706921764651079",
+      "state": 1
+    }
+  },
+  {
+    "id": 448,
+    "name": "portail autoroute 01",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "municipale": 12,
+      "pompier": 0
+    },
+    "maxDistance": 30,
+    "data": {
+      "heading": 72,
+      "maxDistance": 30,
+      "model": -768779561,
+      "state": 1,
+      "coords": {
+        "x": 1623.022216796875,
+        "y": 1120.5982666015625,
+        "z": 81.64694213867188
+      },
+      "auto": true,
+      "groups": {
+        "municipale": 12,
+        "pompier": 0
+      },
+      "unlockSound": "metallic_creak",
+      "lockSound": "metallic_creak",
+      "doors": false
+    }
+  },
+  {
+    "id": 449,
+    "name": "portail autoroute 02",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "dir": 0,
+      "police": 0,
+      "municipale": 0,
+      "pompier": 0,
+      "samu": 0
+    },
+    "maxDistance": 3,
+    "data": {
+      "heading": 293,
+      "maxDistance": 3,
+      "model": -768779561,
+      "state": 1,
+      "coords": {
+        "x": 2482.005859375,
+        "y": 5595.755859375,
+        "z": 44.06981658935547
+      },
+      "auto": true,
+      "groups": {
+        "dir": 0,
+        "police": 0,
+        "municipale": 0,
+        "pompier": 0,
+        "samu": 0
+      },
+      "unlockSound": "metallic_creak",
+      "lockSound": "metallic_creak",
+      "doors": false
+    }
+  },
+  {
+    "id": 450,
+    "name": "portail autoroute 02bis",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "dir": 0,
+      "police": 0,
+      "gendarmerie": 0,
+      "municipale": 0,
+      "pompier": 0
+    },
+    "maxDistance": 3,
+    "data": {
+      "heading": 292,
+      "maxDistance": 3,
+      "model": -768779561,
+      "state": 1,
+      "coords": {
+        "x": 2472.21875,
+        "y": 5592.51025390625,
+        "z": 43.99063873291015
+      },
+      "auto": true,
+      "groups": {
+        "dir": 0,
+        "police": 0,
+        "gendarmerie": 0,
+        "municipale": 0,
+        "pompier": 0
+      },
+      "unlockSound": "metallic_creak",
+      "lockSound": "metallic_creak",
+      "doors": false
+    }
+  },
+  {
+    "id": 451,
+    "name": "portail autoroute 03",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "dir": 0,
+      "police": 0,
+      "gendarmerie": 0,
+      "municipale": 0,
+      "pompier": 0
+    },
+    "maxDistance": 3,
+    "data": {
+      "heading": 338,
+      "maxDistance": 3,
+      "model": -768779561,
+      "state": 1,
+      "coords": {
+        "x": 1563.526611328125,
+        "y": 6421.37158203125,
+        "z": 23.77004432678222
+      },
+      "auto": true,
+      "groups": {
+        "dir": 0,
+        "police": 0,
+        "gendarmerie": 0,
+        "municipale": 0,
+        "pompier": 0
+      },
+      "unlockSound": "metallic_creak",
+      "lockSound": "metallic_creak",
+      "doors": false
+    }
+  },
+  {
+    "id": 453,
+    "name": "portail autoroute 03bis",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "dir": 0,
+      "gendarmerie": 0,
+      "samu": 0,
+      "pompier": 0,
+      "municipale": 0
+    },
+    "maxDistance": 3,
+    "data": {
+      "heading": 338,
+      "maxDistance": 3,
+      "model": -768779561,
+      "state": 1,
+      "coords": {
+        "x": 1561.848876953125,
+        "y": 6417.076171875,
+        "z": 23.82199096679687
+      },
+      "auto": true,
+      "groups": {
+        "dir": 0,
+        "gendarmerie": 0,
+        "samu": 0,
+        "pompier": 0,
+        "municipale": 0
+      },
+      "unlockSound": "metallic_creak",
+      "lockSound": "metallic_creak",
+      "doors": false
+    }
+  },
+  {
+    "id": 454,
+    "name": "Caserne du grand light",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "pompier": 0
+    },
+    "maxDistance": 2.5,
+    "data": {
+      "lockSound": "metallic_creak",
+      "unlockSound": "metallic_creak",
+      "groups": {
+        "pompier": 0
+      },
+      "maxDistance": 2.5,
+      "coords": {
+        "x": 418.02520751953125,
+        "y": 205.64901733398438,
+        "z": 103.49317169189453
+      },
+      "state": 1,
+      "doors": [
+        {
+          "coords": {
+            "x": 418.891845703125,
+            "y": 205.3360595703125,
+            "z": 103.49317169189453
+          },
+          "heading": 160,
+          "model": 74748869
+        },
+        {
+          "coords": {
+            "x": 417.1585388183594,
+            "y": 205.9619903564453,
+            "z": 103.49317169189453
+          },
+          "heading": 340,
+          "model": 74748869
+        }
+      ]
+    }
+  },
+  {
+    "id": 455,
+    "name": "Caserne lgl petite porte ACC",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "pompier": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "lockSound": "metallic_creak",
+      "unlockSound": "metallic_creak",
+      "groups": {
+        "pompier": 0
+      },
+      "maxDistance": 2,
+      "coords": {
+        "x": 414.2538146972656,
+        "y": 208.08071899414062,
+        "z": 103.44898223876953
+      },
+      "model": -88942360,
+      "doors": false,
+      "heading": 250,
+      "state": 1
+    }
+  },
+  {
+    "id": 456,
+    "name": "Caserne lgl  porte ACC face garage",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "pompier": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "lockSound": "metallic_creak",
+      "unlockSound": "metallic_creak",
+      "groups": {
+        "pompier": 0
+      },
+      "maxDistance": 2,
+      "coords": {
+        "x": 428.0464782714844,
+        "y": 206.74078369140625,
+        "z": 103.49317169189453
+      },
+      "state": 1,
+      "doors": [
+        {
+          "coords": {
+            "x": 427.7329406738281,
+            "y": 205.87225341796875,
+            "z": 103.49317169189453
+          },
+          "heading": 70,
+          "model": 74748869
+        },
+        {
+          "coords": {
+            "x": 428.3600158691406,
+            "y": 207.6092987060547,
+            "z": 103.49317169189453
+          },
+          "heading": 250,
+          "model": 74748869
+        }
+      ]
+    }
+  },
+  {
+    "id": 457,
+    "name": "Caserne lgl portail 2",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "pompier": 0
+    },
+    "maxDistance": 10,
+    "data": {
+      "lockSound": "metallic_creak",
+      "unlockSound": "metallic_creak",
+      "groups": {
+        "pompier": 0
+      },
+      "maxDistance": 10,
+      "coords": {
+        "x": 466.3096618652344,
+        "y": 264.26336669921875,
+        "z": 102.1233901977539
+      },
+      "auto": true,
+      "model": 496317624,
+      "doors": false,
+      "heading": 340,
+      "state": 1
+    }
+  },
+  {
+    "id": 458,
+    "name": "Caserne lgl portail 1",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "pompier": 0
+    },
+    "maxDistance": 10,
+    "data": {
+      "lockSound": "metallic_creak",
+      "unlockSound": "metallic_creak",
+      "groups": {
+        "pompier": 0
+      },
+      "maxDistance": 10,
+      "coords": {
+        "x": 416.396484375,
+        "y": 233.9629669189453,
+        "z": 102.21636199951172
+      },
+      "auto": true,
+      "model": 496317624,
+      "doors": false,
+      "heading": 250,
+      "state": 1
+    }
+  },
+  {
+    "id": 459,
+    "name": "entrée vignerons",
+    "state": 0,
+    "passcode": "1906",
+    "groups": {},
+    "maxDistance": 3,
+    "data": {
+      "maxDistance": 3,
+      "passcode": "1906",
+      "doorRate": 10,
+      "state": 0,
+      "coords": {
+        "x": -1896.371826171875,
+        "y": 2049.927001953125,
+        "z": 141.45921325683594
+      },
+      "doors": [
+        {
+          "model": 1320635467,
+          "coords": {
+            "x": -1897.3216552734375,
+            "y": 2050.155029296875,
+            "z": 141.45921325683594
+          },
+          "heading": 167
+        },
+        {
+          "model": -1955084861,
+          "coords": {
+            "x": -1895.421875,
+            "y": 2049.698974609375,
+            "z": 141.45921325683594
+          },
+          "heading": 167
+        }
+      ],
+      "autolock": 5
+    }
+  },
+  {
+    "id": 460,
+    "name": "cave vignerons",
+    "state": 0,
+    "passcode": "1906",
+    "groups": {},
+    "maxDistance": 3,
+    "data": {
+      "model": -767390116,
+      "maxDistance": 3,
+      "passcode": "1906",
+      "doorRate": 10,
+      "state": 0,
+      "heading": 76,
+      "coords": {
+        "x": -1889.099853515625,
+        "y": 2076.49462890625,
+        "z": 140.9842987060547
+      },
+      "doors": false,
+      "autolock": 5
+    }
+  },
+  {
+    "id": 461,
+    "name": "bureau illégal vignerons",
+    "state": 0,
+    "passcode": "1996",
+    "groups": {},
+    "maxDistance": 2,
+    "data": {
+      "model": -1970236950,
+      "maxDistance": 2,
+      "passcode": "1996",
+      "doorRate": 10,
+      "state": 0,
+      "heading": 167,
+      "coords": {
+        "x": -1905.407470703125,
+        "y": 2052.0654296875,
+        "z": 141.190673828125
+      },
+      "doors": false,
+      "autolock": 5
+    }
+  },
+  {
+    "id": 462,
+    "name": "bureau illégal vignerons",
+    "state": 0,
+    "passcode": "1996",
+    "groups": {},
+    "maxDistance": 2,
+    "data": {
+      "model": -767390116,
+      "maxDistance": 2,
+      "passcode": "1996",
+      "doorRate": 10,
+      "state": 0,
+      "heading": 257,
+      "coords": {
+        "x": -1900.1773681640625,
+        "y": 2052.1142578125,
+        "z": 140.98431396484375
+      },
+      "doors": false,
+      "autolock": 5
+    }
+  },
+  {
+    "id": 463,
+    "name": "bureau illégal vignerons",
+    "state": 0,
+    "passcode": "1996",
+    "groups": {},
+    "maxDistance": 2,
+    "data": {
+      "model": -767390116,
+      "maxDistance": 2,
+      "passcode": "1996",
+      "doorRate": 10,
+      "state": 0,
+      "heading": 347,
+      "coords": {
+        "x": -1901.2413330078125,
+        "y": 2060.452880859375,
+        "z": 140.98431396484375
+      },
+      "doors": false,
+      "autolock": 5
+    }
+  },
+  {
+    "id": 464,
+    "name": "porte garage vigneron",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "vigne": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "model": -1145579174,
+      "doors": false,
+      "heading": 347,
+      "coords": {
+        "x": -1911.8782958984375,
+        "y": 2053.46240234375,
+        "z": 141.32571411132812
+      },
+      "groups": {
+        "vigne": 0
+      },
+      "lockSound": "metallic_creak",
+      "maxDistance": 2,
+      "unlockSound": "metallic_creak",
+      "state": 1
+    }
+  },
+  {
+    "id": 465,
+    "name": "porte garage vigneron devant",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "vigne": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "model": -1145579174,
+      "doors": false,
+      "heading": 347,
+      "coords": {
+        "x": -1917.3599853515625,
+        "y": 2054.7783203125,
+        "z": 141.32571411132812
+      },
+      "groups": {
+        "vigne": 0
+      },
+      "lockSound": "metallic_creak",
+      "maxDistance": 2,
+      "unlockSound": "metallic_creak",
+      "state": 1
+    }
+  },
+  {
+    "id": 466,
+    "name": "porte garage vigneron arriere",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "vigne": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "model": -1145579174,
+      "doors": false,
+      "heading": 167,
+      "coords": {
+        "x": -1914.34521484375,
+        "y": 2067.317626953125,
+        "z": 141.36135864257812
+      },
+      "groups": {
+        "vigne": 0
+      },
+      "lockSound": "metallic_creak",
+      "maxDistance": 2,
+      "unlockSound": "metallic_creak",
+      "state": 1
+    }
+  },
+  {
+    "id": 467,
+    "name": "porte garage vigneron arriere",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "vigne": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "model": -1145579174,
+      "doors": false,
+      "heading": 167,
+      "coords": {
+        "x": -1908.86767578125,
+        "y": 2066.002685546875,
+        "z": 141.32571411132812
+      },
+      "groups": {
+        "vigne": 0
+      },
+      "lockSound": "metallic_creak",
+      "maxDistance": 2,
+      "unlockSound": "metallic_creak",
+      "state": 1
+    }
+  },
+  {
+    "id": 468,
+    "name": "petit porte vers  garage vigne",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "vigne": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "model": -767390116,
+      "doors": false,
+      "heading": 76,
+      "coords": {
+        "x": -1904.890625,
+        "y": 2063.59423828125,
+        "z": 140.98431396484375
+      },
+      "groups": {
+        "vigne": 0
+      },
+      "lockSound": "metallic_creak",
+      "maxDistance": 2,
+      "unlockSound": "metallic_creak",
+      "state": 1
+    }
+  },
+  {
+    "id": 469,
+    "name": "petite porte vers  heliport vigneron",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "vigne": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "doors": [
+        {
+          "coords": {
+            "x": -1849.6162109375,
+            "y": 2060.306884765625,
+            "z": 139.02001953125
+          },
+          "model": -224799826,
+          "heading": 258
+        },
+        {
+          "coords": {
+            "x": -1850.0360107421875,
+            "y": 2058.40673828125,
+            "z": 139.02001953125
+          },
+          "model": -224799826,
+          "heading": 77
+        }
+      ],
+      "maxDistance": 2,
+      "coords": {
+        "x": -1849.826171875,
+        "y": 2059.35693359375,
+        "z": 139.02001953125
+      },
+      "groups": {
+        "vigne": 0
+      },
+      "lockSound": "metallic_creak",
+      "unlockSound": "metallic_creak",
+      "state": 1
+    }
+  },
+  {
+    "id": 470,
+    "name": "porte 2 entré vigneron  ",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "vigne": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "model": -1970236950,
+      "doors": false,
+      "heading": 347,
+      "coords": {
+        "x": -1903.5084228515625,
+        "y": 2064.586669921875,
+        "z": 141.190673828125
+      },
+      "groups": {
+        "vigne": 0
+      },
+      "lockSound": "metallic_creak",
+      "maxDistance": 2,
+      "unlockSound": "metallic_creak",
+      "state": 1
+    }
+  },
+  {
+    "id": 471,
+    "name": "porte 3 entré vigneron  ",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "vigne": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "model": -326229777,
+      "doors": false,
+      "heading": 76,
+      "coords": {
+        "x": -1897.1182861328125,
+        "y": 2065.751953125,
+        "z": 141.2030029296875
+      },
+      "groups": {
+        "vigne": 0
+      },
+      "lockSound": "metallic_creak",
+      "maxDistance": 2,
+      "unlockSound": "metallic_creak",
+      "state": 1
+    }
+  },
+  {
+    "id": 472,
+    "name": "porte 4 entré vigneron  ",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "vigne": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "doors": [
+        {
+          "coords": {
+            "x": -1883.697509765625,
+            "y": 2083.20263671875,
+            "z": 141.2768096923828
+          },
+          "model": -243107907,
+          "heading": 257
+        },
+        {
+          "coords": {
+            "x": -1884.09814453125,
+            "y": 2081.53369140625,
+            "z": 141.2768096923828
+          },
+          "model": -2099209605,
+          "heading": 257
+        }
+      ],
+      "maxDistance": 2,
+      "coords": {
+        "x": -1883.8978271484375,
+        "y": 2082.3681640625,
+        "z": 141.2768096923828
+      },
+      "groups": {
+        "vigne": 0
+      },
+      "lockSound": "metallic_creak",
+      "unlockSound": "metallic_creak",
+      "state": 1
+    }
+  },
+  {
+    "id": 473,
+    "name": "porte 5 entré vigneron  ",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "vigne": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "doors": [
+        {
+          "coords": {
+            "x": -1885.7384033203125,
+            "y": 2073.218505859375,
+            "z": 141.2782745361328
+          },
+          "model": -243107907,
+          "heading": 257
+        },
+        {
+          "coords": {
+            "x": -1886.13916015625,
+            "y": 2071.54931640625,
+            "z": 141.2782745361328
+          },
+          "model": -2099209605,
+          "heading": 257
+        }
+      ],
+      "maxDistance": 2,
+      "coords": {
+        "x": -1885.938720703125,
+        "y": 2072.3837890625,
+        "z": 141.2782745361328
+      },
+      "groups": {
+        "vigne": 0
+      },
+      "lockSound": "metallic_creak",
+      "unlockSound": "metallic_creak",
+      "state": 1
+    }
+  },
+  {
+    "id": 474,
+    "name": "porte 6 entré vigneron  ",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "vigne": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "doors": [
+        {
+          "coords": {
+            "x": -1888.0218505859375,
+            "y": 2065.10986328125,
+            "z": 141.2782745361328
+          },
+          "model": -243107907,
+          "heading": 257
+        },
+        {
+          "coords": {
+            "x": -1888.422607421875,
+            "y": 2063.440673828125,
+            "z": 141.2782745361328
+          },
+          "model": -2099209605,
+          "heading": 257
+        }
+      ],
+      "maxDistance": 2,
+      "coords": {
+        "x": -1888.22216796875,
+        "y": 2064.275390625,
+        "z": 141.2782745361328
+      },
+      "groups": {
+        "vigne": 0
+      },
+      "lockSound": "metallic_creak",
+      "unlockSound": "metallic_creak",
+      "state": 1
+    }
+  },
+  {
+    "id": 476,
+    "name": "porte 7 entré vigneron  ",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "vigne": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "doors": [
+        {
+          "coords": {
+            "x": -1884.93359375,
+            "y": 2060.129150390625,
+            "z": 141.2768096923828
+          },
+          "model": -2099209605,
+          "heading": 347
+        },
+        {
+          "coords": {
+            "x": -1886.6024169921875,
+            "y": 2060.52978515625,
+            "z": 141.2768096923828
+          },
+          "model": -243107907,
+          "heading": 347
+        }
+      ],
+      "maxDistance": 2,
+      "coords": {
+        "x": -1885.76806640625,
+        "y": 2060.32958984375,
+        "z": 141.2768096923828
+      },
+      "groups": {
+        "vigne": 0
+      },
+      "lockSound": "metallic_creak",
+      "unlockSound": "metallic_creak",
+      "state": 1
+    }
+  },
+  {
+    "id": 477,
+    "name": "porte 8 entré vigneron  ",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "vigne": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "doors": [
+        {
+          "coords": {
+            "x": -1875.907958984375,
+            "y": 2057.86767578125,
+            "z": 141.31640625
+          },
+          "model": -1542366340,
+          "heading": 347
+        },
+        {
+          "coords": {
+            "x": -1874.2056884765625,
+            "y": 2057.458984375,
+            "z": 141.31640625
+          },
+          "model": -1849739560,
+          "heading": 347
+        }
+      ],
+      "maxDistance": 2,
+      "coords": {
+        "x": -1875.056884765625,
+        "y": 2057.663330078125,
+        "z": 141.31640625
+      },
+      "groups": {
+        "vigne": 0
+      },
+      "lockSound": "metallic_creak",
+      "unlockSound": "metallic_creak",
+      "state": 1
+    }
+  },
+  {
+    "id": 478,
+    "name": "porte 9 entré vigneron  ",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "vigne": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "doors": [
+        {
+          "coords": {
+            "x": -1871.022216796875,
+            "y": 2056.69482421875,
+            "z": 141.31640625
+          },
+          "model": -1542366340,
+          "heading": 347
+        },
+        {
+          "coords": {
+            "x": -1869.320068359375,
+            "y": 2056.2861328125,
+            "z": 141.31640625
+          },
+          "model": -1849739560,
+          "heading": 347
+        }
+      ],
+      "maxDistance": 2,
+      "coords": {
+        "x": -1870.171142578125,
+        "y": 2056.490478515625,
+        "z": 141.31640625
+      },
+      "groups": {
+        "vigne": 0
+      },
+      "lockSound": "metallic_creak",
+      "unlockSound": "metallic_creak",
+      "state": 1
+    }
+  },
+  {
+    "id": 480,
+    "name": "portillon arriere vigneron  ",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "vigne": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "doors": [
+        {
+          "coords": {
+            "x": -1892.89501953125,
+            "y": 2092.611328125,
+            "z": 140.78469848632812
+          },
+          "model": -851769383,
+          "heading": 257
+        },
+        {
+          "coords": {
+            "x": -1893.37109375,
+            "y": 2090.67041015625,
+            "z": 140.78469848632812
+          },
+          "model": -851769383,
+          "heading": 77
+        }
+      ],
+      "maxDistance": 2,
+      "coords": {
+        "x": -1893.133056640625,
+        "y": 2091.640869140625,
+        "z": 140.78469848632812
+      },
+      "groups": {
+        "vigne": 0
+      },
+      "lockSound": "metallic_creak",
+      "unlockSound": "metallic_creak",
+      "state": 1
+    }
+  },
+  {
+    "id": 481,
+    "name": "porte accés cave illegal vigne",
+    "state": 1,
+    "passcode": "1998",
+    "groups": {
+      "vigne": 9
+    },
+    "maxDistance": 2,
+    "data": {
+      "doors": false,
+      "heading": 76,
+      "groups": {
+        "vigne": 9
+      },
+      "passcode": "1998",
+      "lockSound": "metallic_creak",
+      "coords": {
+        "x": -1920.03759765625,
+        "y": 2062.343505859375,
+        "z": 140.8182830810547
+      },
+      "model": -942385837,
+      "maxDistance": 2,
+      "state": 1,
+      "unlockSound": "metallic_creak"
+    }
+  },
+  {
+    "id": 482,
+    "name": "porte cave vigne  vers garage ",
+    "state": 1,
+    "passcode": "1998",
+    "groups": {
+      "vigne": 9
+    },
+    "maxDistance": 2,
+    "data": {
+      "doors": false,
+      "heading": 76,
+      "groups": {
+        "vigne": 9
+      },
+      "passcode": "1998",
+      "lockSound": "metallic_creak",
+      "coords": {
+        "x": -1914.993896484375,
+        "y": 2069.397216796875,
+        "z": 136.1299285888672
+      },
+      "model": -1999783591,
+      "maxDistance": 2,
+      "state": 1,
+      "unlockSound": "metallic_creak"
+    }
+  },
+  {
+    "id": 483,
+    "name": "cellule 2 illegal cave vigne",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "vigne": 9
+    },
+    "maxDistance": 2,
+    "data": {
+      "model": -1060808293,
+      "doors": false,
+      "heading": 76,
+      "coords": {
+        "x": -1913.6102294921875,
+        "y": 2075.43017578125,
+        "z": 136.1299285888672
+      },
+      "groups": {
+        "vigne": 9
+      },
+      "lockSound": "metallic_creak",
+      "maxDistance": 2,
+      "unlockSound": "metallic_creak",
+      "state": 1
+    }
+  },
+  {
+    "id": 484,
+    "name": "cellule 1 illegal cave vigne",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "vigne": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "model": -1060808293,
+      "doors": false,
+      "heading": 76,
+      "coords": {
+        "x": -1914.299072265625,
+        "y": 2072.561279296875,
+        "z": 136.1299285888672
+      },
+      "groups": {
+        "vigne": 0
+      },
+      "lockSound": "metallic_creak",
+      "maxDistance": 2,
+      "unlockSound": "metallic_creak",
+      "state": 1
+    }
+  },
+  {
+    "id": 485,
+    "name": "grande porte illegal cave vigne",
+    "state": 1,
+    "passcode": "1998",
+    "groups": {
+      "vigne": 9
+    },
+    "maxDistance": 2,
+    "data": {
+      "doors": false,
+      "heading": 347,
+      "groups": {
+        "vigne": 9
+      },
+      "passcode": "1998",
+      "lockSound": "metallic_creak",
+      "coords": {
+        "x": -1901.3089599609375,
+        "y": 2054.02294921875,
+        "z": 136.29928588867188
+      },
+      "model": 1649739128,
+      "maxDistance": 2,
+      "state": 1,
+      "unlockSound": "metallic_creak"
+    }
+  },
+  {
+    "id": 487,
+    "name": "porte etage vigne",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "vigne": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "doors": [
+        {
+          "coords": {
+            "x": -1890.01318359375,
+            "y": 2068.329345703125,
+            "z": 150.7590789794922
+          },
+          "model": -2099209605,
+          "heading": 166
+        },
+        {
+          "coords": {
+            "x": -1888.3441162109375,
+            "y": 2067.9287109375,
+            "z": 150.7590789794922
+          },
+          "model": -243107907,
+          "heading": 166
+        }
+      ],
+      "maxDistance": 2,
+      "coords": {
+        "x": -1889.1787109375,
+        "y": 2068.12890625,
+        "z": 150.7590789794922
+      },
+      "groups": {
+        "vigne": 0
+      },
+      "lockSound": "metallic_creak",
+      "unlockSound": "metallic_creak",
+      "state": 1
+    }
+  },
+  {
+    "id": 488,
+    "name": "porte etage balcon vers ch vigne",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "vigne": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "doors": [
+        {
+          "coords": {
+            "x": -1911.935546875,
+            "y": 2056.803955078125,
+            "z": 145.3037109375
+          },
+          "model": -2099209605,
+          "heading": 166
+        },
+        {
+          "coords": {
+            "x": -1910.2667236328125,
+            "y": 2056.4033203125,
+            "z": 145.3037109375
+          },
+          "model": -243107907,
+          "heading": 166
+        }
+      ],
+      "maxDistance": 2,
+      "coords": {
+        "x": -1911.10107421875,
+        "y": 2056.603515625,
+        "z": 145.3037109375
+      },
+      "groups": {
+        "vigne": 0
+      },
+      "lockSound": "metallic_creak",
+      "unlockSound": "metallic_creak",
+      "state": 1
+    }
+  },
+  {
+    "id": 489,
+    "name": "porte etage balcon vers ch vigne",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "vigne": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "doors": [
+        {
+          "coords": {
+            "x": -1921.2503662109375,
+            "y": 2059.040283203125,
+            "z": 145.3037109375
+          },
+          "model": -243107907,
+          "heading": 166
+        },
+        {
+          "coords": {
+            "x": -1922.919189453125,
+            "y": 2059.44091796875,
+            "z": 145.3037109375
+          },
+          "model": -2099209605,
+          "heading": 166
+        }
+      ],
+      "maxDistance": 2,
+      "coords": {
+        "x": -1922.084716796875,
+        "y": 2059.24072265625,
+        "z": 145.3037109375
+      },
+      "groups": {
+        "vigne": 0
+      },
+      "lockSound": "metallic_creak",
+      "unlockSound": "metallic_creak",
+      "state": 1
+    }
+  },
+  {
+    "id": 490,
+    "name": "portail police Le Grand Light",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0
+    },
+    "maxDistance": 5,
+    "data": {
+      "doors": false,
+      "heading": 355,
+      "groups": {
+        "police": 0
+      },
+      "auto": true,
+      "lockSound": "metal_locker",
+      "coords": {
+        "x": 683.3579711914062,
+        "y": -1682.5914306640625,
+        "z": 32.6187744140625
+      },
+      "model": -1483471451,
+      "maxDistance": 5,
+      "state": 1,
+      "unlockSound": "metal_locker"
+    }
+  },
+  {
+    "id": 491,
+    "name": "porte garage 1 police Le Grand Light",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0
+    },
+    "maxDistance": 5,
+    "data": {
+      "doors": false,
+      "heading": 355,
+      "groups": {
+        "police": 0
+      },
+      "auto": true,
+      "lockSound": "metal_locker",
+      "coords": {
+        "x": 688.7105102539062,
+        "y": -1622.7813720703125,
+        "z": 33.61295700073242
+      },
+      "model": 1975282749,
+      "maxDistance": 5,
+      "state": 1,
+      "unlockSound": "metal_locker"
+    }
+  },
+  {
+    "id": 492,
+    "name": "porte garage 2 police Le Grand Light",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0
+    },
+    "maxDistance": 5,
+    "data": {
+      "doors": false,
+      "heading": 355,
+      "groups": {
+        "police": 0
+      },
+      "auto": true,
+      "lockSound": "metal_locker",
+      "coords": {
+        "x": 697.9786376953125,
+        "y": -1623.61572265625,
+        "z": 33.61664962768555
+      },
+      "model": 1975282749,
+      "maxDistance": 5,
+      "state": 1,
+      "unlockSound": "metal_locker"
+    }
+  },
+  {
+    "id": 493,
+    "name": "porte garage 3 police Le Grand Light",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0
+    },
+    "maxDistance": 5,
+    "data": {
+      "doors": false,
+      "heading": 355,
+      "groups": {
+        "police": 0
+      },
+      "auto": true,
+      "lockSound": "metal_locker",
+      "coords": {
+        "x": 707.1424560546875,
+        "y": -1624.4248046875,
+        "z": 33.62637710571289
+      },
+      "model": 1975282749,
+      "maxDistance": 5,
+      "state": 1,
+      "unlockSound": "metal_locker"
+    }
+  },
+  {
+    "id": 494,
+    "name": "porte entrée accueil police Le Grand Light",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0
+    },
+    "maxDistance": 5,
+    "data": {
+      "doors": false,
+      "heading": 85,
+      "groups": {
+        "police": 0
+      },
+      "lockSound": "metal_locker",
+      "coords": {
+        "x": 678.2445678710938,
+        "y": -1677.571044921875,
+        "z": 33.7646484375
+      },
+      "model": 946508663,
+      "maxDistance": 5,
+      "state": 1,
+      "unlockSound": "metal_locker"
+    }
+  },
+  {
+    "id": 495,
+    "name": "porte salle dispatch police Le Grand Light",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "doors": false,
+      "heading": 85,
+      "groups": {
+        "police": 0
+      },
+      "lockSound": "metal_locker",
+      "coords": {
+        "x": 677.6163330078125,
+        "y": -1634.702392578125,
+        "z": 33.72663879394531
+      },
+      "model": 946508663,
+      "maxDistance": 2,
+      "state": 1,
+      "unlockSound": "metal_locker"
+    }
+  },
+  {
+    "id": 496,
+    "name": "porte couloir vers garage police Le Grand Light",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "doors": false,
+      "heading": 355,
+      "groups": {
+        "police": 0
+      },
+      "lockSound": "metal_locker",
+      "coords": {
+        "x": 679.946044921875,
+        "y": -1617.1268310546875,
+        "z": 33.73266220092773
+      },
+      "model": 946508663,
+      "maxDistance": 2,
+      "state": 1,
+      "unlockSound": "metal_locker"
+    }
+  },
+  {
+    "id": 497,
+    "name": "porte cellule+interogatoire police Le Grand Light",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "doors": false,
+      "heading": 355,
+      "groups": {
+        "police": 0
+      },
+      "lockSound": "metal_locker",
+      "coords": {
+        "x": 681.7937622070312,
+        "y": -1613.095703125,
+        "z": 33.73726654052734
+      },
+      "model": -642608865,
+      "maxDistance": 2,
+      "state": 1,
+      "unlockSound": "metal_locker"
+    }
+  },
+  {
+    "id": 498,
+    "name": "cellule 1 police Le Grand Light",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "doors": false,
+      "heading": 355,
+      "groups": {
+        "police": 0
+      },
+      "lockSound": "metal_locker",
+      "coords": {
+        "x": 682.0855102539062,
+        "y": -1602.7335205078125,
+        "z": 33.73151016235351
+      },
+      "model": -642608865,
+      "maxDistance": 2,
+      "state": 1,
+      "unlockSound": "metal_locker"
+    }
+  },
+  {
+    "id": 499,
+    "name": "cellule 2 police Le Grand Light",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "doors": false,
+      "heading": 355,
+      "groups": {
+        "police": 0
+      },
+      "lockSound": "metal_locker",
+      "coords": {
+        "x": 678.55908203125,
+        "y": -1602.4189453125,
+        "z": 33.73815155029297
+      },
+      "model": -642608865,
+      "maxDistance": 2,
+      "state": 1,
+      "unlockSound": "metal_locker"
+    }
+  },
+  {
+    "id": 500,
+    "name": "cellule 3 police Le Grand Light",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "doors": false,
+      "heading": 355,
+      "groups": {
+        "police": 0
+      },
+      "lockSound": "metal_locker",
+      "coords": {
+        "x": 675.2630004882812,
+        "y": -1602.1295166015625,
+        "z": 33.73362350463867
+      },
+      "model": -642608865,
+      "maxDistance": 2,
+      "state": 1,
+      "unlockSound": "metal_locker"
+    }
+  },
+  {
+    "id": 501,
+    "name": "cellule 4 police Le Grand Light",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "doors": false,
+      "heading": 355,
+      "groups": {
+        "police": 0
+      },
+      "lockSound": "metal_locker",
+      "coords": {
+        "x": 671.6494140625,
+        "y": -1601.8194580078125,
+        "z": 33.74344635009765
+      },
+      "model": -642608865,
+      "maxDistance": 2,
+      "state": 1,
+      "unlockSound": "metal_locker"
+    }
+  },
+  {
+    "id": 502,
+    "name": "cellule 5 police Le Grand Light",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "doors": false,
+      "heading": 355,
+      "groups": {
+        "police": 0
+      },
+      "lockSound": "metal_locker",
+      "coords": {
+        "x": 668.4501953125,
+        "y": -1601.53466796875,
+        "z": 33.72942352294922
+      },
+      "model": -642608865,
+      "maxDistance": 2,
+      "state": 1,
+      "unlockSound": "metal_locker"
+    }
+  },
+  {
+    "id": 503,
+    "name": "cellule 6 police Le Grand Light",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "doors": false,
+      "heading": 355,
+      "groups": {
+        "police": 0
+      },
+      "lockSound": "metal_locker",
+      "coords": {
+        "x": 665.339599609375,
+        "y": -1601.2623291015625,
+        "z": 33.7386245727539
+      },
+      "model": -642608865,
+      "maxDistance": 2,
+      "state": 1,
+      "unlockSound": "metal_locker"
+    }
+  },
+  {
+    "id": 504,
+    "name": "cellule 7 police Le Grand Light",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "doors": false,
+      "heading": 355,
+      "groups": {
+        "police": 0
+      },
+      "lockSound": "metal_locker",
+      "coords": {
+        "x": 661.9892578125,
+        "y": -1600.9697265625,
+        "z": 33.73153305053711
+      },
+      "model": -642608865,
+      "maxDistance": 2,
+      "state": 1,
+      "unlockSound": "metal_locker"
+    }
+  },
+  {
+    "id": 505,
+    "name": "cellule 8 police Le Grand Light",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "doors": false,
+      "heading": 355,
+      "groups": {
+        "police": 0
+      },
+      "lockSound": "metal_locker",
+      "coords": {
+        "x": 658.7775268554688,
+        "y": -1600.694580078125,
+        "z": 33.73428344726562
+      },
+      "model": -642608865,
+      "maxDistance": 2,
+      "state": 1,
+      "unlockSound": "metal_locker"
+    }
+  },
+  {
+    "id": 506,
+    "name": "cellule 9 police Le Grand Light",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "doors": false,
+      "heading": 355,
+      "groups": {
+        "police": 0
+      },
+      "lockSound": "metal_locker",
+      "coords": {
+        "x": 655.5381469726562,
+        "y": -1600.40087890625,
+        "z": 33.73290252685547
+      },
+      "model": -642608865,
+      "maxDistance": 2,
+      "state": 1,
+      "unlockSound": "metal_locker"
+    }
+  },
+  {
+    "id": 507,
+    "name": "cellule 10 police Le Grand Light",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "doors": false,
+      "heading": 355,
+      "groups": {
+        "police": 0
+      },
+      "lockSound": "metal_locker",
+      "coords": {
+        "x": 652.4983520507812,
+        "y": -1600.132080078125,
+        "z": 33.73307418823242
+      },
+      "model": -642608865,
+      "maxDistance": 2,
+      "state": 1,
+      "unlockSound": "metal_locker"
+    }
+  },
+  {
+    "id": 508,
+    "name": "cellule 11 police Le Grand Light",
+    "state": 1,
+    "passcode": null,
+    "groups": {
+      "police": 0
+    },
+    "maxDistance": 2,
+    "data": {
+      "doors": false,
+      "heading": 355,
+      "groups": {
+        "police": 0
+      },
+      "lockSound": "metal_locker",
+      "coords": {
+        "x": 649.6668090820312,
+        "y": -1599.89404296875,
+        "z": 33.73845291137695
+      },
+      "model": -642608865,
+      "maxDistance": 2,
+      "state": 1,
+      "unlockSound": "metal_locker"
+    }
+  }
+]
