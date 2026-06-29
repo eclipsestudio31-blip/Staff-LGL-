@@ -559,11 +559,6 @@ export default function RapportsPage() {
                     <textarea
                       value={formData[field.name] || ""}
                       onChange={(e) => handleInputChange(field.name, e.target.value)}
-                      onKeyDown={(e) => {
-                        if (e.key === "Enter" && e.shiftKey) {
-                          e.stopPropagation();
-                        }
-                      }}
                       required
                       rows={3}
                       style={{
