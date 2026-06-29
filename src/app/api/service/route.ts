@@ -4,6 +4,8 @@ import { hasMinRole } from "@/lib/roles";
 import { prisma } from "@/lib/prisma";
 import { sendWebhookAndGetId, editWebhookMessage } from "@/lib/webhook";
 
+const DISCORD_PINGS = ["698156151765991495", "1086766492873404499"];
+
 function formatDuration(seconds: number): string {
   const h = Math.floor(seconds / 3600);
   const m = Math.floor((seconds % 3600) / 60);
@@ -56,7 +58,7 @@ export async function POST(request: NextRequest) {
       { name: "Statut", value: "🟢 Prise de service" },
       { name: "Heure de début", value: startTime },
       { name: "Heure de fin", value: "⏳ En cours..." },
-    ], null, 0x22c55e);
+    ], DISCORD_PINGS, 0x22c55e);
 
     if (webhookMsgId) {
       await prisma.serviceSession.update({
@@ -110,7 +112,7 @@ export async function POST(request: NextRequest) {
         { name: "Heure de début", value: startTime },
         { name: "Heure de fin", value: endTime },
         { name: "Durée totale", value: durationStr },
-      ], null, 0xef4444);
+      ], DISCORD_PINGS, 0xef4444);
     }
 
     return NextResponse.json({ session: updated });
