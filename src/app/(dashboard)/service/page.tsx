@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Shield, Play, Square, Clock, Activity } from "lucide-react";
 import { useAppStore } from "@/lib/store";
+import { hasMinRole } from "@/lib/roles";
 
 interface ServiceSession {
   id: string;
@@ -104,6 +105,21 @@ export default function ServicePage() {
     return `${String(h).padStart(2, "0")}h ${String(m).padStart(2, "0")}m ${String(s).padStart(2, "0")}s`;
   };
 
+  const forceStopService = async (targetUserId: string) => {
+    try {
+      const res = await fetch("/api/service", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "stop", targetUserId }),
+      });
+      if (res.ok) {
+        const refreshed = await fetch("/api/service");
+        const data = await refreshed.json();
+        setSessions(data.sessions || []);
+      }
+    } catch {}
+  };
+
   const formatDateTime = (date: string) => {
     return new Date(date).toLocaleDateString("fr-FR", {
       day: "2-digit",
@@ -192,7 +208,7 @@ export default function ServicePage() {
           <table style={{ width: "100%", borderCollapse: "collapse", minWidth: "600px" }}>
             <thead>
               <tr style={{ borderBottom: "1px solid var(--border-color)", background: "var(--bg-tertiary)" }}>
-                {["Membre", "Date début", "Date fin", "Durée", "Statut"].map((h) => (
+                {["Membre", "Date début", "Date fin", "Durée", "Statut", ...(user && hasMinRole(user.role, "A-T") ? ["Action"] : [])].map((h) => (
                   <th key={h} style={{ padding: "0.85rem 1rem", textAlign: "left", fontSize: "0.8rem", fontWeight: 600, color: "var(--text-muted)", textTransform: "uppercase", letterSpacing: "0.05em" }}>
                     {h}
                   </th>
@@ -202,9 +218,9 @@ export default function ServicePage() {
             <tbody>
               {sessions.length === 0 ? (
                 <tr>
-                  <td colSpan={5} style={{ padding: "2rem", textAlign: "center", color: "var(--text-muted)" }}>
-                    Aucun service enregistré.
-                  </td>
+                    <td colSpan={user && hasMinRole(user.role, "A-T") ? 6 : 5} style={{ padding: "2rem", textAlign: "center", color: "var(--text-muted)" }}>
+                      Aucun service enregistré.
+                    </td>
                 </tr>
               ) : (
                 sessions.map((s, i) => (
@@ -241,6 +257,27 @@ export default function ServicePage() {
                         {s.isActive ? "En cours" : "Terminé"}
                       </span>
                     </td>
+                    {user && hasMinRole(user.role, "A-T") && (
+                      <td style={{ padding: "0.75rem 1rem" }}>
+                        {s.isActive && s.userId !== user.id && (
+                          <button
+                            onClick={() => forceStopService(s.userId)}
+                            style={{
+                              padding: "0.3rem 0.75rem",
+                              borderRadius: "6px",
+                              border: "1px solid rgba(239,68,68,0.3)",
+                              background: "rgba(239,68,68,0.1)",
+                              color: "#ef4444",
+                              cursor: "pointer",
+                              fontSize: "0.78rem",
+                              fontWeight: 600,
+                            }}
+                          >
+                            Arrêter
+                          </button>
+                        )}
+                      </td>
+                    )}
                   </tr>
                 ))
               )}

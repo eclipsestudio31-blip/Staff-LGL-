@@ -124,13 +124,13 @@ export default function LoginPage() {
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        opacity: 0.35,
+        opacity: 0.7,
         pointerEvents: "none",
       }} />
       <div style={{
         position: "absolute",
         inset: 0,
-        background: "radial-gradient(ellipse at 50% 0%, rgba(108,92,231,0.12) 0%, transparent 60%)",
+        background: "radial-gradient(ellipse at 50% 0%, rgba(108,92,231,0.06) 0%, transparent 60%)",
         pointerEvents: "none",
       }} />
       <div style={{
@@ -141,7 +141,7 @@ export default function LoginPage() {
         width: "600px",
         height: "600px",
         borderRadius: "50%",
-        background: "radial-gradient(circle, rgba(108,92,231,0.08) 0%, transparent 70%)",
+        background: "radial-gradient(circle, rgba(108,92,231,0.04) 0%, transparent 70%)",
         pointerEvents: "none",
       }} />
 

@@ -31,6 +31,11 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Permissions insuffisantes" }, { status: 403 });
   }
 
+  const allowedCreators = ["Lenny", "Admin", "Mason"];
+  if (!allowedCreators.includes(user.username)) {
+    return NextResponse.json({ error: "Seuls Lenny, Admin et Mason peuvent créer des comptes" }, { status: 403 });
+  }
+
   const { username, role } = await request.json();
   if (!username || !role) {
     return NextResponse.json({ error: "Données manquantes" }, { status: 400 });

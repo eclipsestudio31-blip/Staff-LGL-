@@ -46,6 +46,7 @@ const roleKeys = Object.keys(ROLES) as RoleKey[];
 export default function GestionComptesPage() {
   const router = useRouter();
   const { user } = useAppStore();
+  const canCreate = user && ["Lenny", "Admin", "Mason"].includes(user.username);
   const [users, setUsers] = useState<UserRecord[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
@@ -185,6 +186,7 @@ export default function GestionComptesPage() {
               style={{ padding: "0.6rem 0.8rem", borderRadius: "8px", border: "1px solid var(--border-color)", background: "var(--bg-tertiary)", color: "var(--text-primary)", fontSize: "0.9rem", outline: "none", width: "220px", paddingLeft: "2.5rem", boxSizing: "border-box" }}
             />
           </div>
+          {canCreate && (
           <button
             onClick={() => { setCreateForm({ username: "", role: "S-T" }); setTempPassword(null); setShowCreateModal(true); }}
             style={{ display: "flex", alignItems: "center", gap: "0.4rem", padding: "0.6rem 1rem", borderRadius: "8px", border: "none", background: "var(--accent)", color: "#fff", fontSize: "0.9rem", fontWeight: 600, cursor: "pointer", transition: "opacity 0.2s" }}
@@ -194,6 +196,7 @@ export default function GestionComptesPage() {
             <UserPlus size={16} />
             Nouveau Compte
           </button>
+          )}
         </div>
       </div>
 

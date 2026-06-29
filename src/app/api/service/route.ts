@@ -7,7 +7,7 @@ export async function GET(request: NextRequest) {
   const user = await getCurrentUser(request);
   if (!user) return NextResponse.json({ error: "Non autorisé" }, { status: 401 });
 
-  const seeAll = hasMinRole(user.role, "R-S");
+  const seeAll = hasMinRole(user.role, "A-T") || hasMinRole(user.role, "R-S");
 
   const sessions = await prisma.serviceSession.findMany({
     where: seeAll ? {} : { userId: user.id },
@@ -23,7 +23,7 @@ export async function POST(request: NextRequest) {
   const user = await getCurrentUser(request);
   if (!user) return NextResponse.json({ error: "Non autorisé" }, { status: 401 });
 
-  const { action } = await request.json();
+  const { action, targetUserId } = await request.json();
 
   if (action === "start") {
     const existing = await prisma.serviceSession.findFirst({
@@ -40,8 +40,11 @@ export async function POST(request: NextRequest) {
   }
 
   if (action === "stop") {
+    const isForceStop = targetUserId && targetUserId !== user.id && hasMinRole(user.role, "A-T");
+    const stopUserId = isForceStop ? targetUserId : user.id;
+
     const session = await prisma.serviceSession.findFirst({
-      where: { userId: user.id, isActive: true },
+      where: { userId: stopUserId, isActive: true },
     });
     if (!session) {
       return NextResponse.json({ error: "Aucun service actif" }, { status: 400 });
