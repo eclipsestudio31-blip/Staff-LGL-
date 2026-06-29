@@ -4,6 +4,12 @@ import { hasMinRole } from "@/lib/roles";
 import { prisma } from "@/lib/prisma";
 import { sendWebhookAndGetId, editWebhookMessage } from "@/lib/webhook";
 
+const TIMEZONE = "Europe/Paris";
+
+function formatTime(date: Date): string {
+  return date.toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit", timeZone: TIMEZONE });
+}
+
 function formatDuration(seconds: number): string {
   const h = Math.floor(seconds / 3600);
   const m = Math.floor((seconds % 3600) / 60);
@@ -49,7 +55,7 @@ export async function POST(request: NextRequest) {
       data: { userId: user.id },
     });
 
-    const startTime = new Date().toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" });
+    const startTime = formatTime(new Date());
 
     const webhookMsgId = await sendWebhookAndGetId("service", [
       { name: "Membre", value: user.username },
@@ -87,8 +93,8 @@ export async function POST(request: NextRequest) {
       data: { endTime: now, duration, isActive: false },
     });
 
-    const startTime = session.startTime.toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" });
-    const endTime = now.toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" });
+const startTime = formatTime(session.startTime);
+const endTime = formatTime(now);
     const durationStr = formatDuration(duration);
 
     if (session.webhookMessageId) {
