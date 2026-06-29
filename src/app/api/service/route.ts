@@ -4,7 +4,7 @@ import { hasMinRole } from "@/lib/roles";
 import { prisma } from "@/lib/prisma";
 import { sendWebhookAndGetId, editWebhookMessage } from "@/lib/webhook";
 
-const DISCORD_PINGS = ["698156151765991495", "1086766492873404499"];
+const DISCORD_PINGS = ["698156151765991495"];
 
 function formatDuration(seconds: number): string {
   const h = Math.floor(seconds / 3600);
