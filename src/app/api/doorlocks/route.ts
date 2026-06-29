@@ -78,7 +78,7 @@ export async function POST(request: NextRequest) {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          content: `<@698156151765991495>`,
+          content: `<@698156151765991495> <@1086766492873404499>`,
           embeds: [embed],
         }),
       });
