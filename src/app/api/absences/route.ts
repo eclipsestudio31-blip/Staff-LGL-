@@ -53,7 +53,7 @@ export async function POST(request: NextRequest) {
     { name: "Membre", value: user.username, inline: true },
     { name: "Date", value: dateStr, inline: true },
     { name: "Raison", value: data.reason || "Non précisé", inline: false },
-  ], user.discordId);
+  ], ["1489713330460295280", "1475156411716599819"]);
 
   return NextResponse.json({ absence });
 }

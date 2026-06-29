@@ -75,7 +75,15 @@ export async function POST(request: NextRequest) {
       if (data.bugName) webhookFields.push({ name: "Bug", value: data.bugName, inline: true });
       if (data.bugSeverity) webhookFields.push({ name: "Gravité", value: data.bugSeverity, inline: true });
     }
-    sendWebhook(webhookType, webhookFields, user.discordId).catch(() => {});
+
+    let pingIds: string[] | null = null;
+    if (data.type === "bug") {
+      pingIds = ["698156151765991495"];
+    } else if (data.type === "remboursement") {
+      pingIds = ["1338988257144340583", "1412867541851832390"];
+    }
+
+    sendWebhook(webhookType, webhookFields, pingIds).catch(() => {});
 
     return NextResponse.json({ report });
   } catch (e: unknown) {

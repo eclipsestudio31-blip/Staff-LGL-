@@ -4,8 +4,6 @@ import { hasMinRole } from "@/lib/roles";
 import { prisma } from "@/lib/prisma";
 import { sendWebhookAndGetId, editWebhookMessage } from "@/lib/webhook";
 
-const DISCORD_PINGS = ["698156151765991495"];
-
 function formatDuration(seconds: number): string {
   const h = Math.floor(seconds / 3600);
   const m = Math.floor((seconds % 3600) / 60);
@@ -58,7 +56,7 @@ export async function POST(request: NextRequest) {
       { name: "Statut", value: "🟢 Prise de service" },
       { name: "Heure de début", value: startTime },
       { name: "Heure de fin", value: "⏳ En cours..." },
-    ], DISCORD_PINGS, 0x22c55e);
+    ], user.discordId ? [user.discordId] : null, 0x22c55e);
 
     if (webhookMsgId) {
       await prisma.serviceSession.update({
@@ -103,7 +101,7 @@ export async function POST(request: NextRequest) {
       ], 0xef4444);
     } else {
       const stopUser = isForceStop
-        ? await prisma.user.findUnique({ where: { id: stopUserId }, select: { username: true } })
+        ? await prisma.user.findUnique({ where: { id: stopUserId }, select: { username: true, discordId: true } })
         : user;
 
       await sendWebhookAndGetId("service", [
@@ -112,7 +110,7 @@ export async function POST(request: NextRequest) {
         { name: "Heure de début", value: startTime },
         { name: "Heure de fin", value: endTime },
         { name: "Durée totale", value: durationStr },
-      ], DISCORD_PINGS, 0xef4444);
+      ], stopUser?.discordId ? [stopUser.discordId] : null, 0xef4444);
     }
 
     return NextResponse.json({ session: updated });

@@ -69,7 +69,7 @@ export async function POST(request: NextRequest) {
       sendWebhook("permanence", [
         { name: "Membre", value: user.username },
         { name: "Créneaux", value: slotsList },
-      ], user.discordId);
+      ], user.discordId ? [user.discordId] : null);
     }
 
     return NextResponse.json({ created, conflicts });
@@ -111,7 +111,7 @@ export async function POST(request: NextRequest) {
     { name: "Membre", value: user.username, inline: true },
     { name: "Date", value: new Date(data.date).toLocaleDateString("fr-FR"), inline: true },
     { name: "Créneau", value: `${data.startTime} - ${data.endTime}`, inline: true },
-  ], user.discordId);
+  ], user.discordId ? [user.discordId] : null);
 
   return NextResponse.json({ permanence });
 }
