@@ -56,19 +56,19 @@ model ServiceSession {
 model Report {
   id           String   @id @default(uuid())
   type         String
-  discord      String?
-  nomPrenom    String?
-  licence      String?
-  raison       String?
-  duree        String?
+  discord      String?  @db.Text
+  nomPrenom    String?  @db.Text
+  licence      String?  @db.Text
+  raison       String?  @db.Text
+  duree        String?  @db.Text
   tigCount     Int?
-  staffPresent String?
-  preuves      String?
-  bugName      String?
-  bugSeverity  String?
-  bugCapture   String?
-  bugVideo     String?
-  bugAuthor    String?
+  staffPresent String?  @db.Text
+  preuves      String?  @db.Text
+  bugName      String?  @db.Text
+  bugSeverity  String?  @db.Text
+  bugCapture   String?  @db.Text
+  bugVideo     String?  @db.Text
+  bugAuthor    String?  @db.Text
   authorId     String
   author       User     @relation(fields: [authorId], references: [id])
   createdAt    DateTime @default(now())
