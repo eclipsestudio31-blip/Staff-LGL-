@@ -77,15 +77,16 @@ export async function POST(request: NextRequest) {
     }
 
     let pingIds: string[] | null = null;
+    let rolePingIds: string[] | null = null;
     if (data.type === "bug") {
       pingIds = ["698156151765991495"];
     } else if (data.type === "remboursement") {
-      pingIds = ["1338988257144340583", "1412867541851832390"];
+      rolePingIds = ["1338988257144340583", "1412867541851832390"];
     } else if (data.type === "remboursement_effectue") {
       pingIds = user.discordId ? [user.discordId] : null;
     }
 
-    sendWebhook(webhookType, webhookFields, pingIds).catch(() => {});
+    sendWebhook(webhookType, webhookFields, pingIds, rolePingIds).catch(() => {});
 
     return NextResponse.json({ report });
   } catch (e: unknown) {
