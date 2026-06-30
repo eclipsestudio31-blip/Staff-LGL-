@@ -5,7 +5,7 @@ import { useAppStore } from "@/lib/store";
 import { getRoleName } from "@/lib/roles";
 import {
   Home, Calendar, Users, AlertTriangle, FileText, Eye, Clock,
-  MessageSquare, Terminal, Car, Shield, Settings, LogOut, Search, ChevronLeft, ChevronRight, Zap, UserPlus, CalendarOff, ShieldAlert, Lock, Trophy
+  MessageSquare, Terminal, Car, Shield, Settings, LogOut, Search, ChevronLeft, ChevronRight, Zap, UserPlus, CalendarOff, ShieldAlert, Lock, Trophy, Headphones
 } from "lucide-react";
 import { useState } from "react";
 
@@ -18,6 +18,7 @@ const navSections = [
       { href: "/organigramme", label: "Organigramme", icon: Users },
       { href: "/service", label: "Service", icon: Clock },
       { href: "/classement-service", label: "Classement Service", icon: Trophy },
+      { href: "/bda", label: "Bureau d'Accueil", icon: Headphones, minRole: "A-T" },
     ],
   },
   {
@@ -59,7 +60,7 @@ const ROLES: Record<string, { level: number }> = {
 
 export default function Sidebar() {
   const pathname = usePathname();
-  const { user, setSearchOpen } = useAppStore();
+  const { user, setSearchOpen, bdaCount } = useAppStore();
   const [collapsed, setCollapsed] = useState(false);
 
   return (
@@ -234,6 +235,19 @@ export default function Sidebar() {
                   >
                     <Icon size={17} strokeWidth={isActive ? 2.2 : 1.8} />
                     {!collapsed && <span>{item.label}</span>}
+                    {!collapsed && item.href === "/bda" && bdaCount > 0 && (
+                      <span style={{
+                        marginLeft: "auto",
+                        padding: "0.1rem 0.4rem",
+                        borderRadius: "9999px",
+                        background: "#ef4444",
+                        color: "white",
+                        fontSize: "0.625rem",
+                        fontWeight: 700,
+                        minWidth: "18px",
+                        textAlign: "center",
+                      }}>{bdaCount}</span>
+                    )}
                   </Link>
                 );
               })}

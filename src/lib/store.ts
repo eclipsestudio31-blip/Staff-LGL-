@@ -29,6 +29,8 @@ interface AppState {
   setNotifSound: (sound: "classic" | "ding" | "none") => void;
   searchOpen: boolean;
   setSearchOpen: (open: boolean) => void;
+  bdaCount: number;
+  setBDACount: (count: number) => void;
 }
 
 export function loadPrefs(): { theme: "dark" | "light" | "high-contrast"; fontSize: "normal" | "large" | "x-large"; notifSound: "classic" | "ding" | "none" } {
@@ -80,4 +82,6 @@ export const useAppStore = create<AppState>((set, get) => ({
   },
   searchOpen: false,
   setSearchOpen: (searchOpen) => set({ searchOpen }),
+  bdaCount: 0,
+  setBDACount: (bdaCount) => set({ bdaCount }),
 }));

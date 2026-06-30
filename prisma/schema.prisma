@@ -222,3 +222,21 @@ model DoorLock {
 
   @@map("doorlock")
 }
+
+model BDAEntry {
+  id              String    @id @default(uuid())
+  discordId       String
+  username        String
+  avatar          String?
+  joinedAt        DateTime  @default(now())
+  status          String    @default("waiting")
+  handledBy       String?
+  handledByUserId String?
+  handledAt       DateTime?
+  leftAt          DateTime?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  @@index([status])
+  @@index([discordId])
+}
