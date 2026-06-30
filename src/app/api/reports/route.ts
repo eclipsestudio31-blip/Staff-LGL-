@@ -81,6 +81,8 @@ export async function POST(request: NextRequest) {
       pingIds = ["698156151765991495"];
     } else if (data.type === "remboursement") {
       pingIds = ["1338988257144340583", "1412867541851832390"];
+    } else if (data.type === "remboursement_effectue") {
+      pingIds = user.discordId ? [user.discordId] : null;
     }
 
     sendWebhook(webhookType, webhookFields, pingIds).catch(() => {});
