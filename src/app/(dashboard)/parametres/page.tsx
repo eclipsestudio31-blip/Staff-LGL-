@@ -774,7 +774,7 @@ export default function ParametresPage() {
                 { key: "webhook_doorlock", label: "Doorlock", desc: "Consultation de code de porte" },
                 { key: "webhook_service", label: "Service", desc: "Prise et fin de service" },
                 { key: "webhook_service_semaine", label: "Service Semaine", desc: "Bilan service de la semaine" },
-                { key: "webhook_bda", label: "Bureau d'Accueil", desc: "Nouvelle personne en attente" },
+                { key: "webhook_bda", label: "Gestion BDA", desc: "Nouvelle personne en attente" },
                 { key: "webhook_absence", label: "Absences", desc: "Déclaration d'absence" },
                 { key: "webhook_surveillance", label: "Surveillance", desc: "Nouvelle mise en surveillance" },
                 { key: "webhook_permanence", label: "Permanence", desc: "Prise de permanence" },
