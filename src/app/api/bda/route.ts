@@ -95,6 +95,8 @@ export async function PATCH(request: NextRequest) {
   if (!entry) return NextResponse.json({ error: "Introuvable" }, { status: 404 });
   if (entry.status !== "waiting") return NextResponse.json({ error: "Déjà géré" }, { status: 400 });
 
+  const waitTimeSec = Math.floor((Date.now() - entry.joinedAt.getTime()) / 1000);
+
   const updated = await prisma.bDAEntry.update({
     where: { id },
     data: {
@@ -102,8 +104,22 @@ export async function PATCH(request: NextRequest) {
       handledBy: user.username,
       handledByUserId: user.id,
       handledAt: new Date(),
+      waitTime: waitTimeSec,
     },
   });
+
+  const h = Math.floor(waitTimeSec / 3600);
+  const m = Math.floor((waitTimeSec % 3600) / 60);
+  const s = waitTimeSec % 60;
+  const waitStr = h > 0 ? `${h}h ${m}m ${s}s` : m > 0 ? `${m}m ${s}s` : `${s}s`;
+
+  sendWebhook("bda", [
+    { name: "Personne", value: entry.username },
+    { name: "Discord ID", value: entry.discordId },
+    { name: "Staff", value: user.username },
+    { name: "Temps d'attente", value: waitStr },
+    { name: "Statut", value: "🟢 Pris en charge" },
+  ]);
 
   return NextResponse.json({ entry: updated });
 }

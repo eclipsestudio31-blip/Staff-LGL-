@@ -1,9 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef } from "react";
-import { Headphones, CheckCircle, XCircle, Clock, UserCheck } from "lucide-react";
-import { useAppStore } from "@/lib/store";
-import { hasMinRole } from "@/lib/roles";
+import { useState, useEffect, useCallback } from "react";
 
 interface BDAEntry {
   id: string;
@@ -14,288 +11,354 @@ interface BDAEntry {
   status: string;
   handledBy: string | null;
   handledAt: string | null;
+  waitTime: number | null;
   leftAt: string | null;
 }
 
-const statusConfig: Record<string, { label: string; color: string; bg: string; icon: string }> = {
-  waiting: { label: "En attente", color: "#f59e0b", bg: "#f59e0b22", icon: "🟠" },
-  handled: { label: "Pris en charge", color: "#22c55e", bg: "#22c55e22", icon: "🟢" },
-  left: { label: "Parti", color: "#ef4444", bg: "#ef444422", icon: "🔴" },
-};
+interface Stats {
+  today: number;
+  week: number;
+  month: number;
+  avgWaitTime: string;
+  avgHandleTime: string;
+  staffRanking: { name: string; count: number }[];
+  totalHandled: number;
+}
+
+function formatWait(seconds: number): string {
+  const h = Math.floor(seconds / 3600);
+  const m = Math.floor((seconds % 3600) / 60);
+  const s = seconds % 60;
+  if (h > 0) return `${h}h ${m}m ${s}s`;
+  if (m > 0) return `${m}m ${s}s`;
+  return `${s}s`;
+}
+
+function getRelativeTime(dateStr: string): string {
+  const diff = Math.floor((Date.now() - new Date(dateStr).getTime()) / 1000);
+  const h = Math.floor(diff / 3600);
+  const m = Math.floor((diff % 3600) / 60);
+  if (h > 0) return `il y a ${h}h ${m}m`;
+  if (m > 0) return `il y a ${m}m`;
+  return `il y a ${diff}s`;
+}
 
 export default function BDAPage() {
-  const { user, setBDACount } = useAppStore();
   const [entries, setEntries] = useState<BDAEntry[]>([]);
-  const [waitingCount, setWaitingCount] = useState(0);
+  const [allEntries, setAllEntries] = useState<BDAEntry[]>([]);
+  const [stats, setStats] = useState<Stats | null>(null);
+  const [activeTab, setActiveTab] = useState<"waiting" | "history" | "stats">("waiting");
   const [loading, setLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState<"all" | "waiting" | "handled" | "left">("all");
-  const prevWaitingRef = useRef(0);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  const [search, setSearch] = useState("");
+  const [filterDate, setFilterDate] = useState("");
+  const [filterStaff, setFilterStaff] = useState("");
+  const [filterStatus, setFilterStatus] = useState("");
 
   const fetchEntries = useCallback(async () => {
     try {
-      const res = await fetch("/api/bda");
-      const data = await res.json();
-      setEntries(data.entries || []);
-      const newCount = data.waitingCount || 0;
-      setWaitingCount(newCount);
-      setBDACount(newCount);
-
-      if (newCount > prevWaitingRef.current) {
-        try {
-          if (!audioRef.current) {
-            audioRef.current = new Audio("/sounds/ding.mp3");
-          }
-          audioRef.current.currentTime = 0;
-          audioRef.current.play().catch(() => {});
-        } catch {}
-      }
-      prevWaitingRef.current = newCount;
+      const [activeRes, allRes] = await Promise.all([
+        fetch("/api/bda?status=waiting"),
+        fetch("/api/bda?status=handled"),
+      ]);
+      const [activeData, allData] = await Promise.all([
+        activeRes.json(),
+        allRes.json(),
+      ]);
+      if (activeData.entries) setEntries(activeData.entries);
+      if (allData.entries) setAllEntries(allData.entries);
     } catch {
-      console.error("Failed to fetch BDA");
+      // silently fail
     } finally {
       setLoading(false);
     }
-  }, [setBDACount]);
+  }, []);
+
+  const fetchStats = useCallback(async () => {
+    try {
+      const res = await fetch("/api/bda/stats");
+      const data = await res.json();
+      if (!data.error) setStats(data);
+    } catch {
+      // silently fail
+    }
+  }, []);
 
   useEffect(() => {
     fetchEntries();
+    fetchStats();
     const interval = setInterval(fetchEntries, 5000);
     return () => clearInterval(interval);
-  }, [fetchEntries]);
+  }, [fetchEntries, fetchStats]);
 
-  const handleTakeInCharge = async (id: string) => {
+  const handleTake = async (id: string) => {
     try {
-      const res = await fetch("/api/bda", {
+      await fetch("/api/bda", {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ id }),
       });
-      if (res.ok) {
-        setEntries((prev) =>
-          prev.map((e) =>
-            e.id === id
-              ? { ...e, status: "handled", handledBy: user?.username || null, handledAt: new Date().toISOString() }
-              : e
-          )
-        );
-        setWaitingCount((p) => Math.max(0, p - 1));
-        setBDACount(Math.max(0, waitingCount - 1));
-      }
-    } catch (err) {
-      console.error("Erreur:", err);
+      fetchEntries();
+      fetchStats();
+    } catch {
+      // silently fail
     }
   };
 
-  const filtered = activeTab === "all" ? entries : entries.filter((e) => e.status === activeTab);
+  const filteredHistory = allEntries.filter((e) => {
+    if (search && !e.username.toLowerCase().includes(search.toLowerCase()) && !(e.handledBy || "").toLowerCase().includes(search.toLowerCase())) return false;
+    if (filterDate && !e.handledAt?.startsWith(filterDate) && !e.joinedAt.startsWith(filterDate)) return false;
+    if (filterStaff && e.handledBy !== filterStaff) return false;
+    if (filterStatus && e.status !== filterStatus) return false;
+    return true;
+  });
 
-  const getWaitTime = (joinedAt: string) => {
-    const start = new Date(joinedAt).getTime();
-    const now = Date.now();
-    const diff = Math.floor((now - start) / 1000);
-    const m = Math.floor(diff / 60);
-    const s = diff % 60;
-    return `${m}m ${s}s`;
-  };
-
-  const tabs = [
-    { id: "all" as const, label: "Tous", count: entries.length },
-    { id: "waiting" as const, label: "En attente", count: entries.filter((e) => e.status === "waiting").length },
-    { id: "handled" as const, label: "Pris en charge", count: entries.filter((e) => e.status === "handled").length },
-    { id: "left" as const, label: "Partis", count: entries.filter((e) => e.status === "left").length },
-  ];
+  const uniqueStaff = [...new Set(allEntries.map((e) => e.handledBy).filter(Boolean))];
 
   return (
-    <div style={{ padding: "2rem", maxWidth: "1100px", margin: "0 auto" }}>
-      {/* Header */}
-      <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1.5rem" }}>
-        <Headphones size={28} style={{ color: "var(--accent)" }} />
-        <h1 style={{ fontSize: "1.75rem", fontWeight: 700 }}>Bureau d&apos;Accueil</h1>
-        {waitingCount > 0 && (
-          <span style={{
-            padding: "0.25rem 0.75rem",
-            borderRadius: "9999px",
-            background: "#ef4444",
-            color: "white",
-            fontSize: "0.8125rem",
-            fontWeight: 700,
-          }}>
-            {waitingCount} en attente
-          </span>
-        )}
+    <div className="p-6 space-y-6">
+      <div className="flex items-center justify-between">
+        <h1 className="text-2xl font-bold">Bureau d&apos;Accueil</h1>
+        <div className="flex gap-2">
+          {(["waiting", "history", "stats"] as const).map((tab) => (
+            <button
+              key={tab}
+              onClick={() => setActiveTab(tab)}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                activeTab === tab
+                  ? "bg-blue-600 text-white"
+                  : "bg-white text-gray-600 hover:bg-gray-100 border"
+              }`}
+            >
+              {tab === "waiting" && `En attente (${entries.length})`}
+              {tab === "history" && "Historique"}
+              {tab === "stats" && "Statistiques"}
+            </button>
+          ))}
+        </div>
       </div>
 
-      {/* Tabs */}
-      <div style={{ display: "flex", gap: "0.5rem", marginBottom: "1.5rem", flexWrap: "wrap" }}>
-        {tabs.map((tab) => (
-          <button
-            key={tab.id}
-            onClick={() => setActiveTab(tab.id)}
-            style={{
-              padding: "0.5rem 1rem",
-              borderRadius: "var(--radius-sm)",
-              border: `1px solid ${activeTab === tab.id ? "var(--accent)" : "var(--border)"}`,
-              background: activeTab === tab.id ? "var(--accent)" : "var(--bg-secondary)",
-              color: activeTab === tab.id ? "white" : "var(--text-primary)",
-              cursor: "pointer",
-              fontSize: "0.8125rem",
-              fontWeight: 600,
-              display: "flex",
-              alignItems: "center",
-              gap: "0.5rem",
-            }}
-          >
-            {tab.label}
-            {tab.count > 0 && (
-              <span style={{
-                padding: "0.1rem 0.4rem",
-                borderRadius: "9999px",
-                background: activeTab === tab.id ? "rgba(255,255,255,0.2)" : "var(--bg-tertiary)",
-                fontSize: "0.6875rem",
-                fontWeight: 700,
-              }}>
-                {tab.count}
-              </span>
-            )}
-          </button>
-        ))}
-      </div>
-
-      {/* Content */}
-      {loading ? (
-        <div style={{
-          padding: "3rem",
-          textAlign: "center",
-          color: "var(--text-muted)",
-          background: "var(--bg-secondary)",
-          borderRadius: "var(--radius)",
-          border: "1px solid var(--border)",
-        }}>
-          <Clock size={28} style={{ animation: "spin 1s linear infinite", marginBottom: "0.75rem" }} />
-          <p>Chargement...</p>
-        </div>
-      ) : filtered.length === 0 ? (
-        <div style={{
-          padding: "3rem",
-          textAlign: "center",
-          background: "var(--bg-secondary)",
-          borderRadius: "var(--radius)",
-          border: "1px solid var(--border)",
-        }}>
-          <div style={{ fontSize: "2rem", marginBottom: "0.5rem" }}>🎧</div>
-          <p style={{ color: "var(--text-muted)", fontWeight: 600 }}>
-            {activeTab === "waiting" ? "Aucune personne en attente" : "Aucune entrée"}
-          </p>
-        </div>
-      ) : (
-        <div style={{
-          background: "var(--bg-secondary)",
-          borderRadius: "var(--radius)",
-          border: "1px solid var(--border)",
-          overflow: "hidden",
-        }}>
-          {filtered.map((entry, i) => {
-            const cfg = statusConfig[entry.status] || statusConfig.waiting;
-            return (
-              <div
-                key={entry.id}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "1rem",
-                  padding: "1rem 1.5rem",
-                  borderBottom: i < filtered.length - 1 ? "1px solid var(--border)" : "none",
-                  background: entry.status === "waiting" ? `${cfg.bg}` : "transparent",
-                  transition: "background 0.15s",
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.background = "var(--bg-hover)")}
-                onMouseLeave={(e) => (e.currentTarget.style.background = entry.status === "waiting" ? `${cfg.bg}` : "transparent")}
-              >
-                {/* Avatar */}
-                <div style={{
-                  width: "40px",
-                  height: "40px",
-                  borderRadius: "50%",
-                  overflow: "hidden",
-                  background: entry.avatar ? "transparent" : "linear-gradient(135deg, var(--accent), #8b5cf6)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: "0.875rem",
-                  fontWeight: 700,
-                  color: "white",
-                  flexShrink: 0,
-                }}>
-                  {entry.avatar ? (
-                    <img src={entry.avatar} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-                  ) : (
-                    entry.username.charAt(0).toUpperCase()
-                  )}
-                </div>
-
-                {/* Infos */}
-                <div style={{ flex: 1, minWidth: 0 }}>
-                  <div style={{ fontWeight: 600, fontSize: "0.9375rem" }}>{entry.username}</div>
-                  <div style={{ fontSize: "0.75rem", color: "var(--text-muted)", display: "flex", gap: "0.75rem", marginTop: "0.125rem" }}>
-                    <span>Arrivé à {new Date(entry.joinedAt).toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" })}</span>
-                    {entry.status === "waiting" && <span>⏱️ {getWaitTime(entry.joinedAt)}</span>}
-                    {entry.handledBy && <span>Pris par {entry.handledBy}</span>}
-                  </div>
-                </div>
-
-                {/* Statut */}
-                <span style={{
-                  padding: "0.25rem 0.75rem",
-                  borderRadius: "9999px",
-                  fontSize: "0.75rem",
-                  fontWeight: 600,
-                  background: cfg.bg,
-                  color: cfg.color,
-                  border: `1px solid ${cfg.color}44`,
-                  whiteSpace: "nowrap",
-                }}>
-                  {cfg.icon} {cfg.label}
-                </span>
-
-                {/* Bouton */}
-                {entry.status === "waiting" && user && hasMinRole(user.role, "A-T") && (
-                  <button
-                    onClick={() => handleTakeInCharge(entry.id)}
-                    style={{
-                      display: "inline-flex",
-                      alignItems: "center",
-                      gap: "0.375rem",
-                      padding: "0.375rem 0.875rem",
-                      borderRadius: "var(--radius-sm)",
-                      border: "1px solid #22c55e44",
-                      background: "#22c55e15",
-                      color: "#22c55e",
-                      cursor: "pointer",
-                      fontSize: "0.75rem",
-                      fontWeight: 600,
-                      whiteSpace: "nowrap",
-                    }}
-                  >
-                    <UserCheck size={13} />
-                    Prendre en charge
-                  </button>
-                )}
-              </div>
-            );
-          })}
+      {activeTab === "waiting" && (
+        <div className="space-y-4">
+          {loading ? (
+            <div className="text-center py-12 text-gray-500">Chargement...</div>
+          ) : entries.length === 0 ? (
+            <div className="text-center py-12">
+              <div className="text-4xl mb-4">🟢</div>
+              <p className="text-gray-500 text-lg">Aucune personne en attente</p>
+            </div>
+          ) : (
+            <div className="bg-white rounded-xl border overflow-hidden">
+              <table className="w-full">
+                <thead>
+                  <tr className="border-b bg-gray-50">
+                    <th className="text-left px-4 py-3 text-sm font-medium text-gray-500">Personne</th>
+                    <th className="text-left px-4 py-3 text-sm font-medium text-gray-500">Discord ID</th>
+                    <th className="text-left px-4 py-3 text-sm font-medium text-gray-500">Arrivée</th>
+                    <th className="text-left px-4 py-3 text-sm font-medium text-gray-500">Attente</th>
+                    <th className="text-left px-4 py-3 text-sm font-medium text-gray-500">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {entries.map((e) => (
+                    <tr key={e.id} className="border-b last:border-b-0 hover:bg-gray-50">
+                      <td className="px-4 py-3 flex items-center gap-2">
+                        {e.avatar ? (
+                          <img src={e.avatar} alt="" className="w-7 h-7 rounded-full" />
+                        ) : (
+                          <div className="w-7 h-7 rounded-full bg-blue-100 flex items-center justify-center text-sm text-blue-600 font-medium">
+                            {e.username.charAt(0).toUpperCase()}
+                          </div>
+                        )}
+                        <span className="font-medium">{e.username}</span>
+                      </td>
+                      <td className="px-4 py-3 text-sm text-gray-500 font-mono">{e.discordId}</td>
+                      <td className="px-4 py-3 text-sm text-gray-500">
+                        {new Date(e.joinedAt).toLocaleTimeString("fr-FR", { timeZone: "Europe/Paris" })}
+                      </td>
+                      <td className="px-4 py-3">
+                        <span className="text-sm font-medium text-orange-600">
+                          {formatWait(Math.floor((Date.now() - new Date(e.joinedAt).getTime()) / 1000))}
+                        </span>
+                      </td>
+                      <td className="px-4 py-3">
+                        <button
+                          onClick={() => handleTake(e.id)}
+                          className="px-3 py-1.5 bg-green-600 text-white rounded-lg text-sm hover:bg-green-700 transition-colors"
+                        >
+                          Prendre en charge
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
         </div>
       )}
 
-      {/* Auto-refresh indicator */}
-      <div style={{
-        marginTop: "1rem",
-        padding: "0.5rem 1rem",
-        fontSize: "0.6875rem",
-        color: "var(--text-muted)",
-        textAlign: "center",
-      }}>
-        Actualisation automatique toutes les 5 secondes
-      </div>
+      {activeTab === "history" && (
+        <div className="space-y-4">
+          <div className="bg-white rounded-xl border p-4">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
+              <input
+                type="text"
+                placeholder="Rechercher par pseudo ou staff..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                className="px-3 py-2 border rounded-lg text-sm"
+              />
+              <input
+                type="date"
+                value={filterDate}
+                onChange={(e) => setFilterDate(e.target.value)}
+                className="px-3 py-2 border rounded-lg text-sm"
+              />
+              <select
+                value={filterStaff}
+                onChange={(e) => setFilterStaff(e.target.value)}
+                className="px-3 py-2 border rounded-lg text-sm"
+              >
+                <option value="">Tous les staffs</option>
+                {uniqueStaff.map((s) => (
+                  <option key={s} value={s!}>{s}</option>
+                ))}
+              </select>
+              <select
+                value={filterStatus}
+                onChange={(e) => setFilterStatus(e.target.value)}
+                className="px-3 py-2 border rounded-lg text-sm"
+              >
+                <option value="">Tous les statuts</option>
+                <option value="handled">Pris en charge</option>
+                <option value="waiting">En attente</option>
+                <option value="left">Parti</option>
+              </select>
+            </div>
+          </div>
+
+          {filteredHistory.length === 0 ? (
+            <div className="text-center py-12 text-gray-500">Aucun historique trouvé</div>
+          ) : (
+            <div className="bg-white rounded-xl border overflow-hidden">
+              <table className="w-full">
+                <thead>
+                  <tr className="border-b bg-gray-50">
+                    <th className="text-left px-4 py-3 text-sm font-medium text-gray-500">Personne</th>
+                    <th className="text-left px-4 py-3 text-sm font-medium text-gray-500">Staff</th>
+                    <th className="text-left px-4 py-3 text-sm font-medium text-gray-500">Arrivée</th>
+                    <th className="text-left px-4 py-3 text-sm font-medium text-gray-500">Prise en charge</th>
+                    <th className="text-left px-4 py-3 text-sm font-medium text-gray-500">Attente</th>
+                    <th className="text-left px-4 py-3 text-sm font-medium text-gray-500">Date</th>
+                    <th className="text-left px-4 py-3 text-sm font-medium text-gray-500">Statut</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {filteredHistory.map((e) => (
+                    <tr key={e.id} className="border-b last:border-b-0 hover:bg-gray-50">
+                      <td className="px-4 py-3 flex items-center gap-2">
+                        {e.avatar ? (
+                          <img src={e.avatar} alt="" className="w-7 h-7 rounded-full" />
+                        ) : (
+                          <div className="w-7 h-7 rounded-full bg-blue-100 flex items-center justify-center text-sm text-blue-600 font-medium">
+                            {e.username.charAt(0).toUpperCase()}
+                          </div>
+                        )}
+                        <span className="font-medium">{e.username}</span>
+                      </td>
+                      <td className="px-4 py-3 text-sm">{e.handledBy || "-"}</td>
+                      <td className="px-4 py-3 text-sm text-gray-500">
+                        {new Date(e.joinedAt).toLocaleTimeString("fr-FR", { timeZone: "Europe/Paris" })}
+                      </td>
+                      <td className="px-4 py-3 text-sm text-gray-500">
+                        {e.handledAt ? new Date(e.handledAt).toLocaleTimeString("fr-FR", { timeZone: "Europe/Paris" }) : "-"}
+                      </td>
+                      <td className="px-4 py-3 text-sm font-medium text-orange-600">
+                        {e.waitTime != null ? formatWait(e.waitTime) : e.status === "waiting" ? formatWait(Math.floor((Date.now() - new Date(e.joinedAt).getTime()) / 1000)) : "-"}
+                      </td>
+                      <td className="px-4 py-3 text-sm text-gray-500">
+                        {new Date(e.joinedAt).toLocaleDateString("fr-FR", { timeZone: "Europe/Paris" })}
+                      </td>
+                      <td className="px-4 py-3">
+                        <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                          e.status === "handled" ? "bg-green-100 text-green-700" :
+                          e.status === "waiting" ? "bg-orange-100 text-orange-700" :
+                          "bg-gray-100 text-gray-700"
+                        }`}>
+                          {e.status === "handled" ? "Pris en charge" : e.status === "waiting" ? "En attente" : "Parti"}
+                        </span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </div>
+      )}
+
+      {activeTab === "stats" && (
+        <div className="space-y-4">
+          {stats ? (
+            <>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="bg-white rounded-xl border p-5">
+                  <div className="text-sm text-gray-500 mb-1">Aujourd&apos;hui</div>
+                  <div className="text-3xl font-bold">{stats.today}</div>
+                </div>
+                <div className="bg-white rounded-xl border p-5">
+                  <div className="text-sm text-gray-500 mb-1">Cette semaine</div>
+                  <div className="text-3xl font-bold">{stats.week}</div>
+                </div>
+                <div className="bg-white rounded-xl border p-5">
+                  <div className="text-sm text-gray-500 mb-1">Ce mois-ci</div>
+                  <div className="text-3xl font-bold">{stats.month}</div>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="bg-white rounded-xl border p-5">
+                  <div className="text-sm text-gray-500 mb-1">Temps moyen d&apos;attente</div>
+                  <div className="text-2xl font-bold text-orange-600">{stats.avgWaitTime}</div>
+                </div>
+                <div className="bg-white rounded-xl border p-5">
+                  <div className="text-sm text-gray-500 mb-1">Temps moyen de prise en charge</div>
+                  <div className="text-2xl font-bold text-green-600">{stats.avgHandleTime}</div>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-xl border p-5">
+                <h3 className="font-semibold mb-4">Classement des staffs</h3>
+                {stats.staffRanking.length === 0 ? (
+                  <p className="text-gray-500 text-sm">Aucune donnée</p>
+                ) : (
+                  <div className="space-y-2">
+                    {stats.staffRanking.map((s, i) => (
+                      <div key={s.name} className="flex items-center justify-between py-2 px-3 rounded-lg hover:bg-gray-50">
+                        <div className="flex items-center gap-3">
+                          <span className={`w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold ${
+                            i === 0 ? "bg-yellow-100 text-yellow-700" :
+                            i === 1 ? "bg-gray-100 text-gray-600" :
+                            i === 2 ? "bg-orange-100 text-orange-700" :
+                            "bg-gray-50 text-gray-500"
+                          }`}>
+                            {i + 1}
+                          </span>
+                          <span className="font-medium">{s.name}</span>
+                        </div>
+                        <span className="text-sm font-semibold text-blue-600">{s.count} prise{s.count > 1 ? "s" : ""}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </>
+          ) : (
+            <div className="text-center py-12 text-gray-500">Chargement des statistiques...</div>
+          )}
+        </div>
+      )}
     </div>
   );
 }

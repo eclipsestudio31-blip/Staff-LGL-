@@ -233,6 +233,7 @@ model BDAEntry {
   handledBy       String?
   handledByUserId String?
   handledAt       DateTime?
+  waitTime        Int?
   leftAt          DateTime?
   createdAt       DateTime  @default(now())
   updatedAt       DateTime  @updatedAt
