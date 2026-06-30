@@ -68,10 +68,34 @@ export async function POST(request: NextRequest) {
     });
 
     if (entry) {
+      const leftAt = new Date();
+      const waitTimeSec = entry.waitTime ?? Math.floor((leftAt.getTime() - entry.joinedAt.getTime()) / 1000);
+      const durationSec = entry.handledAt ? Math.floor((leftAt.getTime() - entry.handledAt.getTime()) / 1000) : 0;
+
       await prisma.bDAEntry.update({
         where: { id: entry.id },
-        data: { status: "left", leftAt: new Date() },
+        data: { status: "left", leftAt },
       });
+
+      const fmt = (sec: number) => {
+        const h = Math.floor(sec / 3600);
+        const m = Math.floor((sec % 3600) / 60);
+        const s = sec % 60;
+        if (h > 0) return `${h}h ${m}m ${s}s`;
+        if (m > 0) return `${m}m ${s}s`;
+        return `${s}s`;
+      };
+
+      sendWebhook("bda", [
+        { name: "Personne", value: entry.username },
+        { name: "Discord ID", value: entry.discordId },
+        { name: "Staff", value: entry.handledBy || "Aucun" },
+        { name: "Temps d'attente", value: fmt(waitTimeSec) },
+        { name: "Durée de prise en charge", value: fmt(durationSec) },
+        { name: "Arrivée", value: new Date(entry.joinedAt).toLocaleTimeString("fr-FR", { timeZone: "Europe/Paris" }) },
+        { name: "Départ", value: leftAt.toLocaleTimeString("fr-FR", { timeZone: "Europe/Paris" }) },
+        { name: "Statut", value: entry.handledBy ? "✅ Pris en charge puis parti" : "❌ Parti sans prise en charge" },
+      ]);
     }
 
     return NextResponse.json({ success: true });
@@ -107,19 +131,6 @@ export async function PATCH(request: NextRequest) {
       waitTime: waitTimeSec,
     },
   });
-
-  const h = Math.floor(waitTimeSec / 3600);
-  const m = Math.floor((waitTimeSec % 3600) / 60);
-  const s = waitTimeSec % 60;
-  const waitStr = h > 0 ? `${h}h ${m}m ${s}s` : m > 0 ? `${m}m ${s}s` : `${s}s`;
-
-  sendWebhook("bda", [
-    { name: "Personne", value: entry.username },
-    { name: "Discord ID", value: entry.discordId },
-    { name: "Staff", value: user.username },
-    { name: "Temps d'attente", value: waitStr },
-    { name: "Statut", value: "🟢 Pris en charge" },
-  ]);
 
   return NextResponse.json({ entry: updated });
 }
