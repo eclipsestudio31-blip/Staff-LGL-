@@ -66,7 +66,7 @@ export async function POST(request: NextRequest) {
 
   sendWebhook("account_log", [
     { name: "Action", value: "🟢 Création de compte" },
-    { name: "Auteur", value: `${user.username} (${user.id})` },
+    { name: "Auteur", value: user.discordId ? `<@${user.discordId}>` : user.username },
     { name: "Identifiant", value: username },
     { name: "Rôle", value: role },
     { name: "Mot de passe provisoire", value: `\`${tempPassword}\`` },
@@ -147,7 +147,7 @@ export async function DELETE(request: NextRequest) {
 
   sendWebhook("account_log", [
     { name: "Action", value: "🔴 Suppression de compte" },
-    { name: "Auteur", value: `${user.username} (${user.id})` },
+    { name: "Auteur", value: user.discordId ? `<@${user.discordId}>` : user.username },
     { name: "Identifiant supprimé", value: target.username },
     { name: "Rôle", value: target.role },
   ]);
