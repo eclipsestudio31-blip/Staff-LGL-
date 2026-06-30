@@ -118,7 +118,7 @@ export default function BDAPage() {
   return (
     <div className="p-6 space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold">Bureau d&apos;Accueil</h1>
+        <h1 className="text-2xl font-bold">Gestion BDA</h1>
         <div className="flex gap-2">
           {(["waiting", "history", "stats"] as const).map((tab) => (
             <button

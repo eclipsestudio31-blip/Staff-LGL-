@@ -18,7 +18,7 @@ const navSections = [
       { href: "/organigramme", label: "Organigramme", icon: Users },
       { href: "/service", label: "Service", icon: Clock },
       { href: "/classement-service", label: "Classement Service", icon: Trophy },
-      { href: "/bda", label: "Bureau d'Accueil", icon: Headphones, minRole: "A-T" },
+      { href: "/bda", label: "Gestion BDA", icon: Headphones, minRole: "A-T" },
     ],
   },
   {
