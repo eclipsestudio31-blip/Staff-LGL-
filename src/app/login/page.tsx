@@ -293,6 +293,18 @@ export default function LoginPage() {
         </p>
       </div>
 
+      <div style={{
+        position: "fixed",
+        bottom: "1rem",
+        right: "1.5rem",
+        fontSize: "0.6875rem",
+        color: "rgba(255,255,255,0.5)",
+        fontWeight: 500,
+        zIndex: 10,
+      }}>
+        Développé par <span style={{ fontWeight: 700 }}>Lenny</span> & <span style={{ fontWeight: 700 }}>OpenCode</span>
+      </div>
+
       {showPasswordModal && (
         <div className="modal-overlay">
           <div className="modal" style={{ maxWidth: "460px" }}>
