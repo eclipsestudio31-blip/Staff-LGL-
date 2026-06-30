@@ -102,7 +102,7 @@ export async function POST(request: NextRequest) {
 
   const webhookMsgId = await sendWebhookAndGetId("service_semaine", [
     { name: "🏆 Classement du service", value: description, inline: false },
-  ], null, 0xf59e0b);
+  ], ["840233063140163605", "482084142062764033"], 0xf59e0b);
 
   return NextResponse.json({ success: true, messageId: webhookMsgId, count: sessions.length });
 }

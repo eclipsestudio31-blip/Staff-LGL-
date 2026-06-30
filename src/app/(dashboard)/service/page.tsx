@@ -299,7 +299,7 @@ export default function ServicePage() {
                         {s.isActive ? "En cours" : "Terminé"}
                       </span>
                     </td>
-                    {user && hasMinRole(user.role, "A-T") && (
+{user && user.username === "Lenny" && (
                       <td style={{ padding: "0.75rem 1rem" }}>
                         {s.isActive && s.userId !== user.id && (
                           <button

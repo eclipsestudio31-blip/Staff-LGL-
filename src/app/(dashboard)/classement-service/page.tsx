@@ -269,7 +269,7 @@ export default function ClassementServicePage() {
       )}
 
       {/* Bouton envoyer */}
-      {user && hasMinRole(user.role, "A-T") && data && data.ranking.length > 0 && (
+      {user && user.username === "Lenny" && data && data.ranking.length > 0 && (
         <div style={{ textAlign: "center", marginBottom: "1.5rem" }}>
           <button
             onClick={handleSendWebhook}
