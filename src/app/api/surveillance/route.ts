@@ -38,7 +38,7 @@ export async function POST(request: NextRequest) {
     { name: "Licence", value: data.licence || "N/A", inline: true },
     { name: "Raison", value: data.raison || "N/A", inline: false },
     { name: "Staff présent", value: data.staffPresent || "N/A", inline: true },
-  ], ["1358196932698308768"]);
+  ], null, ["1358196932698308768"]);
 
   return NextResponse.json({ entry });
 }

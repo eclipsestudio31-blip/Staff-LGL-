@@ -26,7 +26,8 @@ export async function getWebhookUrl(type: string): Promise<string | null> {
 export async function sendWebhook(
   type: string,
   fields: { name: string; value: string; inline?: boolean }[],
-  mentionDiscordIds?: string[] | string | null
+  mentionDiscordIds?: string[] | string | null,
+  roleIds?: string[] | string | null
 ) {
   const url = await getWebhookUrl(type);
   if (!url) return;
@@ -42,9 +43,17 @@ export async function sendWebhook(
 
   const body: Record<string, unknown> = { embeds: [embed] };
 
+  const mentions: string[] = [];
   if (mentionDiscordIds) {
     const ids = Array.isArray(mentionDiscordIds) ? mentionDiscordIds : [mentionDiscordIds];
-    body.content = ids.filter(Boolean).map((id) => `<@${id}>`).join(" ");
+    mentions.push(...ids.filter(Boolean).map((id) => `<@${id}>`));
+  }
+  if (roleIds) {
+    const ids = Array.isArray(roleIds) ? roleIds : [roleIds];
+    mentions.push(...ids.filter(Boolean).map((id) => `<@&${id}>`));
+  }
+  if (mentions.length > 0) {
+    body.content = mentions.join(" ");
   }
 
   try {
