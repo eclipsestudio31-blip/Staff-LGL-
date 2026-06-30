@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { Trophy, ChevronLeft, ChevronRight, Send, Clock, Medal } from "lucide-react";
+import { Trophy, ChevronLeft, ChevronRight, Send, Clock } from "lucide-react";
 import { useAppStore } from "@/lib/store";
 import { hasMinRole } from "@/lib/roles";
 
@@ -10,6 +10,8 @@ interface RankingEntry {
   username: string;
   role: string;
   avatar: string | null;
+  discordId: string | null;
+  licence: string | null;
   totalFormatted: string;
   totalSeconds: number;
   sessionCount: number;
@@ -22,15 +24,11 @@ interface RankingData {
   endDate: string;
   ranking: RankingEntry[];
   totalSessions: number;
+  totalMembres: number;
+  totalFormatted: string;
 }
 
 const MEDALS = ["🥇", "🥈", "🥉"];
-
-const medalColors: Record<number, string> = {
-  1: "#FFD700",
-  2: "#C0C0C0",
-  3: "#CD7F32",
-};
 
 export default function ClassementServicePage() {
   const { user } = useAppStore();
@@ -71,27 +69,42 @@ export default function ClassementServicePage() {
     }
   };
 
-  const startDate = data ? new Date(data.startDate) : new Date();
-  const endDate = data ? new Date(data.endDate) : new Date();
-
   return (
     <div style={{ padding: "2rem", maxWidth: "900px", margin: "0 auto" }}>
-      <div style={{ textAlign: "center", marginBottom: "2rem" }}>
-        <div style={{ fontSize: "3rem", marginBottom: "0.5rem" }}>🏆</div>
-        <h1 style={{ fontSize: "1.75rem", fontWeight: 700, marginBottom: "0.25rem" }}>
-          Classement du service
+      {/* Header */}
+      <div style={{
+        textAlign: "center",
+        marginBottom: "1.5rem",
+        padding: "1.5rem",
+        background: "var(--bg-secondary)",
+        borderRadius: "var(--radius)",
+        border: "1px solid var(--border)",
+      }}>
+        <div style={{ fontSize: "2.5rem", marginBottom: "0.25rem" }}>🏆</div>
+        <h1 style={{ fontSize: "1.5rem", fontWeight: 700, marginBottom: "0.5rem" }}>
+          Classement du service — Semaine {data?.week || "?"} ({data?.year || "?"})
         </h1>
-        <p style={{ color: "var(--text-muted)", fontSize: "0.875rem" }}>
-          Semaine {data?.week || "?"} ({data?.year || "?"})
-        </p>
+        <div style={{
+          display: "flex",
+          justifyContent: "center",
+          gap: "1.5rem",
+          fontSize: "0.8125rem",
+          color: "var(--text-muted)",
+          flexWrap: "wrap",
+        }}>
+          <span style={{ fontWeight: 700, color: "var(--text-primary)" }}>⏱️ {data?.totalFormatted || "00h00m00s"} cumulé</span>
+          <span>👤 {data?.totalMembres || 0} actif(s)</span>
+          <span>📋 {data?.totalSessions || 0} session(s)</span>
+        </div>
       </div>
 
+      {/* Navigation */}
       <div style={{
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         gap: "1rem",
-        marginBottom: "2rem",
+        marginBottom: "1.5rem",
       }}>
         <button
           onClick={() => setWeekOffset((p) => p - 1)}
@@ -105,23 +118,13 @@ export default function ClassementServicePage() {
             background: "var(--bg-secondary)",
             color: "var(--text-primary)",
             cursor: "pointer",
-            fontSize: "0.875rem",
+            fontSize: "0.8125rem",
             fontWeight: 600,
-            transition: "all 0.15s",
           }}
         >
-          <ChevronLeft size={16} />
+          <ChevronLeft size={14} />
           Semaine précédente
         </button>
-        <span style={{
-          fontSize: "0.8125rem",
-          color: "var(--text-muted)",
-          minWidth: "200px",
-          textAlign: "center",
-        }}>
-          {startDate.toLocaleDateString("fr-FR", { day: "numeric", month: "short" })} →{" "}
-          {endDate.toLocaleDateString("fr-FR", { day: "numeric", month: "short", year: "numeric" })}
-        </span>
         <button
           onClick={() => setWeekOffset((p) => Math.min(p + 1, 0))}
           disabled={weekOffset >= 0}
@@ -135,19 +138,139 @@ export default function ClassementServicePage() {
             background: weekOffset >= 0 ? "var(--bg-tertiary)" : "var(--bg-secondary)",
             color: weekOffset >= 0 ? "var(--text-muted)" : "var(--text-primary)",
             cursor: weekOffset >= 0 ? "not-allowed" : "pointer",
-            fontSize: "0.875rem",
+            fontSize: "0.8125rem",
             fontWeight: 600,
             opacity: weekOffset >= 0 ? 0.5 : 1,
-            transition: "all 0.15s",
           }}
         >
           Semaine suivante
-          <ChevronRight size={16} />
+          <ChevronRight size={14} />
         </button>
       </div>
 
-      {user && hasMinRole(user.role, "A-T") && (
-        <div style={{ textAlign: "center", marginBottom: "2rem" }}>
+      {/* Content */}
+      {loading ? (
+        <div style={{
+          padding: "3rem",
+          textAlign: "center",
+          color: "var(--text-muted)",
+          background: "var(--bg-secondary)",
+          borderRadius: "var(--radius)",
+          border: "1px solid var(--border)",
+        }}>
+          <Clock size={28} style={{ animation: "spin 1s linear infinite", marginBottom: "0.75rem" }} />
+          <p>Chargement...</p>
+        </div>
+      ) : !data || data.ranking.length === 0 ? (
+        <div style={{
+          padding: "3rem",
+          textAlign: "center",
+          background: "var(--bg-secondary)",
+          borderRadius: "var(--radius)",
+          border: "1px solid var(--border)",
+        }}>
+          <div style={{ fontSize: "1.5rem", marginBottom: "0.5rem" }}>📋</div>
+          <p style={{ color: "var(--text-muted)", fontWeight: 600 }}>
+            Aucun service enregistré pour cette semaine
+          </p>
+        </div>
+      ) : (
+        <div style={{
+          background: "var(--bg-secondary)",
+          borderRadius: "var(--radius)",
+          border: "1px solid var(--border)",
+          overflow: "hidden",
+          marginBottom: "1.5rem",
+        }}>
+          {data.ranking.map((entry, i) => (
+            <div
+              key={entry.username}
+              style={{
+                padding: "1rem 1.5rem",
+                borderBottom: i < data.ranking.length - 1 ? "1px solid var(--border)" : "none",
+                background: entry.position === 1 ? "rgba(245,158,11,0.05)" : "transparent",
+              }}
+            >
+              {/* Ligne principale */}
+              <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+                {/* Position */}
+                <span style={{
+                  fontSize: "0.875rem",
+                  fontWeight: 700,
+                  color: entry.position <= 3 ? ["#FFD700", "#C0C0C0", "#CD7F32"][entry.position - 1] : "var(--text-muted)",
+                  minWidth: "24px",
+                }}>
+                  #{entry.position}
+                </span>
+
+                {/* Avatar */}
+                <div style={{
+                  width: "32px",
+                  height: "32px",
+                  borderRadius: "8px",
+                  overflow: "hidden",
+                  background: entry.avatar ? "transparent" : "linear-gradient(135deg, var(--accent), #8b5cf6)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: "0.75rem",
+                  fontWeight: 700,
+                  color: "white",
+                  flexShrink: 0,
+                }}>
+                  {entry.avatar ? (
+                    <img src={entry.avatar} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                  ) : (
+                    entry.username.charAt(0).toUpperCase()
+                  )}
+                </div>
+
+                {/* Nom + infos */}
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <span style={{ fontWeight: 700, fontSize: "0.875rem" }}>
+                    {entry.position === 1 && "🏆 "}{entry.username}
+                  </span>
+                  <span style={{ fontSize: "0.75rem", color: "var(--text-muted)", marginLeft: "0.5rem" }}>
+                    {entry.discordId && `@${entry.discordId}`}
+                    {entry.discordId && entry.licence && " | "}
+                    {entry.licence && entry.licence}
+                  </span>
+                </div>
+
+                {/* Durée */}
+                <span style={{
+                  fontWeight: 700,
+                  fontSize: "0.875rem",
+                  color: entry.position <= 3 ? ["#FFD700", "#C0C0C0", "#CD7F32"][entry.position - 1] : "var(--text-primary)",
+                  fontVariantNumeric: "tabular-nums",
+                }}>
+                  {entry.totalFormatted}
+                </span>
+              </div>
+
+              {/* Ligne détails */}
+              <div style={{
+                marginTop: "0.25rem",
+                paddingLeft: "2.5rem",
+                fontSize: "0.6875rem",
+                color: "var(--text-muted)",
+                display: "flex",
+                gap: "0.75rem",
+              }}>
+                <span>Net: {entry.totalFormatted}</span>
+                <span>||</span>
+                <span>Pause: 0s</span>
+                <span>|</span>
+                <span>{entry.sessionCount} session(s)</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* Bouton envoyer */}
+      {user && hasMinRole(user.role, "A-T") && data && data.ranking.length > 0 && (
+        <div style={{ textAlign: "center", marginBottom: "1.5rem" }}>
           <button
             onClick={handleSendWebhook}
             disabled={sending}
@@ -161,10 +284,9 @@ export default function ClassementServicePage() {
               background: "var(--accent)",
               color: "white",
               cursor: sending ? "not-allowed" : "pointer",
-              fontSize: "0.875rem",
+              fontSize: "0.8125rem",
               fontWeight: 600,
               opacity: sending ? 0.6 : 1,
-              transition: "all 0.15s",
             }}
           >
             <Send size={14} />
@@ -173,137 +295,13 @@ export default function ClassementServicePage() {
         </div>
       )}
 
-      {loading ? (
-        <div style={{
-          padding: "3rem",
-          textAlign: "center",
-          color: "var(--text-muted)",
-          background: "var(--bg-secondary)",
-          borderRadius: "var(--radius)",
-          border: "1px solid var(--border)",
-        }}>
-          <Clock size={32} style={{ animation: "spin 1s linear infinite", marginBottom: "1rem" }} />
-          <p>Chargement du classement...</p>
-        </div>
-      ) : !data || data.ranking.length === 0 ? (
-        <div style={{
-          padding: "3rem",
-          textAlign: "center",
-          background: "var(--bg-secondary)",
-          borderRadius: "var(--radius)",
-          border: "1px solid var(--border)",
-        }}>
-          <div style={{ fontSize: "2rem", marginBottom: "0.75rem" }}>📋</div>
-          <p style={{ color: "var(--text-muted)", fontSize: "0.9375rem", fontWeight: 600 }}>
-            Aucun service enregistré pour cette semaine
-          </p>
-        </div>
-      ) : (
-        <div style={{
-          background: "var(--bg-secondary)",
-          borderRadius: "var(--radius)",
-          border: "1px solid var(--border)",
-          overflow: "hidden",
-        }}>
-          <div style={{
-            padding: "1rem 1.5rem",
-            borderBottom: "1px solid var(--border)",
-            background: "var(--bg-tertiary)",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}>
-            <span style={{ fontWeight: 700, fontSize: "0.9375rem" }}>
-              Classement — Semaine {data.week}
-            </span>
-            <span style={{ fontSize: "0.8125rem", color: "var(--text-muted)" }}>
-              {data.totalSessions} service(s) au total
-            </span>
-          </div>
-
-          {data.ranking.map((entry, i) => (
-            <div
-              key={entry.username}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "1rem",
-                padding: "1rem 1.5rem",
-                borderBottom: i < data.ranking.length - 1 ? "1px solid var(--border)" : "none",
-                background: entry.position <= 3 ? `${medalColors[entry.position]}08` : "transparent",
-                transition: "background 0.15s",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.background = "var(--bg-hover)")}
-              onMouseLeave={(e) => (e.currentTarget.style.background = entry.position <= 3 ? `${medalColors[entry.position]}08` : "transparent")}
-            >
-              <div style={{
-                width: "36px",
-                height: "36px",
-                borderRadius: "50%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: entry.position <= 3 ? "1.5rem" : "0.875rem",
-                fontWeight: 700,
-                color: entry.position <= 3 ? medalColors[entry.position] : "var(--text-muted)",
-                background: entry.position <= 3 ? `${medalColors[entry.position]}15` : "var(--bg-tertiary)",
-                flexShrink: 0,
-              }}>
-                {entry.position <= 3 ? MEDALS[entry.position - 1] : `#${entry.position}`}
-              </div>
-
-              <div style={{
-                width: "40px",
-                height: "40px",
-                borderRadius: "10px",
-                overflow: "hidden",
-                background: entry.avatar ? "transparent" : "linear-gradient(135deg, var(--accent), #8b5cf6)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: "0.875rem",
-                fontWeight: 700,
-                color: "white",
-                flexShrink: 0,
-              }}>
-                {entry.avatar ? (
-                  <img src={entry.avatar} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-                ) : (
-                  entry.username.charAt(0).toUpperCase()
-                )}
-              </div>
-
-              <div style={{ flex: 1, minWidth: 0 }}>
-                <p style={{ fontWeight: 600, fontSize: "0.9375rem", lineHeight: 1.2 }}>
-                  {entry.username}
-                </p>
-                <p style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}>
-                  {entry.sessionCount} service{entry.sessionCount > 1 ? "s" : ""}
-                </p>
-              </div>
-
-              <div style={{ textAlign: "right" }}>
-                <p style={{
-                  fontWeight: 700,
-                  fontSize: "1.125rem",
-                  color: entry.position <= 3 ? medalColors[entry.position] : "var(--text-primary)",
-                  fontVariantNumeric: "tabular-nums",
-                }}>
-                  {entry.totalFormatted}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
-
+      {/* Footer */}
       <div style={{
-        marginTop: "1.5rem",
-        padding: "0.75rem 1rem",
+        padding: "0.625rem 1rem",
         background: "var(--bg-secondary)",
         borderRadius: "var(--radius-sm)",
         border: "1px solid var(--border)",
-        fontSize: "0.75rem",
+        fontSize: "0.6875rem",
         color: "var(--text-muted)",
         textAlign: "center",
       }}>

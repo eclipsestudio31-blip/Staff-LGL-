@@ -21,11 +21,11 @@ function getWeekNumber(date: Date): number {
   return Math.ceil(((d.getTime() - yearStart.getTime()) / 86400000 + 1) / 7);
 }
 
-function formatDuration(seconds: number): string {
+function formatDurationFull(seconds: number): string {
   const h = Math.floor(seconds / 3600);
   const m = Math.floor((seconds % 3600) / 60);
-  if (h > 0) return `${h}h ${m}m`;
-  return `${m}m`;
+  const s = seconds % 60;
+  return `${String(h).padStart(2, "0")}h${String(m).padStart(2, "0")}m${String(s).padStart(2, "0")}s`;
 }
 
 export async function GET(request: NextRequest) {
@@ -43,13 +43,15 @@ export async function GET(request: NextRequest) {
     where: {
       startTime: { gte: start, lte: end },
     },
-    include: { user: { select: { id: true, username: true, role: true, avatar: true } } },
+    include: { user: { select: { id: true, username: true, role: true, avatar: true, discordId: true, licence: true } } },
   });
 
   const ranking = new Map<string, {
     username: string;
     role: string;
     avatar: string | null;
+    discordId: string | null;
+    licence: string | null;
     totalSeconds: number;
     sessionCount: number;
   }>();
@@ -61,6 +63,8 @@ export async function GET(request: NextRequest) {
         username: s.user.username,
         role: s.user.role,
         avatar: s.user.avatar,
+        discordId: s.user.discordId,
+        licence: s.user.licence,
         totalSeconds: 0,
         sessionCount: 0,
       });
@@ -72,6 +76,8 @@ export async function GET(request: NextRequest) {
 
   const sorted = Array.from(ranking.values()).sort((a, b) => b.totalSeconds - a.totalSeconds);
 
+  const totalSecondsAll = sorted.reduce((sum, r) => sum + r.totalSeconds, 0);
+
   return NextResponse.json({
     week: weekNum,
     year,
@@ -82,10 +88,14 @@ export async function GET(request: NextRequest) {
       username: r.username,
       role: r.role,
       avatar: r.avatar,
-      totalFormatted: formatDuration(r.totalSeconds),
+      discordId: r.discordId,
+      licence: r.licence,
+      totalFormatted: formatDurationFull(r.totalSeconds),
       totalSeconds: r.totalSeconds,
       sessionCount: r.sessionCount,
     })),
     totalSessions: sessions.length,
+    totalMembres: sorted.length,
+    totalFormatted: formatDurationFull(totalSecondsAll),
   });
 }
