@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getCurrentUser } from "@/lib/auth";
-import { hasMinRole } from "@/lib/roles";
 import { prisma } from "@/lib/prisma";
-import { sendWebhookAndGetId } from "@/lib/webhook";
 
 function getWeekRange(weekOffset: number) {
   const now = new Date();
@@ -30,17 +28,14 @@ function formatDuration(seconds: number): string {
   return `${m}m`;
 }
 
-const MEDALS = ["🥇", "🥈", "🥉"];
-
-export async function POST(request: NextRequest) {
+export async function GET(request: NextRequest) {
   const user = await getCurrentUser(request);
   if (!user) return NextResponse.json({ error: "Non autorisé" }, { status: 401 });
-  if (!hasMinRole(user.role, "A-T")) return NextResponse.json({ error: "Accès refusé" }, { status: 403 });
 
-  const body = await request.json().catch(() => ({}));
-  const weekOffset = body.weekOffset || 0;
+  const { searchParams } = new URL(request.url);
+  const offset = parseInt(searchParams.get("week") || "0", 10);
 
-  const { start, end } = getWeekRange(weekOffset);
+  const { start, end } = getWeekRange(offset);
   const weekNum = getWeekNumber(start);
   const year = start.getFullYear();
 
@@ -48,16 +43,13 @@ export async function POST(request: NextRequest) {
     where: {
       startTime: { gte: start, lte: end },
     },
-    include: { user: { select: { username: true, role: true } } },
+    include: { user: { select: { id: true, username: true, role: true, avatar: true } } },
   });
-
-  if (sessions.length === 0) {
-    return NextResponse.json({ message: "Aucun service cette semaine" });
-  }
 
   const ranking = new Map<string, {
     username: string;
     role: string;
+    avatar: string | null;
     totalSeconds: number;
     sessionCount: number;
   }>();
@@ -68,6 +60,7 @@ export async function POST(request: NextRequest) {
       ranking.set(key, {
         username: s.user.username,
         role: s.user.role,
+        avatar: s.user.avatar,
         totalSeconds: 0,
         sessionCount: 0,
       });
@@ -79,30 +72,20 @@ export async function POST(request: NextRequest) {
 
   const sorted = Array.from(ranking.values()).sort((a, b) => b.totalSeconds - a.totalSeconds);
 
-  const monday = start.toLocaleDateString("fr-FR", { day: "2-digit", month: "2-digit" });
-  const sunday = end.toLocaleDateString("fr-FR", { day: "2-digit", month: "2-digit", year: "2-digit" });
-
-  const lines = sorted.map((r, i) => {
-    const medal = i < 3 ? MEDALS[i] : `#${i + 1}`;
-    return `${medal} **${r.username}** — ${formatDuration(r.totalSeconds)} (${r.sessionCount} service${r.sessionCount > 1 ? "s" : ""})`;
-  }).join("\n");
-
-  const totalSeconds = sorted.reduce((sum, r) => sum + r.totalSeconds, 0);
-
-  const description = [
-    `**Semaine ${weekNum}** (${monday} → ${sunday})`,
-    "",
-    lines,
-    "",
-    "---",
-    `📊 **${sessions.length}** services • 👥 **${sorted.length}** membre(s) actifs • ⏱️ **${formatDuration(totalSeconds)}** total`,
-    "",
-    "_Pauses déduites — Demandé par lenky.ytb_",
-  ].join("\n");
-
-  const webhookMsgId = await sendWebhookAndGetId("service_semaine", [
-    { name: "🏆 Classement du service", value: description, inline: false },
-  ], null, 0xf59e0b);
-
-  return NextResponse.json({ success: true, messageId: webhookMsgId, count: sessions.length });
+  return NextResponse.json({
+    week: weekNum,
+    year,
+    startDate: start.toISOString(),
+    endDate: end.toISOString(),
+    ranking: sorted.map((r, i) => ({
+      position: i + 1,
+      username: r.username,
+      role: r.role,
+      avatar: r.avatar,
+      totalFormatted: formatDuration(r.totalSeconds),
+      totalSeconds: r.totalSeconds,
+      sessionCount: r.sessionCount,
+    })),
+    totalSessions: sessions.length,
+  });
 }

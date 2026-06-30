@@ -5,7 +5,7 @@ import { useAppStore } from "@/lib/store";
 import { getRoleName } from "@/lib/roles";
 import {
   Home, Calendar, Users, AlertTriangle, FileText, Eye, Clock,
-  MessageSquare, Terminal, Car, Shield, Settings, LogOut, Search, ChevronLeft, ChevronRight, Zap, UserPlus, CalendarOff, ShieldAlert, Lock
+  MessageSquare, Terminal, Car, Shield, Settings, LogOut, Search, ChevronLeft, ChevronRight, Zap, UserPlus, CalendarOff, ShieldAlert, Lock, Trophy
 } from "lucide-react";
 import { useState } from "react";
 
@@ -17,6 +17,7 @@ const navSections = [
       { href: "/planning", label: "Planning", icon: Calendar },
       { href: "/organigramme", label: "Organigramme", icon: Users },
       { href: "/service", label: "Service", icon: Clock },
+      { href: "/classement-service", label: "Classement Service", icon: Trophy },
     ],
   },
   {
