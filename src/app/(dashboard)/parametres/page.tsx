@@ -584,7 +584,9 @@ export default function ParametresPage() {
                     <span style={{ fontSize: "0.75rem", color: "var(--text-muted)" }}>
                       {s.desc}
                     </span>
-                    <button
+                    <span
+                      role="button"
+                      tabIndex={0}
                       onClick={(e) => {
                         e.stopPropagation();
                         if (s.id !== "none") {
@@ -608,7 +610,7 @@ export default function ParametresPage() {
                       onMouseLeave={(e) => (e.currentTarget.style.borderColor = "var(--border-color)")}
                     >
                       ▶ Aperçu
-                    </button>
+                    </span>
                     {isActive && (
                       <div style={{ width: "20px", height: "20px", borderRadius: "50%", background: "var(--accent)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                         <Check size={12} style={{ color: "#fff" }} />

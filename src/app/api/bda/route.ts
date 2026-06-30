@@ -132,5 +132,18 @@ export async function PATCH(request: NextRequest) {
     },
   });
 
+  if (user.discordId && entry.discordId) {
+    try {
+      const botUrl = process.env.BOT_API_URL || "http://localhost:3000";
+      await fetch(`${botUrl}/api/bda/move`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "x-api-key": process.env.BOT_API_KEY || "" },
+        body: JSON.stringify({ discordId: entry.discordId, staffDiscordId: user.discordId }),
+      });
+    } catch (err) {
+      console.error("Erreur appel bot pour déplacement:", err);
+    }
+  }
+
   return NextResponse.json({ entry: updated });
 }
