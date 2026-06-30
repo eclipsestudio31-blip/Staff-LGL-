@@ -480,7 +480,6 @@ export default function RapportsPage() {
             justifyContent: "center",
             zIndex: 1000,
           }}
-          onClick={() => setShowModal(false)}
         >
           <div
             style={{
