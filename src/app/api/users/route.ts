@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getCurrentUser, hashPassword, generateTempPassword } from "@/lib/auth";
 import { hasMinRole } from "@/lib/roles";
 import { prisma } from "@/lib/prisma";
+import { sendWebhook } from "@/lib/webhook";
 
 export async function GET(request: NextRequest) {
   const user = await getCurrentUser(request);
@@ -62,6 +63,14 @@ export async function POST(request: NextRequest) {
       details: `Création du compte ${username} (${role})`,
     },
   });
+
+  sendWebhook("account_log", [
+    { name: "Action", value: "🟢 Création de compte" },
+    { name: "Auteur", value: `${user.username} (${user.id})` },
+    { name: "Identifiant", value: username },
+    { name: "Rôle", value: role },
+    { name: "Mot de passe provisoire", value: `\`${tempPassword}\`` },
+  ]);
 
   return NextResponse.json({ user: newUser, tempPassword });
 }
@@ -135,6 +144,13 @@ export async function DELETE(request: NextRequest) {
       details: `Suppression du compte ${target.username} (${target.role})`,
     },
   });
+
+  sendWebhook("account_log", [
+    { name: "Action", value: "🔴 Suppression de compte" },
+    { name: "Auteur", value: `${user.username} (${user.id})` },
+    { name: "Identifiant supprimé", value: target.username },
+    { name: "Rôle", value: target.role },
+  ]);
 
   return NextResponse.json({ success: true });
 }

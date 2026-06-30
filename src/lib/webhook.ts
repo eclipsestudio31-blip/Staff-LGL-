@@ -15,6 +15,7 @@ const TYPE_LABELS: Record<string, string> = {
   service: "Service",
   service_semaine: "Service de la Semaine",
   bda: "Gestion BDA",
+  account_log: "Log Comptes",
 };
 
 export async function getWebhookUrl(type: string): Promise<string | null> {
