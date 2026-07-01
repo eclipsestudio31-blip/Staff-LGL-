@@ -134,15 +134,25 @@ export async function PATCH(request: NextRequest) {
 
   if (user.discordId && entry.discordId) {
     try {
-      const botUrl = process.env.BOT_API_URL || "http://localhost:3000";
-      await fetch(`${botUrl}/api/bda/move`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", "x-api-key": process.env.BOT_API_KEY || "" },
-        body: JSON.stringify({ discordId: entry.discordId, staffDiscordId: user.discordId }),
-      });
+      const botUrl = process.env.BOT_API_URL;
+      const botKey = process.env.BOT_API_KEY;
+      if (!botUrl || !botKey) {
+        console.error("[BDA] BOT_API_URL ou BOT_API_KEY manquant");
+      } else {
+        console.log(`[BDA] Appel bot: déplacer ${entry.discordId} vers le vocal de ${user.discordId}`);
+        const res = await fetch(`${botUrl}/api/bda/move`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "x-api-key": botKey },
+          body: JSON.stringify({ discordId: entry.discordId, staffDiscordId: user.discordId }),
+        });
+        const data = await res.json();
+        console.log(`[BDA] Résultat bot:`, JSON.stringify(data));
+      }
     } catch (err) {
-      console.error("Erreur appel bot pour déplacement:", err);
+      console.error("[BDA] Erreur appel bot:", err);
     }
+  } else {
+    console.warn(`[BDA] Skip bot: user.discordId=${user.discordId}, entry.discordId=${entry.discordId}`);
   }
 
   return NextResponse.json({ entry: updated });
