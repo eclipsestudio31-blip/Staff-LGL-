@@ -80,6 +80,7 @@ export async function POST(request: NextRequest) {
   if (action === "leave") {
     const entry = await prisma.bDAEntry.findFirst({
       where: { discordId, status: { in: ["waiting", "handled"] } },
+      include: { handledByUser: { select: { discordId: true } } },
     });
 
     if (entry) {
@@ -94,19 +95,17 @@ export async function POST(request: NextRequest) {
 
       const pings: string[] = [];
       if (entry.discordId) pings.push(`<@${entry.discordId}>`);
-      if (entry.handledByUserId) {
-        const staffUser = await prisma.user.findUnique({ where: { id: entry.handledByUserId }, select: { discordId: true } });
-        if (staffUser?.discordId) pings.push(`<@${staffUser.discordId}>`);
-      }
+      if (entry.handledByUser?.discordId) pings.push(`<@${entry.handledByUser.discordId}>`);
 
-      const mentionStr = (id: string | null) => id ? `<@${id}>` : "N/A";
+      const mentionStr = (id: string | null | undefined) => id ? `<@${id}>` : "N/A";
+      const staffDiscordId = entry.handledByUser?.discordId ?? null;
 
       const embed = {
         title: "Bureau d'Accueil – Récapitulatif",
         color: entry.handledBy ? 0x22c55e : 0xef4444,
         fields: [
           { name: "Personne", value: `${entry.username}\n${mentionStr(entry.discordId)}`, inline: true },
-          { name: "Staff", value: entry.handledBy ? `${entry.handledBy}\n${mentionStr(entry.handledByUserId ? (await prisma.user.findUnique({ where: { id: entry.handledByUserId }, select: { discordId: true } }))?.discordId ?? null : null)}` : "Aucun", inline: true },
+          { name: "Staff", value: entry.handledBy ? `${entry.handledBy}\n${mentionStr(staffDiscordId)}` : "Aucun", inline: true },
           { name: "Statut", value: entry.handledBy ? "✅ Pris en charge" : "❌ Parti sans prise en charge", inline: true },
           { name: "Heure d'arrivée", value: fmtTime(new Date(entry.joinedAt)), inline: true },
           { name: "Heure de prise en charge", value: entry.handledAt ? fmtTime(new Date(entry.handledAt)) : "N/A", inline: true },
@@ -161,6 +160,17 @@ export async function PATCH(request: NextRequest) {
 
   let destinationChannelName = "Inconnu";
 
+  const updated = await prisma.bDAEntry.update({
+    where: { id },
+    data: {
+      status: "handled",
+      handledBy: user.username,
+      handledByUserId: user.id,
+      handledAt: new Date(),
+      waitTime: waitTimeSec,
+    },
+  });
+
   if (user.discordId && entry.discordId) {
     try {
       const botUrl = process.env.BOT_API_URL;
@@ -176,24 +186,16 @@ export async function PATCH(request: NextRequest) {
         const data = await res.json();
         if (data.success && data.channel) {
           destinationChannelName = data.channel;
+          await prisma.bDAEntry.update({
+            where: { id },
+            data: { destinationChannel: destinationChannelName },
+          });
         }
       }
     } catch (err) {
       console.error("[BDA] Erreur appel bot:", err);
     }
   }
-
-  const updated = await prisma.bDAEntry.update({
-    where: { id },
-    data: {
-      status: "handled",
-      handledBy: user.username,
-      handledByUserId: user.id,
-      handledAt: new Date(),
-      waitTime: waitTimeSec,
-      destinationChannel: destinationChannelName,
-    },
-  });
 
   return NextResponse.json({ entry: updated });
 }

@@ -31,6 +31,7 @@ model User {
   notifications     Notification[]
   absences          Absence[]
   permanences       Permanence[]
+  bdaHandled        BDAEntry[]  @relation("BDAHandledBy")
 }
 
 model LoginHistory {
@@ -232,6 +233,7 @@ model BDAEntry {
   status          String    @default("waiting")
   handledBy       String?
   handledByUserId String?
+  handledByUser   User?   @relation("BDAHandledBy", fields: [handledByUserId], references: [id])
   handledAt       DateTime?
   waitTime        Int?
   destinationChannel String?
