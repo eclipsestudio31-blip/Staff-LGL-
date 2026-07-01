@@ -182,17 +182,19 @@ export async function PATCH(request: NextRequest) {
   if (entry.discordId) pings.push(`<@${entry.discordId}>`);
   if (user.discordId) pings.push(`<@${user.discordId}>`);
 
+  const mentionStr = (id: string | null) => id ? `<@${id}>` : "N/A";
+
   const embed = {
     title: "Bureau d'Accueil – Prise en charge",
     color: 0x22c55e,
-    description: [
-      `**Personne prise en charge :** ${entry.username} (${entry.discordId})`,
-      `**Staff ayant pris en charge :** ${user.username} (${user.discordId || "N/A"})`,
-      `**Heure d'arrivée :** ${fmtTime(new Date(entry.joinedAt))}`,
-      `**Heure de prise en charge :** ${fmtTime(handledAt)}`,
-      `**Temps d'attente :** ${fmtWait(waitTimeSec)}`,
-      `**Salon vocal de destination :** ${destinationChannelName}`,
-    ].join("\n"),
+    fields: [
+      { name: "Personne prise en charge", value: `${entry.username}\n${mentionStr(entry.discordId)}`, inline: true },
+      { name: "Staff ayant pris en charge", value: `${user.username}\n${mentionStr(user.discordId)}`, inline: true },
+      { name: "Heure d'arrivée", value: fmtTime(new Date(entry.joinedAt)), inline: true },
+      { name: "Heure de prise en charge", value: fmtTime(handledAt), inline: true },
+      { name: "Temps d'attente", value: fmtWait(waitTimeSec), inline: true },
+      { name: "Salon vocal de destination", value: destinationChannelName, inline: true },
+    ],
     timestamp: new Date().toISOString(),
     footer: { text: `BDA Bot – Système de prise en charge • ${handledAt.toLocaleDateString("fr-FR", { timeZone: "Europe/Paris" })} ${handledAt.toLocaleTimeString("fr-FR", { timeZone: "Europe/Paris", hour: "2-digit", minute: "2-digit" })}` },
   };
