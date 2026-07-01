@@ -2,9 +2,30 @@ import { NextRequest, NextResponse } from "next/server";
 import { getCurrentUser } from "@/lib/auth";
 import { hasMinRole } from "@/lib/roles";
 import { prisma } from "@/lib/prisma";
-import { sendWebhook, getWebhookUrl } from "@/lib/webhook";
+import { getWebhookUrl } from "@/lib/webhook";
 
 const BDA_SECRET = process.env.BDA_SECRET || "bda-webhook-secret-key";
+
+function fmtTime(d: Date) {
+  return d.toLocaleString("fr-FR", {
+    timeZone: "Europe/Paris",
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+}
+
+function fmtWait(sec: number) {
+  const h = Math.floor(sec / 3600);
+  const m = Math.floor((sec % 3600) / 60);
+  const s = sec % 60;
+  if (h > 0) return `${h}h ${m}m ${s}s`;
+  if (m > 0) return `${m}m ${s}s`;
+  return `${s}s`;
+}
 
 // GET - Récupérer les présences BDA
 export async function GET(request: NextRequest) {
@@ -50,12 +71,6 @@ export async function POST(request: NextRequest) {
         data: { discordId, username, avatar },
       });
 
-      sendWebhook("bda", [
-        { name: "Nouvelle personne", value: username },
-        { name: "Discord ID", value: discordId },
-        { name: "Statut", value: "🟠 En attente" },
-      ]);
-
       return NextResponse.json({ entry, isNew: true });
     }
 
@@ -77,25 +92,48 @@ export async function POST(request: NextRequest) {
         data: { status: "left", leftAt },
       });
 
-      const fmt = (sec: number) => {
-        const h = Math.floor(sec / 3600);
-        const m = Math.floor((sec % 3600) / 60);
-        const s = sec % 60;
-        if (h > 0) return `${h}h ${m}m ${s}s`;
-        if (m > 0) return `${m}m ${s}s`;
-        return `${s}s`;
+      const pings: string[] = [];
+      if (entry.discordId) pings.push(`<@${entry.discordId}>`);
+      if (entry.handledByUserId) {
+        const staffUser = await prisma.user.findUnique({ where: { id: entry.handledByUserId }, select: { discordId: true } });
+        if (staffUser?.discordId) pings.push(`<@${staffUser.discordId}>`);
+      }
+
+      const mentionStr = (id: string | null) => id ? `<@${id}>` : "N/A";
+
+      const embed = {
+        title: "Bureau d'Accueil – Récapitulatif",
+        color: entry.handledBy ? 0x22c55e : 0xef4444,
+        fields: [
+          { name: "Personne", value: `${entry.username}\n${mentionStr(entry.discordId)}`, inline: true },
+          { name: "Staff", value: entry.handledBy ? `${entry.handledBy}\n${mentionStr(entry.handledByUserId ? (await prisma.user.findUnique({ where: { id: entry.handledByUserId }, select: { discordId: true } }))?.discordId ?? null : null)}` : "Aucun", inline: true },
+          { name: "Statut", value: entry.handledBy ? "✅ Pris en charge" : "❌ Parti sans prise en charge", inline: true },
+          { name: "Heure d'arrivée", value: fmtTime(new Date(entry.joinedAt)), inline: true },
+          { name: "Heure de prise en charge", value: entry.handledAt ? fmtTime(new Date(entry.handledAt)) : "N/A", inline: true },
+          { name: "Heure de départ", value: fmtTime(leftAt), inline: true },
+          { name: "Temps d'attente", value: fmtWait(waitTimeSec), inline: true },
+          { name: "Durée de prise en charge", value: entry.handledAt ? fmtWait(durationSec) : "N/A", inline: true },
+          { name: "Salon de destination", value: entry.destinationChannel || "N/A", inline: true },
+        ],
+        timestamp: new Date().toISOString(),
+        footer: { text: `BDA Bot – Système de prise en charge • ${leftAt.toLocaleDateString("fr-FR", { timeZone: "Europe/Paris" })} ${leftAt.toLocaleTimeString("fr-FR", { timeZone: "Europe/Paris", hour: "2-digit", minute: "2-digit" })}` },
       };
 
-      sendWebhook("bda", [
-        { name: "Personne", value: entry.username },
-        { name: "Discord ID", value: entry.discordId },
-        { name: "Staff", value: entry.handledBy || "Aucun" },
-        { name: "Temps d'attente", value: fmt(waitTimeSec) },
-        { name: "Durée de prise en charge", value: fmt(durationSec) },
-        { name: "Arrivée", value: new Date(entry.joinedAt).toLocaleTimeString("fr-FR", { timeZone: "Europe/Paris" }) },
-        { name: "Départ", value: leftAt.toLocaleTimeString("fr-FR", { timeZone: "Europe/Paris" }) },
-        { name: "Statut", value: entry.handledBy ? "✅ Pris en charge puis parti" : "❌ Parti sans prise en charge" },
-      ]);
+      try {
+        const url = await getWebhookUrl("bda");
+        if (url) {
+          await fetch(url, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              content: pings.length > 0 ? pings.join(" ") : undefined,
+              embeds: [embed],
+            }),
+          });
+        }
+      } catch (err) {
+        console.error("[BDA] Erreur webhook:", err);
+      }
     }
 
     return NextResponse.json({ success: true });
@@ -145,75 +183,17 @@ export async function PATCH(request: NextRequest) {
     }
   }
 
-  const handledAt = new Date();
-
   const updated = await prisma.bDAEntry.update({
     where: { id },
     data: {
       status: "handled",
       handledBy: user.username,
       handledByUserId: user.id,
-      handledAt,
+      handledAt: new Date(),
       waitTime: waitTimeSec,
       destinationChannel: destinationChannelName,
     },
   });
-
-  const fmtTime = (d: Date) => d.toLocaleString("fr-FR", {
-    timeZone: "Europe/Paris",
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-
-  const fmtWait = (sec: number) => {
-    const h = Math.floor(sec / 3600);
-    const m = Math.floor((sec % 3600) / 60);
-    const s = sec % 60;
-    if (h > 0) return `${h}h ${m}m ${s}s`;
-    if (m > 0) return `${m}m ${s}s`;
-    return `${s}s`;
-  };
-
-  const pings: string[] = [];
-  if (entry.discordId) pings.push(`<@${entry.discordId}>`);
-  if (user.discordId) pings.push(`<@${user.discordId}>`);
-
-  const mentionStr = (id: string | null) => id ? `<@${id}>` : "N/A";
-
-  const embed = {
-    title: "Bureau d'Accueil – Prise en charge",
-    color: 0x22c55e,
-    fields: [
-      { name: "Personne prise en charge", value: `${entry.username}\n${mentionStr(entry.discordId)}`, inline: true },
-      { name: "Staff ayant pris en charge", value: `${user.username}\n${mentionStr(user.discordId)}`, inline: true },
-      { name: "Heure d'arrivée", value: fmtTime(new Date(entry.joinedAt)), inline: true },
-      { name: "Heure de prise en charge", value: fmtTime(handledAt), inline: true },
-      { name: "Temps d'attente", value: fmtWait(waitTimeSec), inline: true },
-      { name: "Salon vocal de destination", value: destinationChannelName, inline: true },
-    ],
-    timestamp: new Date().toISOString(),
-    footer: { text: `BDA Bot – Système de prise en charge • ${handledAt.toLocaleDateString("fr-FR", { timeZone: "Europe/Paris" })} ${handledAt.toLocaleTimeString("fr-FR", { timeZone: "Europe/Paris", hour: "2-digit", minute: "2-digit" })}` },
-  };
-
-  try {
-    const url = await getWebhookUrl("bda");
-    if (url) {
-      await fetch(url, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          content: pings.length > 0 ? pings.join(" ") : undefined,
-          embeds: [embed],
-        }),
-      });
-    }
-  } catch (err) {
-    console.error("[BDA] Erreur webhook:", err);
-  }
 
   return NextResponse.json({ entry: updated });
 }
