@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getCurrentUser } from "@/lib/auth";
 import { hasMinRole } from "@/lib/roles";
 import { prisma } from "@/lib/prisma";
-import { sendWebhook } from "@/lib/webhook";
+import { sendWebhook, getWebhookUrl } from "@/lib/webhook";
 
 const BDA_SECRET = process.env.BDA_SECRET || "bda-webhook-secret-key";
 
@@ -179,17 +179,39 @@ export async function PATCH(request: NextRequest) {
   };
 
   const pings: string[] = [];
-  if (entry.discordId) pings.push(entry.discordId);
-  if (user.discordId) pings.push(user.discordId);
+  if (entry.discordId) pings.push(`<@${entry.discordId}>`);
+  if (user.discordId) pings.push(`<@${user.discordId}>`);
 
-  sendWebhook("bda", [
-    { name: "Personne prise en charge", value: `${entry.username}\n(${entry.discordId})` },
-    { name: "Staff ayant pris en charge", value: `${user.username}\n(${user.discordId || "N/A"})` },
-    { name: "Heure d'arrivée", value: fmtTime(new Date(entry.joinedAt)) },
-    { name: "Heure de prise en charge", value: fmtTime(handledAt) },
-    { name: "Temps d'attente", value: fmtWait(waitTimeSec) },
-    { name: "Salon vocal de destination", value: destinationChannelName },
-  ], pings.length > 0 ? pings : null);
+  const embed = {
+    title: "Bureau d'Accueil – Prise en charge",
+    color: 0x22c55e,
+    description: [
+      `**Personne prise en charge :** ${entry.username} (${entry.discordId})`,
+      `**Staff ayant pris en charge :** ${user.username} (${user.discordId || "N/A"})`,
+      `**Heure d'arrivée :** ${fmtTime(new Date(entry.joinedAt))}`,
+      `**Heure de prise en charge :** ${fmtTime(handledAt)}`,
+      `**Temps d'attente :** ${fmtWait(waitTimeSec)}`,
+      `**Salon vocal de destination :** ${destinationChannelName}`,
+    ].join("\n"),
+    timestamp: new Date().toISOString(),
+    footer: { text: `BDA Bot – Système de prise en charge • ${handledAt.toLocaleDateString("fr-FR", { timeZone: "Europe/Paris" })} ${handledAt.toLocaleTimeString("fr-FR", { timeZone: "Europe/Paris", hour: "2-digit", minute: "2-digit" })}` },
+  };
+
+  try {
+    const url = await getWebhookUrl("bda");
+    if (url) {
+      await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          content: pings.length > 0 ? pings.join(" ") : undefined,
+          embeds: [embed],
+        }),
+      });
+    }
+  } catch (err) {
+    console.error("[BDA] Erreur webhook:", err);
+  }
 
   return NextResponse.json({ entry: updated });
 }
