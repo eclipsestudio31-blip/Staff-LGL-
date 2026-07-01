@@ -121,16 +121,7 @@ export async function PATCH(request: NextRequest) {
 
   const waitTimeSec = Math.floor((Date.now() - entry.joinedAt.getTime()) / 1000);
 
-  const updated = await prisma.bDAEntry.update({
-    where: { id },
-    data: {
-      status: "handled",
-      handledBy: user.username,
-      handledByUserId: user.id,
-      handledAt: new Date(),
-      waitTime: waitTimeSec,
-    },
-  });
+  let destinationChannelName = "Inconnu";
 
   if (user.discordId && entry.discordId) {
     try {
@@ -139,21 +130,66 @@ export async function PATCH(request: NextRequest) {
       if (!botUrl || !botKey) {
         console.error("[BDA] BOT_API_URL ou BOT_API_KEY manquant");
       } else {
-        console.log(`[BDA] Appel bot: déplacer ${entry.discordId} vers le vocal de ${user.discordId}`);
         const res = await fetch(`${botUrl}/api/bda/move`, {
           method: "POST",
           headers: { "Content-Type": "application/json", "x-api-key": botKey },
           body: JSON.stringify({ discordId: entry.discordId, staffDiscordId: user.discordId }),
         });
         const data = await res.json();
-        console.log(`[BDA] Résultat bot:`, JSON.stringify(data));
+        if (data.success && data.channel) {
+          destinationChannelName = data.channel;
+        }
       }
     } catch (err) {
       console.error("[BDA] Erreur appel bot:", err);
     }
-  } else {
-    console.warn(`[BDA] Skip bot: user.discordId=${user.discordId}, entry.discordId=${entry.discordId}`);
   }
+
+  const handledAt = new Date();
+
+  const updated = await prisma.bDAEntry.update({
+    where: { id },
+    data: {
+      status: "handled",
+      handledBy: user.username,
+      handledByUserId: user.id,
+      handledAt,
+      waitTime: waitTimeSec,
+      destinationChannel: destinationChannelName,
+    },
+  });
+
+  const fmtTime = (d: Date) => d.toLocaleString("fr-FR", {
+    timeZone: "Europe/Paris",
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+
+  const fmtWait = (sec: number) => {
+    const h = Math.floor(sec / 3600);
+    const m = Math.floor((sec % 3600) / 60);
+    const s = sec % 60;
+    if (h > 0) return `${h}h ${m}m ${s}s`;
+    if (m > 0) return `${m}m ${s}s`;
+    return `${s}s`;
+  };
+
+  const pings: string[] = [];
+  if (entry.discordId) pings.push(entry.discordId);
+  if (user.discordId) pings.push(user.discordId);
+
+  sendWebhook("bda", [
+    { name: "Personne prise en charge", value: `${entry.username}\n(${entry.discordId})` },
+    { name: "Staff ayant pris en charge", value: `${user.username}\n(${user.discordId || "N/A"})` },
+    { name: "Heure d'arrivée", value: fmtTime(new Date(entry.joinedAt)) },
+    { name: "Heure de prise en charge", value: fmtTime(handledAt) },
+    { name: "Temps d'attente", value: fmtWait(waitTimeSec) },
+    { name: "Salon vocal de destination", value: destinationChannelName },
+  ], pings.length > 0 ? pings : null);
 
   return NextResponse.json({ entry: updated });
 }

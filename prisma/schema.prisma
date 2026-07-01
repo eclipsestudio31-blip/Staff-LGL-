@@ -234,6 +234,7 @@ model BDAEntry {
   handledByUserId String?
   handledAt       DateTime?
   waitTime        Int?
+  destinationChannel String?
   leftAt          DateTime?
   createdAt       DateTime  @default(now())
   updatedAt       DateTime  @updatedAt
