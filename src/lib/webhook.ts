@@ -15,6 +15,7 @@ const TYPE_LABELS: Record<string, string> = {
   service: "Service",
   service_semaine: "Service de la Semaine",
   bda: "Gestion BDA",
+  bda2: "Gestion BDA 2",
   account_log: "Log Comptes",
 };
 

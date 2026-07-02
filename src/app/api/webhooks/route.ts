@@ -17,6 +17,7 @@ const WEBHOOK_KEYS = [
   "webhook_service",
   "webhook_service_semaine",
   "webhook_bda",
+  "webhook_bda2",
   "webhook_account_log",
 ];
 

@@ -6,6 +6,23 @@ import { getWebhookUrl } from "@/lib/webhook";
 
 const BDA_SECRET = process.env.BDA_SECRET || "bda-webhook-secret-key";
 
+async function sendBDAMessage(content: string | undefined, embed: object) {
+  for (const key of ["bda", "bda2"]) {
+    try {
+      const url = await getWebhookUrl(key);
+      if (url) {
+        await fetch(url, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ content, embeds: [embed] }),
+        });
+      }
+    } catch (err) {
+      console.error(`[BDA] Erreur webhook ${key}:`, err);
+    }
+  }
+}
+
 function fmtTime(d: Date) {
   return d.toLocaleString("fr-FR", {
     timeZone: "Europe/Paris",
@@ -118,21 +135,7 @@ export async function POST(request: NextRequest) {
         footer: { text: `BDA Bot – Système de prise en charge • ${leftAt.toLocaleDateString("fr-FR", { timeZone: "Europe/Paris" })} ${leftAt.toLocaleTimeString("fr-FR", { timeZone: "Europe/Paris", hour: "2-digit", minute: "2-digit" })}` },
       };
 
-      try {
-        const url = await getWebhookUrl("bda");
-        if (url) {
-          await fetch(url, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              content: pings.length > 0 ? pings.join(" ") : undefined,
-              embeds: [embed],
-            }),
-          });
-        }
-      } catch (err) {
-        console.error("[BDA] Erreur webhook:", err);
-      }
+      sendBDAMessage(pings.length > 0 ? pings.join(" ") : undefined, embed);
     }
 
     return NextResponse.json({ success: true });
@@ -221,21 +224,7 @@ export async function PATCH(request: NextRequest) {
     footer: { text: `BDA Bot – Système de prise en charge • ${now.toLocaleDateString("fr-FR", { timeZone: "Europe/Paris" })} ${now.toLocaleTimeString("fr-FR", { timeZone: "Europe/Paris", hour: "2-digit", minute: "2-digit" })}` },
   };
 
-  try {
-    const url = await getWebhookUrl("bda");
-    if (url) {
-      await fetch(url, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          content: pings.length > 0 ? pings.join(" ") : undefined,
-          embeds: [embed],
-        }),
-      });
-    }
-  } catch (err) {
-    console.error("[BDA] Erreur webhook:", err);
-  }
+  sendBDAMessage(pings.length > 0 ? pings.join(" ") : undefined, embed);
 
   return NextResponse.json({ entry: updated });
 }

@@ -96,6 +96,7 @@ export default function ParametresPage() {
     webhook_service: "",
     webhook_service_semaine: "",
     webhook_bda: "",
+    webhook_bda2: "",
     webhook_account_log: "",
   });
   const [webhooksSaved, setWebhooksSaved] = useState(false);
@@ -778,6 +779,7 @@ export default function ParametresPage() {
                 { key: "webhook_service", label: "Service", desc: "Prise et fin de service" },
                 { key: "webhook_service_semaine", label: "Service Semaine", desc: "Bilan service de la semaine" },
                 { key: "webhook_bda", label: "Gestion BDA", desc: "Nouvelle personne en attente" },
+                { key: "webhook_bda2", label: "Gestion BDA 2", desc: "2ème webhook BDA" },
                 { key: "webhook_account_log", label: "Log Comptes", desc: "Création et suppression de comptes" },
                 { key: "webhook_absence", label: "Absences", desc: "Déclaration d'absence" },
                 { key: "webhook_surveillance", label: "Surveillance", desc: "Nouvelle mise en surveillance" },
