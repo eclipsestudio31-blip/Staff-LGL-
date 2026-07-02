@@ -161,7 +161,6 @@ export default function AdminPage() {
     { icon: Shield, value: stats.membresEnService, label: "Membres connectés", color: "#22c55e" },
     { icon: Clock, value: `${stats.tempsServiceTotal}h`, label: "Temps de service cumulé", color: "#8b5cf6" },
     { icon: FileText, value: stats.rapports, label: "Nombre de rapports", color: "#3b82f6" },
-    { icon: AlertTriangle, value: stats.sanctions, label: "Nombre de sanctions", color: "#ef4444" },
     { icon: Eye, value: stats.personnesSurveillees, label: "Personnes surveillées", color: "#f59e0b" },
   ];
 
