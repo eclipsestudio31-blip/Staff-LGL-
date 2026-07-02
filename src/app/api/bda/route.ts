@@ -126,7 +126,7 @@ export async function POST(request: NextRequest) {
           { name: "Heure de prise en charge", value: entry.handledAt ? fmtTime(new Date(entry.handledAt)) : "N/A", inline: true },
           { name: "Heure de départ", value: fmtTime(leftAt), inline: true },
           { name: "Temps d'attente", value: fmtWait(waitTimeSec), inline: true },
-          { name: "Durée de prise en charge", value: entry.handledAt ? fmtWait(durationSec) : "N/A", inline: true },
+          { name: "Temps resté en vocal staff", value: entry.handledAt ? fmtWait(durationSec) : "N/A", inline: true },
           { name: "Salon de destination", value: entry.destinationChannel || "N/A", inline: true },
         ],
         timestamp: new Date().toISOString(),
