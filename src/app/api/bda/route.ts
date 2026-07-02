@@ -133,7 +133,7 @@ export async function POST(request: NextRequest) {
         footer: { text: `BDA Bot – Système de prise en charge • ${leftAt.toLocaleDateString("fr-FR", { timeZone: "Europe/Paris" })} ${leftAt.toLocaleTimeString("fr-FR", { timeZone: "Europe/Paris", hour: "2-digit", minute: "2-digit" })}` },
       };
 
-      sendToWebhook("bda2", pings.length > 0 ? pings.join(" ") : undefined, embed);
+      sendToWebhook("bda2", undefined, embed);
     }
 
     return NextResponse.json({ success: true });
@@ -207,22 +207,22 @@ export async function PATCH(request: NextRequest) {
 
   const mentionStr = (id: string | null | undefined) => id ? `<@${id}>` : "N/A";
 
-  const embed = {
-    title: "Bureau d'Accueil – Arrivée en prise en charge",
-    color: 0x22c55e,
-    fields: [
-      { name: "Personne prise en charge", value: `${entry.username}\n${mentionStr(entry.discordId)}`, inline: true },
-      { name: "Staff ayant pris en charge", value: `${user.username}\n${mentionStr(user.discordId)}`, inline: true },
-      { name: "Heure d'arrivée", value: fmtTime(new Date(entry.joinedAt)), inline: true },
-      { name: "Heure de prise en charge", value: fmtTime(handledAt), inline: true },
-      { name: "Temps d'attente", value: fmtWait(waitTimeSec), inline: true },
-      { name: "Salon vocal de destination", value: destinationChannelName, inline: true },
-    ],
-    timestamp: new Date().toISOString(),
-    footer: { text: `BDA Bot – Système de prise en charge • ${now.toLocaleDateString("fr-FR", { timeZone: "Europe/Paris" })} ${now.toLocaleTimeString("fr-FR", { timeZone: "Europe/Paris", hour: "2-digit", minute: "2-digit" })}` },
-  };
+      const embed = {
+        title: "Bureau d'Accueil – Arrivée en prise en charge",
+        color: 0x22c55e,
+        fields: [
+          { name: "Personne prise en charge", value: `${entry.username}\n${mentionStr(entry.discordId)}`, inline: true },
+          { name: "Staff ayant pris en charge", value: `${user.username}\n${mentionStr(user.discordId)}`, inline: true },
+          { name: "Heure d'arrivée", value: fmtTime(new Date(entry.joinedAt)), inline: true },
+          { name: "Heure de prise en charge", value: fmtTime(handledAt), inline: true },
+          { name: "Temps d'attente", value: fmtWait(waitTimeSec), inline: true },
+          { name: "Salon vocal de destination", value: destinationChannelName, inline: true },
+        ],
+        timestamp: new Date().toISOString(),
+        footer: { text: `BDA Bot – Système de prise en charge • ${now.toLocaleDateString("fr-FR", { timeZone: "Europe/Paris" })} ${now.toLocaleTimeString("fr-FR", { timeZone: "Europe/Paris", hour: "2-digit", minute: "2-digit" })}` },
+      };
 
-  sendToWebhook("bda", pings.length > 0 ? pings.join(" ") : undefined, embed);
+      sendToWebhook("bda", undefined, embed);
 
   return NextResponse.json({ entry: updated });
 }
