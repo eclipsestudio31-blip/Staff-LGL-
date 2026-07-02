@@ -6,20 +6,18 @@ import { getWebhookUrl } from "@/lib/webhook";
 
 const BDA_SECRET = process.env.BDA_SECRET || "bda-webhook-secret-key";
 
-async function sendBDAMessage(content: string | undefined, embed: object) {
-  for (const key of ["bda", "bda2"]) {
-    try {
-      const url = await getWebhookUrl(key);
-      if (url) {
-        await fetch(url, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ content, embeds: [embed] }),
-        });
-      }
-    } catch (err) {
-      console.error(`[BDA] Erreur webhook ${key}:`, err);
+async function sendToWebhook(key: string, content: string | undefined, embed: object) {
+  try {
+    const url = await getWebhookUrl(key);
+    if (url) {
+      await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ content, embeds: [embed] }),
+      });
     }
+  } catch (err) {
+    console.error(`[BDA] Erreur webhook ${key}:`, err);
   }
 }
 
@@ -118,8 +116,8 @@ export async function POST(request: NextRequest) {
       const staffDiscordId = entry.handledByUser?.discordId ?? null;
 
       const embed = {
-        title: "Bureau d'Accueil – Récapitulatif",
-        color: entry.handledBy ? 0x22c55e : 0xef4444,
+        title: "Bureau d'Accueil – Récapitulatif Départ",
+        color: entry.handledBy ? 0x3b82f6 : 0xef4444,
         fields: [
           { name: "Personne", value: `${entry.username}\n${mentionStr(entry.discordId)}`, inline: true },
           { name: "Staff", value: entry.handledBy ? `${entry.handledBy}\n${mentionStr(staffDiscordId)}` : "Aucun", inline: true },
@@ -135,7 +133,7 @@ export async function POST(request: NextRequest) {
         footer: { text: `BDA Bot – Système de prise en charge • ${leftAt.toLocaleDateString("fr-FR", { timeZone: "Europe/Paris" })} ${leftAt.toLocaleTimeString("fr-FR", { timeZone: "Europe/Paris", hour: "2-digit", minute: "2-digit" })}` },
       };
 
-      sendBDAMessage(pings.length > 0 ? pings.join(" ") : undefined, embed);
+      sendToWebhook("bda2", pings.length > 0 ? pings.join(" ") : undefined, embed);
     }
 
     return NextResponse.json({ success: true });
@@ -210,7 +208,7 @@ export async function PATCH(request: NextRequest) {
   const mentionStr = (id: string | null | undefined) => id ? `<@${id}>` : "N/A";
 
   const embed = {
-    title: "Bureau d'Accueil – Prise en charge",
+    title: "Bureau d'Accueil – Arrivée en prise en charge",
     color: 0x22c55e,
     fields: [
       { name: "Personne prise en charge", value: `${entry.username}\n${mentionStr(entry.discordId)}`, inline: true },
@@ -224,7 +222,7 @@ export async function PATCH(request: NextRequest) {
     footer: { text: `BDA Bot – Système de prise en charge • ${now.toLocaleDateString("fr-FR", { timeZone: "Europe/Paris" })} ${now.toLocaleTimeString("fr-FR", { timeZone: "Europe/Paris", hour: "2-digit", minute: "2-digit" })}` },
   };
 
-  sendBDAMessage(pings.length > 0 ? pings.join(" ") : undefined, embed);
+  sendToWebhook("bda", pings.length > 0 ? pings.join(" ") : undefined, embed);
 
   return NextResponse.json({ entry: updated });
 }
